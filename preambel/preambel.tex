@@ -2022,49 +2022,10 @@ afterskip=\myparagraphafterskip%
  }
 
 
-\usepackage{cleveref}
 \ifthenelse{\boolean{englishAsMainLanguage}}{%
-	\crefname{chapter}{Chapter}{Chapters}
-	\crefname{section}{Section}{Sections}
-	\crefname{subsection}{Section}{Sections}
-	\crefname{figure}{Figure}{Figures}
-	\crefname{table}{Table}{Tables}
-	\crefname{listing}{Listing}{Listing}
-	\crefname{appendix}{Appendix}{Appendixes}
-
-	\crefname{theorem}{Theorem}{Theorems}
-	\crefname{definition}{Definition}{Definitions}
-	\crefname{lemma}{Lemma}{Lemmata}
-	\crefname{corollary}{Korollar}{Korollars}
-	\crefname{proposition}{Proposition}{Propositions}
-
-	\newcommand{\crefpairconjunction}{ and }
-	\newcommand{\crefmiddleconjunction}{, }
-	\newcommand{\creflastconjunction}{ and }
-	\newcommand{\crefpairgroupconjunction}{ as well as }
-	\newcommand{\crefmiddlegroupconjunction}{, }
-	\newcommand{\creflastgroupconjunction}{ as well as }
+	\usepackage[english]{cleveref}
 }{%
-	\crefname{chapter}{Kapitel}{Kapitel}
-	\crefname{section}{Abschnitt}{Abschnitte}
-	\crefname{subsection}{Abschnitt}{Abschnitte}
-	\crefname{figure}{Abbildung}{Abbildungen}
-	\crefname{table}{Tabelle}{Tabellen}
-	\crefname{listing}{Listing}{Listing}
-	\crefname{appendix}{Anhang}{Anhänge}
-
-	\crefname{theorem}{Satz}{Sätze}
-	\crefname{definition}{Definition}{Definitionen}
-	\crefname{lemma}{Lemma}{Lemmata}
-	\crefname{corollary}{Korollar}{Korollare}
-	\crefname{proposition}{Proposition}{Propositionen}
-
-	\newcommand{\crefpairconjunction}{ und }
-	\newcommand{\crefmiddleconjunction}{, }
-	\newcommand{\creflastconjunction}{ und }
-	\newcommand{\crefpairgroupconjunction}{ sowie }
-	\newcommand{\crefmiddlegroupconjunction}{, }
-	\newcommand{\creflastgroupconjunction}{ sowie }
+	\usepackage[ngerman]{cleveref}
 }
 
 
