@@ -25,9 +25,12 @@ angezeigt wird:
 Dasselbe gilt für Bild- und Tabellenunterschriften. Hier kann man dem
 \lc{caption}-Befehl ebenfalls einen optionalen Parameter in eckigen Klammern übergeben.
 
-Manchmal sind dem \glsdat{ac:KSP} die von \LaTeX{} automatisch eingefügten Zeilenumbrüche in den Kapitelüberschriften im Inhaltsverzeichnis nicht \enquote{schön} genug.
-Ein manuelles Einfügen der Zeilenumbrüche etwa mit \verb+\newline+ in der Kurzversion des Titels funktioniert leider nicht,
-da diese dann nicht nur im Inhaltsverzeichnis, sondern auch in den Kolumnentiteln und PDF"=Lesezeichen zur Geltung kommen, 
+Um bei längeren Überschriften ein besseres Zeilenumbruchsverhalten im Inhaltsvezeichnis zu erzwingen
+(z.B. um eine ähnliche Länge aller Zeilen bei mehrzeiligen Überschriften zu erreichen)
+ist manchmal eine Einfügung manueller Zeilenumbrüche in der Kurzversion der Überschriften erforderlich.
+Allerdings funktioniert ein Einfügen manueller Zeilenumbrüche in der Kurzversion des Titels
+etwa mit \verb+\newline+  leider nicht, da diese dann nicht nur im Inhaltsverzeichnis,
+sondern auch in den Kolumnentiteln und PDF"=Lesezeichen zur Geltung kommen, 
 was normalerweise nicht erwünscht ist.
 
 Abhilfe schafft der folgende Trick:

@@ -22,35 +22,14 @@ eingebunden und von \printkeyword{latex} mitkompiliert werden.
 \label{sec:Floats}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Üblicherweise werden Bilder und Tabellen in Fließumgebungen (floats) gesetzt,
-damit \LaTeX\ sie geschickt positionieren kann.
-Bei Bildern heißt die entsprechende Float-Umgebung \printkeyword{figure}.
+Üblicherweise werden Bilder, Tabellen und Codelistings in Fließumgebungen (floats) gesetzt,
+damit \LaTeX\ sie frei im Text herumbewegen und dadurch geschickt positionieren kann.
+Bei Bildern heißt die entsprechende Float-Umgebung \printkeyword{figure}, 
+bei Tabellen \printkeyword{table}, bei Codelistings \printkeyword{lstlisting}.
 Die Positionierung kann durch Angabe von Buchstaben
 \printkeyword{h}, \printkeyword{t}, \printkeyword{b} und \printkeyword{p}
 beeinflusst werden
-(\enquote{here}, \enquote{top}, \enquote{bottom}, \enquote{extra page}).
-
-\myexcl{Wichtig!}
-Seitens des \glsgen{ac:KSP} wird bezüglich Einbindung von Floats gefordert,
-dass diese die einzelnen Sätze nicht zerreißen.
-Dies bedeutet, dass eine Platzierung von Bildern und Tabellen lediglich
-zwischen zwei Absätzen in Frage kommt.
-Allerdings kann es passieren, dass der Platz auf der Seite nicht mehr ausreicht,
-und das Bild nicht an der gewünschten Stelle gesetzt werden kann.
-Damit wird das Bild auf die nächste Seite verschoben.
-Bei aktivierter \printkeyword{t}- oder \printkeyword{b}-Option würde \LaTeX{} versuchen,
-das Bild am oberen oder unteren Rand der Seite zu platzieren.
-Allerdings passiert das dann häufig mitten in einem Satz,
-was vom \gls{ac:KSP} ausdrücklich nicht erwünscht ist.
-Somit bleibt eigentlich nur noch die Verwendung der \printkeyword{h}-Option.
-
-Leider können dabei einige unerwünschte Effekte auftreten.
-So können beispielsweise auf der vorherigen Seite riesige leere Flächen entstehen.
-Wenn der verbleibende Platz auf der Seite eine Platzierung nicht erlaubt,
-kann es schnell passieren, dass \LaTeX{} das betroffene Bild 
-und alle Folgebilder ans Ende des Kapitels verschiebt
-(genauer gesagt, an die Stelle, wo die nächste \lstinline|\clearpage|-Anweisung kommt).
-
+(\enquote{\textbf{h}ere}, \enquote{\textbf{t}op}, \enquote{\textbf{b}ottom}, \enquote{extra \textbf{p}age}).
 Eine genaue Auswirkung der Parameter
 \printkeyword{h}, \printkeyword{t}, \printkeyword{b} und \printkeyword{p}
 auf die Bildplatzierung ist nicht immer intuitiv.
@@ -59,12 +38,32 @@ von Frank Mittelbach
 \href{https://tex.stackexchange.com/questions/39017/how-to-influence-the-position-of-float-environments-like-figure-and-table-in-lat/39020#39020}{auf stackexchange.com}.%
 \footnote{\url{https://tex.stackexchange.com/questions/39017/how-to-influence-the-position-of-float-environments-like-figure-and-table-in-lat/39020#39020}}
 
-Prinzipiell empfiehlt sich eine endgültige Platzierung der Bilder erst ganz am Schluss,
-nachdem alle anderen Korrekturen durchgeführt sind.
-Ggf. müssen die Bilderdefinitionen manuell im Quellcode herumgeschoben werden,
+\myexcl{Wichtig!}
+Bei Einbindung von Floats mit Hilfe der \printkeyword{h}-Option
+zwischen zwei Sätzen mitten in einem Textabsatz
+platziert \LaTeX{} das Bild nicht unbedingt direkt an der Stelle der Einbindung im Quellcode, 
+sondern evtl. an einer anderen Stelle in ihrer nähe, 
+um möglichst gleichmäßige Wortabstände im Absatz zu erreichen.
+Dadurch kann es passieren, dass der Absatz durch die Abbildung \etc
+mitten in einem Satz aufgetrennt wird, was im professionellen Buchdruck unerwünscht ist.
+Bei aktivierter \printkeyword{t}- oder \printkeyword{b}-Option versucht \LaTeX{},
+das Bild \bzw die Tabelle am oberen oder unteren Rand der Seite zu platzieren,
+was zum ähnlichen Effekt führen kann.
+Somit bleibt eigentlich nur noch eine Platzierung von Bildern und Tabellen
+mit Hilfe der \printkeyword{h}-Option als ein eigenes Absatz zwischen zwei Textabsätzen übrig.
+Leider können dabei ebenfalls einige unerwünschte Effekte auftreten.
+So können beispielsweise auf der vorherigen Seite riesige leere Flächen entstehen.
+Wenn der verbleibende Platz auf der Seite eine Platzierung nicht erlaubt,
+kann es schnell passieren, dass \LaTeX{} das betroffene Bild 
+und alle Folgebilder ans Ende des Kapitels verschiebt
+(genauer gesagt, an die Stelle, wo die nächste \lstinline|\clearpage|-Anweisung kommt).
+
+Wenn solche Nebeneffekte auftreten, müssen die Bilderdefinitionen manuell im Quellcode herumgeschoben werden,
 bis die Abbildungen von \LaTeX\ optimal gesetzt werden.
 Dafür empfiehlt es sich, die einzelnen Bilddefinitionen in Extra-Dateien auszulagern,
 so dass nur noch eine einzige Zeile herumgeschoben werden muss.
+Prinzipiell empfiehlt sich eine endgültige Platzierung der Bilder erst ganz am Schluss,
+nachdem alle anderen Korrekturen durchgeführt sind.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Binärbilder]{\index{Bild!Binär-}Binärbilder}%
@@ -91,10 +90,10 @@ Dasselbe gilt für die Dateierweiterung.
 Ist keine Erweiterung definiert und liegen mehrere Bilder mit gleichem Namen jedoch unterschiedlicher Dateierweiterung vor,
 wird die Reihenfolge, die in der Datei \printfilepath{AllePfade.tex} definiert ist, verwendet.
 
-Zu beachten ist dabei, dass der \gls{ac:KSP} Skalierung der Bildern auf die Seitenbreite fordert,
-was hier durch die Option \printkeyword{width=\bs linewidth} verwirklicht wurde.
+Der \gls{ac:KSP} empfiehlt, Bilder und Grafiken auf die Satzspiegelbreite zu skalieren.
+Dies wird durch die Option \printkeyword{width=\bs linewidth} umgesetzt.
 
-Wichtig anzumerken ist, dass alle Zeilen innerhalb der \printkeyword{Figure}"=Umgebung
+Wichtig anzumerken ist, dass alle Zeilen innerhalb der \printkeyword{figure}"=Umgebung
 mit einem Prozentzeichen abzuschließen sind.
 Ansonsten werden überflüssige Leerzeichen eingefügt,
 was zu unerwünschten Nebenwirkungen führen kann.
