@@ -1,0 +1,18 @@
+compile_pdf:
+  image: blang/latex:ctanfull
+  #image: gitlab.iosb.fraunhofer.de:4567/fusben/latex_ci_docker:latest
+  tags:
+    - VID
+  script:
+    - xelatex -interaction=nonstopmode -no-pdf Diss.tex
+    - biber Diss
+    - makeglossaries Diss
+    - xelatex -interaction=nonstopmode -no-pdf Diss.tex
+    - xelatex -interaction=nonstopmode -no-pdf Diss.tex
+    - xelatex -synctex=1 -interaction=nonstopmode Diss.tex
+    - mv Diss.pdf Anleitung.pdf
+  artifacts:
+    paths:
+      - Anleitung.pdf
+    expire_in: '100yrs'
+
