@@ -32,38 +32,59 @@ beeinflusst werden
 (\enquote{\textbf{h}ere}, \enquote{\textbf{t}op}, \enquote{\textbf{b}ottom}, \enquote{extra \textbf{p}age}).
 Eine genaue Auswirkung der Parameter
 \printkeyword{h}, \printkeyword{t}, \printkeyword{b} und \printkeyword{p}
-auf die Bildplatzierung ist nicht immer intuitiv.
+bzw. ihrer Kombinationen auf die Bildplatzierung ist jedoch nicht intuitiv.
 Um diese zu verstehen, empfiehlt sich die Lektüre der Beschreibung
 von Frank Mittelbach
 \href{https://tex.stackexchange.com/questions/39017/how-to-influence-the-position-of-float-environments-like-figure-and-table-in-lat/39020#39020}{auf stackexchange.com}.%
 \footnote{\url{https://tex.stackexchange.com/questions/39017/how-to-influence-the-position-of-float-environments-like-figure-and-table-in-lat/39020#39020}}
 
-\myexcl{Wichtig!}
-Bei Einbindung von Floats mit Hilfe der \printkeyword{h}-Option
-zwischen zwei Sätzen mitten in einem Textabsatz
-platziert \LaTeX{} das Bild nicht unbedingt direkt an der Stelle der Einbindung im Quellcode, 
-sondern evtl. an einer anderen Stelle in ihrer nähe, 
-um möglichst gleichmäßige Wortabstände im Absatz zu erreichen.
-Dadurch kann es passieren, dass der Absatz durch die Abbildung \etc
-mitten in einem Satz aufgetrennt wird, was im professionellen Buchdruck unerwünscht ist.
-Bei aktivierter \printkeyword{t}- oder \printkeyword{b}-Option versucht \LaTeX{},
+So versucht \LaTeX{} bei angegebener \printkeyword{t}- oder \printkeyword{b}-Option,
 das Bild \bzw die Tabelle am oberen oder unteren Rand der Seite zu platzieren,
-was zum ähnlichen Effekt führen kann.
-Somit bleibt eigentlich nur noch eine Platzierung von Bildern und Tabellen
-mit Hilfe der \printkeyword{h}-Option als ein eigenes Absatz zwischen zwei Textabsätzen übrig.
-Leider können dabei ebenfalls einige unerwünschte Effekte auftreten.
-So können beispielsweise auf der vorherigen Seite riesige leere Flächen entstehen.
-Wenn der verbleibende Platz auf der Seite eine Platzierung nicht erlaubt,
-kann es schnell passieren, dass \LaTeX{} das betroffene Bild 
-und alle Folgebilder ans Ende des Kapitels verschiebt
-(genauer gesagt, an die Stelle, wo die nächste \lstinline|\clearpage|-Anweisung kommt).
+wodurch es passieren kann, dass der Absatz durch die Abbildung \etc
+mitten in einem Satz aufgetrennt wird, was im professionellen Buchdruck unerwünscht ist.
+Auch bei Einbindung von Floats
+%mitten in einem Textabsatz
+mit Hilfe der \printkeyword{h}-Option
+platziert \LaTeX{} diese nicht unbedingt direkt an der Stelle der Einbindung im Quellcode.
+%sondern zwischen zwei Zeilen in der Nähe der Einbindungsstelle, wobei auf Einhaltung
+%möglichst gleichmäßiger Wortabstände im Absatz geachtet wird.
+%Somit kann es dabei ebenfalls zu einer unerwünschten Auftrennung des Textes
+%mitten in einem Satz kommen.
+%
+%Auch bei der Platzierung von Bildern und Tabellen mit Hilfe der \printkeyword{h}-Option
+%in einem eigenen Absatz zwischen zwei Textabsätzen kann es zum unerwünschten Verhalten kommen.
+%Wenn der verbleibende Platz die Platzierung eines Floats an der erwünschten Stelle nicht erlaubt,
+%kann es schnell passieren, dass das betroffene Float auf die nächste Seite verschoben werden muss.
+%Dabei wandelt \LaTeX{} die \printkeyword{h}-Option oft eigenwillig in die \printkeyword{ht}-Option um
+%und verschiebt das Bild an den oberen Rand der Seite,
+%%(beim Kompilieren des Quellcodes erhält man hierzu Feedback in Form einer Warnung), 
+%wobei die oben beschriebene unerwünschte Auftrennung des Textes mitten in einem Satz entstehen kann.
+%Muss ein Float soweit verschoben werden, dass das nächste Float von \LaTeX{} mitangefasst werden müsste, 
+%wird das betroffene Float und alle Folgefloats unerwünschterweise ans Ende des Kapitels verschoben
+%(genauer gesagt, an die Stelle, wo die nächste \lstinline|\clearpage|-Anweisung kommt).
 
-Wenn solche Nebeneffekte auftreten, müssen die Bilderdefinitionen manuell im Quellcode herumgeschoben werden,
-bis die Abbildungen von \LaTeX\ optimal gesetzt werden.
-Dafür empfiehlt es sich, die einzelnen Bilddefinitionen in Extra-Dateien auszulagern,
-so dass nur noch eine einzige Zeile herumgeschoben werden muss.
-Prinzipiell empfiehlt sich eine endgültige Platzierung der Bilder erst ganz am Schluss,
-nachdem alle anderen Korrekturen durchgeführt sind.
+Eine Abhilfe schafft eine konsequente Einbindung von Bildern und Tabellen mit Hilfe der \printkeyword{H}-Option,
+%deren Nutzung in dieser Vorlage durch die Einbindung des \pkg{float}-Pakets aktiviert wurde und
+welche eine Platzierung von Floats an der spezifizierten Stelle erzwingt.
+Die Einbindung sollte als ein eigener Absatz zwischen zwei Textabsätzen erfolgen.
+
+\myexcl{Wichtig!}
+Wenn der verbleibende Platz die Platzierung eines Floats an der erwünschten Stelle nicht erlaubt,
+wird dieses auf die nächste Seite verschoben. Dasselbe gilt für den nachfolgenden Inhalt.
+Als Nebenwirkung können dabei auf der vorhergehenden Seite riesige leere Flächen entstehen.
+Falls solche Nebeneffekte auftreten, müssen die betroffenen Bilder- und Tabellendefinitionen
+manuell im Quellcode solange zwischen den Absätzen herumgeschoben werden,
+bis eine optisch annehmbare Platzierung erreicht wird.
+Dafür empfiehlt es sich, die einzelnen Bild- und Tabellendefinitionen in Extra-Dateien auszulagern,
+so dass nur noch jeweils eine einzige Zeile mit der \lstinline|\input{}|-Anweisung herumgeschoben werden muss.
+Prinzipiell empfiehlt sich eine endgültige Platzierung der Bilder und Tabellen erst ganz am Schluss,
+nachdem alle anderen Korrekturen durchgeführt worden sind.
+
+Wichtig anzumerken ist, dass alle Zeilen innerhalb der \printkeyword{figure}"=
+\bzw der \printkeyword{table}"=Umgebung
+mit einem Prozentzeichen abzuschließen sind.
+Ansonsten werden überflüssige Leerzeichen eingefügt,
+was zu unerwünschten Nebenwirkungen führen kann.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Binärbilder]{\index{Bild!Binär-}Binärbilder}%
@@ -71,9 +92,10 @@ nachdem alle anderen Korrekturen durchgeführt sind.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 Ein Beispiel für die Einbindung eines Bildes im Binärformat ist in \cref{lst:binary-image} angeführt.
+Man beachte die abschließenden Prozent-Zeichen am Ende jeder Zeile!
 
-\begin{lstlisting}[float={htbp},caption={Einbindung einer Binärgrafik in LaTeX},label={lst:binary-image}]
-\begin{figure}[h]%
+\begin{lstlisting}[caption={Einbindung einer Binärgrafik in LaTeX},label={lst:binary-image}]
+\begin{figure}[H]%
   \centering%
   \includegraphics[width=\linewidth]{Bildpfad/Dateiname}%
   \caption[Kurzversion für das Abbildungsverzeichnis]{%
@@ -93,10 +115,14 @@ wird die Reihenfolge, die in der Datei \printfilepath{AllePfade.tex} definiert i
 Der \gls{ac:KSP} empfiehlt, Bilder und Grafiken auf die Satzspiegelbreite zu skalieren.
 Dies wird durch die Option \printkeyword{width=\bs linewidth} umgesetzt.
 
-Wichtig anzumerken ist, dass alle Zeilen innerhalb der \printkeyword{figure}"=Umgebung
-mit einem Prozentzeichen abzuschließen sind.
-Ansonsten werden überflüssige Leerzeichen eingefügt,
-was zu unerwünschten Nebenwirkungen führen kann.
+Das Ergebnis sieht man in \cref{fig:my-binary-image}.
+
+\begin{figure}[H]%
+  \centering%
+  \includegraphics[width=\linewidth]{./images/examples/img-example-01.jpg}%
+  \caption[Einbindung eines Bildes]{Beispiel für die Einbindung eines Binärbildes}%
+  \label{fig:my-binary-image}%
+\end{figure}
 
 Mit Hilfe von Paket \pkg{subfig} \cite{Cochran2005} können Bilder auch in
 \index{Abbildung|see{Bild}}\index{Bild!Unterabbildung}Unterabbildungen gesetzt
@@ -104,7 +130,7 @@ und sowohl als ganzes (vgl. \cref{fig:subfloat-example}) als auch einzeln (vgl.
 \cref{fig:subfloat-example-01,fig:subfloat-example-02,fig:subfloat-example-03,fig:subfloat-example-04})
 referenziert werden.
 
-\begin{figure}[h]%
+\begin{figure}[H]%
 	\centering%
 	\subfloat[La Savoureuse, Lepuix, Frankreich (\copyright\ Thomas Bresson)]{%
 		\label{fig:subfloat-example-01}%
@@ -131,8 +157,8 @@ referenziert werden.
 
 Der Beispielcode dafür ist in \cref{lst:subfigures} dargestellt.
 
-\begin{lstlisting}[float={htbp},caption={Unterabbildungen in LaTeX},label={lst:subfigures}]
-\begin{figure}[h]%
+\begin{lstlisting}[caption={Unterabbildungen in LaTeX},label={lst:subfigures}]
+\begin{figure}[H]%
 	\centering%
 	\subfloat[Unterbezeichnung 1)]{%
 		\label{fig:UnterAbb1}%
@@ -158,7 +184,6 @@ Der Beispielcode dafür ist in \cref{lst:subfigures} dargestellt.
 \end{figure}
 \end{lstlisting}
 
-Man beachte die abschließenden Prozent-Zeichen am Ende jeder Zeile!
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[TikZ-Grafiken]{\index{TikZ}\index{Bild!TikZ}\gls{gls:tikz}-Grafiken}%
@@ -174,8 +199,8 @@ Mit \gls{gls:tikz} und \gls{gls:pgfplots} lassen sich viele gute Sachen machen.
 
 
 Der Code für die Einbindung einer \gls{gls:tikz}-Grafik steht in \cref{lst:tikz-figure}.
-\begin{lstlisting}[float={htbp},caption={Einbindung einer TikZ-Zeichnung in LaTeX},label={lst:tikz-figure}]
-\begin{figure}[h]%
+\begin{lstlisting}[caption={Einbindung einer TikZ-Zeichnung in LaTeX},label={lst:tikz-figure}]
+\begin{figure}[H]%
   \centering%
   \tikzsetnextfilename{TikZ-Bild}%
   \resizebox{\textwidth}{!}{%   <--- optionale Skalierung
@@ -215,7 +240,7 @@ ist auf die korrekte Einstellung der Option \printkeyword{useCMYKcolors}
 in der Datei \printfilepath{preambel/AlleSchalter.tex} zu achten
 (\printkeyword{false} für die Online-Veröffentlichung und \printkeyword{true} für den Druck!}
 
-\begin{figure}[hp]%
+\begin{figure}[H]%
 	\centering%
   \tikzsetnextfilename{kit-colors}%
 	%\resizebox{\textwidth}{!}{%
@@ -225,7 +250,7 @@ in der Datei \printfilepath{preambel/AlleSchalter.tex} zu achten
   \label{fig:kit-colors}%
 \end{figure}
 
-\begin{figure}[hp]%
+\begin{figure}[H]%
 	\centering%
   \tikzsetnextfilename{kpca}%
 	%\resizebox{\textwidth}{!}{%
@@ -235,7 +260,7 @@ in der Datei \printfilepath{preambel/AlleSchalter.tex} zu achten
   \label{fig:kpca}%
 \end{figure}
 
-\begin{figure}[hp]%
+\begin{figure}[H]%
 	\centering
   \tikzsetnextfilename{net-comm}%
 	\resizebox{\textwidth}{!}{%
@@ -245,7 +270,7 @@ in der Datei \printfilepath{preambel/AlleSchalter.tex} zu achten
   \label{fig:net-comm}%
 \end{figure}
 
-\begin{figure}[hp]%
+\begin{figure}[H]%
 	\centering%
 	\subfloat[Ursprünglicher Merkmalsraum]{%
 		\label{fig:ica-1}%
@@ -274,7 +299,7 @@ in der Datei \printfilepath{preambel/AlleSchalter.tex} zu achten
 \label{fig:ica}%
 \end{figure}
 
-\begin{figure}[hp]
+\begin{figure}[H]
 	\centering%
 	\subfloat[Ungünstige Projektion]{%
 		\label{fig:pca-1}%

@@ -29,9 +29,9 @@ Sofern sich der Rechner im Netzwerk des Fraunhofer IOSB befindet, muss zusätzli
 Hierfür muss man im Bereich \enquote{Package installation} der MiKTeX Console auf \enquote{Change} gehen und bei \enquote{Connection Settings} die Verwendung des Proxy-Servers \printkeyword{proxy-ka.iosb.fraunhofer.de} mit Port \printkeyword{80} aktivieren (s. \cref{fig:MiKTeX-Proxy}).
 Wird dies nicht gemacht, können benötigte Pakete nicht nachgeladen werden.
 
-\begin{figure}[htb]%
+\begin{figure}[H]%
 \centering%
-\includegraphics[width=\linewidth]{images/examples/MiKTeX-Proxy.png}%
+\includegraphics[width=\linewidth]{./images/examples/MiKTeX-Proxy.png}%
 \caption{MiKTeX-Einstellungen zum Nachladen der Zusatzpakete}%
 \label{fig:MiKTeX-Proxy}%
 \end{figure}
@@ -85,7 +85,7 @@ zuerst jeweils in eine oder mehrere Zwischendateien hinausgeschrieben,
 die sodann wieder eingelesen und verarbeitet werden müssen.
 Manche Inhalte werden daher erst jeweils beim zweiten Aufruf von \printkeyword{xelatex} generiert.
 Für die korrekte Generierung eines Dokumentes mit allen Verzeichnissen
-(Inhalts-, Abbildungs-, Tabellen-, Literatur, Abkürzungs-, Begriffs und Stichwortverzeichnis),
+(Inhalts-, Abbildungs-, Tabellen-, Literatur, Abkürzungs-, Begriffs- und Stichwortverzeichnis),
 PDF"=Lesezeichen und korrekt gesetzten Querverweisen,
 muss \printkeyword{xelatex} daher mehrmals aufgerufen werden.
 
