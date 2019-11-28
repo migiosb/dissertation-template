@@ -52,12 +52,12 @@ Das Ergebnis sieht man in \cref{tab:tabellenbeispiel}.
 
 Etwas komplizierter wird es, wenn man eine Tabelle mit alternierender Farbe einfügen möchte (\cref{tab:AlternierendeZeilenfarben}).
 
-\begin{table}
+\begin{table}%
 \caption{Tabelle mit alternierender Zeilenfarbe}%
 \label{tab:AlternierendeZeilenfarben}%
 	\tablestyle%
 	\tablealtcolored%
-	\begin{tabular}{*{2}{v{0.45\textwidth}}}
+	\begin{tabular}{*{2}{v{0.45\textwidth}}}%
 		\toprule%
 		\tableheadcolor%
 		\tableheadformat Tabellenkopf &	\tableheadformat Tabellenkopf
@@ -107,7 +107,7 @@ Ein Beispiel dafür sieht man in \cref{tab:MehrseitigeTabelle}.
 %
 %
 %
-Sollten eine Tabelle einmal so breit sein, dass sie nicht mehr horizontal auf
+Sollten eine Tabelle so breit sein, dass sie nicht mehr horizontal auf
 eine Seite passt, so ist es natürlich möglich, diese mithilfe des Pakets
 \printkeyword{rotfloat} \parencite{Sommerfeldt2004} in eine
 \printkeyword{sidewaystable} statt in eine \printkeyword{table}-Umgebung zu setzen.

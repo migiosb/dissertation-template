@@ -15,28 +15,38 @@ Dieses Kapitel zeigt den grundlegenden Aufbau eines einfachen Kapitels.
 Die einzelnen Abschnitte beschreiben die Struktur der Vorlage und geben wichtige allgemeine Tipps.
 Die Verwendung einzelner Features dieser Vorlage wird in \cref{chap:Examples} detailliert beschrieben und demonstriert.
 
-Es wird empfohlen, die einzelnen Unterkapiteln jedes Kapitels als eigene Dateien anzulegen und sie mit dem \verb+\input{}+-Befehl einzubinden (s. Quelltext).
-Dies erlaubt die einzelnen Unterkapitel bei Bedarf leichter zu verschieben oder mit einem einzigen \%-Zeichen temporär auszukommentieren und erleichtert so die Fehlersuche.
+Es wird empfohlen, die einzelnen Unterkapiteln jedes Kapitels 
+als eigene Dateien anzulegen und sie mit dem \verb+\input{}+-Befehl einzubinden
+(s. Quelltext der Datei \printfilepath{content/Inhalt-Examples.tex}).
+Dies erlaubt die einzelnen Unterkapitel bei Bedarf leichter zu verschieben 
+oder mit einem einzigen \%-Zeichen temporär auszukommentieren 
+und erleichtert so die Fehlersuche.
 
-Zur Nutzung dieser Vorlage für die eigene Arbeit empfiehlt es sich, die Anleitungskapiteln auszublenden und ansonsten die bestehende Struktur zu nutzen.
-Die Anleitungskapiteln lassen sich ausblenden, indem man in der Datei
-\printfilepath{preambel/AlleSchalter.tex} in der Zeile
-\lstinline|\setUserDefinedBoolean{showExamples}{true}| 
-den Wert \printkeyword{true} durch \printkeyword{false} ersetzt.
-Ähnlich lassen sich auch andere Teile des Manuskriptes ausblenden ohne sie auskommentieren zu müssen.%
+Teile des Manuskriptes lassen sich ebenfalls ausblenden ohne sie auskommentieren zu müssen,
+indem man den auszublendenden Text zwischen
+\lstinline|\begin{ShowInhaltXXX}| und \lstinline|\end{ShowInhaltXXX}| einschließt.
+Hierzu ist in der Datei \printfilepath{preambel/AlleSchalter.tex}
+eine entsprechende \LaTeX{}"=Umgebung mittels
+\lstinline|\setUserDefinedBoolean{showInhaltXXX}{Bool-Wert}| zu definieren und
+auf \printkeyword{true} (Inhalt einblenden) 
+oder \printkeyword{false} (Inhalt ausblenden) zu setzen.%
 %
 \footnote{Die Befehle
 \lstinline|\setUserDefinedBoolean{IrgendeinName}{Bool-Wert}| 
 sind spezielle Makros, die jeweils eine Boolean-Variable mit dem entsprechenden Wert definieren,
 sowie eine \LaTeX"=Umgebung \printkeyword{IrgendeinName},
-deren Inhalt von LaTeX{} angezeigt bzw. ausgeblendet wird.
-Dies betrifft alles, was im weiteren \LaTeX-Quellcode zwischen
-\lstinline|\begin{IrgendeinName}| und \lstinline|\end{IrgendeinName}| steht.
-Der Vorteil dieser Vorgehensweise gegenüber einem einfachen Auskommentieren liegt bei Einbindung von Dateien darin,
-dass die zwischen
+Alles, was im weiteren \LaTeX-Quellcode zwischen
+\lstinline|\begin{IrgendeinName}| und \lstinline|\end{IrgendeinName}| steht,
+wird je nach dem spezifizierten Wert entweder angezeigt (\printkeyword{true}) 
+oder ausgeblendet (\printkeyword{false}).
+Der Vorteil dieser Vorgehensweise gegenüber einem einfachen Auskommentieren 
+liegt u.a. darin, dass die zwischen
 \lstinline|\begin{IrgendeinName}| und \lstinline|\end{IrgendeinName}|
 eingebundenen Dateien weiterhin im Verzeichnisbaum vom TeXnicCenter etc.
 sichtbar bleiben und bei Bedarf schnell als Referenz aufgerufen werden können.}
+%
+%
+%% Unterkapiteln mit speziellen Hinweisen und Beispielen:
 %
 \input{content/0X-ExampleContents/Kompilierung.tex}
 \input{content/0X-ExampleContents/Speichererweiterung.tex}
