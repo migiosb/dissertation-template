@@ -1,40 +1,3 @@
-%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/required/amslatex/math/amsldoc.pdf
-\usepackage{ifxetex}
-%
-%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/oberdiek/ifpdf.sty
-% command for testing for pdf-creation
-\usepackage{ifpdf} %\ifpdf \else \fi
-%
-% Amsmath - Mathematik Basispaket
-%
-% fuer pst-pdf displaymath Modus vor pst-pdf benoetigt.
-\usepackage[%
-   centertags, % (default) center tags vertically
-   %tbtags,    % 'Top-or-bottom tags': For a split equation, place equation numbers level
-               % with the last (resp. first) line, if numbers are on the right (resp. left).
-   sumlimits,  %(default) Place the subscripts and superscripts of summation
-               % symbols above and below
-   %nosumlimits, % Always place the subscripts and superscripts of summation-type
-               % symbols to the side, even in displayed equations.
-   intlimits,  % Like sumlimits, but for integral symbols.
-   %nointlimits, % (default) Opposite of intlimits.
-   namelimits, % (default) Like sumlimits, but for certain 'operator names' such as
-               % det, inf, lim, max, min, that traditionally have subscripts placed underneath
-               % when they occur in a displayed equation.
-   %nonamelimits, % Opposite of namelimits.
-   %leqno,     % Place equation numbers on the left.
-   %reqno,     % Place equation numbers on the right.
-   fleqn,     % Position equations at a fixed indent from the left margin
-   			  % rather than centered in the text column.
-]{amsmath} %
-%
-\usepackage{amsfonts}
-%\usepackage{amssymb} %bei Kompilierung mit LaTeX verursacht probleme mit tikz
-\usepackage[fixamsmath,disallowspaces]{mathtools}
-\usepackage{fixmath}
-% eqnarray nicht zusammen mit amsmath benutzen, siehe l2tabu.pdf für
-% Hintergruende.
-%
 %--------------------------------
 % Hier die Schriftart auswählen:
 %--------------------------------
@@ -47,9 +10,54 @@
 %--------------------------------
 %
 %
-\makeatletter
+%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/required/amslatex/math/amsldoc.pdf
+\usepackage{ifxetex}
+%
+%
 \ifxetex %Nutzung von XeLaTeX anstatt nur LaTeX:
   \usepackage{xltxtra}
+\else %falls doch LaTeX anstatt XeLaTeX verwendet wird soll:
+  %\GenericError{}{This template should be compiled with xelatex! Please use xelatex instead of pdflatex as compiler}{}{}%
+	\usepackage[utf8]{inputenc} %Die Dateien liegen in der UTF-8-Kodierung vor
+	\usepackage[T1]{fontenc} %Der Text enthält Umlaute
+	\usepackage{sanitize-umlaut} %behebt Probleme mit Umlauten im Stichwortverzeichnis
+\fi
+%
+%--------------------------------
+% Amsmath - Mathematik Basispaket
+%--------------------------------
+% fuer pst-pdf displaymath Modus vor pst-pdf benoetigt.
+\usepackage[%
+	 centertags, % (default) center tags vertically
+	 %tbtags,    % 'Top-or-bottom tags': For a split equation, place equation numbers level
+							 % with the last (resp. first) line, if numbers are on the right (resp. left).
+	 sumlimits,  %(default) Place the subscripts and superscripts of summation
+							 % symbols above and below
+	 %nosumlimits, % Always place the subscripts and superscripts of summation-type
+							 % symbols to the side, even in displayed equations.
+	 intlimits,  % Like sumlimits, but for integral symbols.
+	 %nointlimits, % (default) Opposite of intlimits.
+	 namelimits, % (default) Like sumlimits, but for certain 'operator names' such as
+							 % det, inf, lim, max, min, that traditionally have subscripts placed underneath
+							 % when they occur in a displayed equation.
+	 %nonamelimits, % Opposite of namelimits.
+	 %leqno,     % Place equation numbers on the left.
+	 %reqno,     % Place equation numbers on the right.
+	 fleqn,     % Position equations at a fixed indent from the left margin
+					% rather than centered in the text column.
+]{amsmath} %
+%
+%\usepackage{amsfonts}
+%\usepackage{amssymb} %bei Kompilierung mit LaTeX verursacht probleme mit tikz
+\usepackage[fixamsmath,disallowspaces]{mathtools}
+\usepackage{fixmath}
+% eqnarray nicht zusammen mit amsmath benutzen, siehe l2tabu.pdf für
+% Hintergruende.
+%
+%----------------------------------
+%
+\makeatletter
+\ifxetex %Nutzung von XeLaTeX anstatt nur LaTeX:
 	\usepackage{unicode-math}
 	%--------------------------------------------------
 	%  Libertine Fonts
@@ -116,7 +124,7 @@
 								Extension = .otf
 								]{libertinussans}
 		\setmonofont[
-								%Scale = 0.95,
+								Scale = 0.8,
 								FakeStretch = 0.8,
 								UprightFont = *-regular,
 								%ItalicFont = *-italic,
@@ -246,20 +254,34 @@
 								]{STIX2Math}
 	\fi
 \else %falls doch LaTeX anstatt XeLaTeX verwendet wird soll:
-  \GenericError{}{This template should be compiled with xelatex! Please use xelatex instead of pdflatex as compiler}{}{}%
-	\usepackage[utf8]{inputenc} %Die Dateien liegen in der UTF-8-Kodierung vor
-	\usepackage[T1]{fontenc} %Der Text enthält Umlaute
-	\usepackage{sanitize-umlaut} %behebt Probleme mit Umlauten im Stichwortverzeichnis
-	\usepackage[ttscale=.875]{libertine}
-	\usepackage{libertinust1math}
+	\ifdefined\UseLibertine
+		\usepackage[ttscale=.85]{libertine}
+		\usepackage{libertinust1math}
+	\fi
+	\ifdefined\UseLibertinus
+		\usepackage{libertinus}
+		\usepackage{libertinust1math}
+	\fi
+	\ifdefined\UseSTIX
+		\usepackage{stix}
+	\fi
+	\ifdefined\UseXITS
+		\usepackage{xits}
+	\fi
+	\ifdefined\UseLibertinusSTIXMix
+		\usepackage{libertinus}
+		\usepackage[notext]{stix}
+	\fi
+	\ifdefined\UseLibertinusFrutigerSTIXMix
+		\usepackage{libertinus}
+		\usepackage[notext]{stix}
+		\usepackage{frutiger}
+	\fi
 	%% Alternative:
 	%\usepackage{mathptmx}
 	%\usepackage[scaled=.92]{helvet}
 	%\usepackage{courier}
 	%
-	%% Workaround for a TikZ-related error :
-	%% https://tex.stackexchange.com/questions/165929/semiverbatim-with-tikz-in-beamer/165937#165937
-	%\global\let\tikz@ensure@dollar@catcode=\relax
 \fi
 %}
 \makeatother
