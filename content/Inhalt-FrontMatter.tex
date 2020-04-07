@@ -46,13 +46,29 @@
 %
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%       Curriculum Vitae         %%%%
+%%%%    Lebenslauf (deutsch)        %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{showCV}%
+\begin{showGermanCV}%
 %
-\input{content/00-FrontMatter/CV-EN.tex}
+\input{content/00-FrontMatter/CV-DE.tex}
+%
 \clearpage
-\end{showCV}%
+\end{showGermanCV}%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  Curriculum Vitae (Englisch)   %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{showEnglishCV}%
+%
+%% Set English as the text language
+%% independent on the document language
+\textInEnglish{%
+\input{content/00-FrontMatter/CV-EN.tex}
+}%endtextInEnglish
+%
+\clearpage
+\end{showEnglishCV}%
 %
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

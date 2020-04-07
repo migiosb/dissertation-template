@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Lebenslauf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%% No entry to the table of contents
+%\addcontentsline{toc}{chapter}{Curriculum Vitae}
+%
+%% However, set a PDF bookmark:
+\pdfbookmark[0]{Lebenslauf}{cv-de}
+%
+%Add a header title (Kolumnentitel setzen)
+\markboth{Lebenslauf}{Lebenslauf}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\todo[inline,caption={Deutschen Lebenslauf einfügen oder ausblenden!}]{%
+Wenn erwünscht, hier den deutschen Lebenslauf einfügen.
+Ansonsten lässt sich diese Seite komplett ausblenden.
+Das geht durch die Umstellung des Schalters \printkeyword{showGermanCV}
+auf \printkeyword{false} in der Datei \printfilepath{preambel/AlleSchalter.tex}.
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\minisec{Persönliche Angaben}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\small
+\setlength{\tabcolsep}{0pt}% Kein Einzug
+\renewcommand{\arraystretch}{1.0}% Etwas mehr Abstand zwuischen den Zeilen, damit sie nicht zusammenfasllen
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.4\linewidth-2\tabcolsep}>{\raggedright\arraybackslash}p{0.6\linewidth-2\tabcolsep}}%
+%%-----------------------------------------------------------------------------------------------------
+Name: & \AuthorName \\
+Geburtsdatum: & 01.01.1990 \\
+Geburtsort: & \PlaceOfBirth \\
+Nationalität: & deutsch \\
+%%-----------------------------------------------------------------------------------------------------
+\end{longtable}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\minisec{Bildung}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\small
+\setlength{\tabcolsep}{0pt}% Kein Einzug
+\renewcommand{\arraystretch}{1.3}% Etwas mehr Abstand zwuischen den Zeilen, damit sie nicht zusammenfasllen
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.4\linewidth-2\tabcolsep}>{\raggedright\arraybackslash}p{0.6\linewidth-2\tabcolsep}}%
+%%-----------------------------------------------------------------------------------------------------
+01.01.1900 -- 01.01.2000 & \textbf{Gymnasium XYZ in ABC}\\
+%%-----------------------------------------------------------------------------------------------------
+01.01.1900 -- 01.01.2000 & \textbf{Studium der XXX am KIT}\newline Abschluss als ...\\
+%%-----------------------------------------------------------------------------------------------------
+\end{longtable}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\minisec{Berufserfahrung}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\small
+\setlength{\tabcolsep}{0pt}% Kein Einzug
+\renewcommand{\arraystretch}{1.3}% Etwas mehr Abstand zwuischen den Zeilen, damit sie nicht zusammenfasllen
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.4\linewidth-2\tabcolsep}>{\raggedright\arraybackslash}p{0.6\linewidth-2\tabcolsep}}%
+%-----------------------------------------------------------------------------------------------------
+01.01.1900 -- 01.01.2000 & \textbf{Stelle XXX}\newline Wissenschaftliche Hilfskraft\\
+%-----------------------------------------------------------------------------------------------------
+01.01.1900 -- 01.01.2000 & \textbf{Stelle YYY}\newline Berufsbezeichnung\\
+%%-----------------------------------------------------------------------------------------------------
+\end{longtable}
+}
