@@ -116,7 +116,7 @@ entstanden in Zusammenarbeit mit...
 									 %heading=subbibliography,%
 									 heading=bibintoc,%
 									 type=patent,%
-									 prenote=OwnPatentPrenote, % Falls besondere Notiz (s.o.) erwünscht							
+									 prenote=OwnPatentPrenote, % Falls besondere Notiz (s.o.) erwünscht
 									 title={\TransOwnPatents}]
 \end{refsection}
 \end{showOwnPatents}%
@@ -141,6 +141,14 @@ entstanden in Zusammenarbeit mit...
 %% und ein Keyword (z.B. "supervised") als Filter verwenden
 \nocite{*}
 %%
+\defbibnote{SupervThesisPrenote}{%
+%% Bei Referenzierung von Publikationen in diesem Abschnitt bitte 
+%% statt dem üblichen \cite{...}-Makro das Makro
+%% \citefield{...}[labelnumberwidth]{labelnumber} verwenden, damit
+%% die Nummern und nicht die alphanumerischen Bezeichnungen zitiert werden.
+Dieser Abschnitt enthält die während der Promotionszeit betreuten studentischen Arbeiten.
+}
+%%
 \appto{\bibsetup}{\RaggedRight} %Flattersatz, Silbentrennung zulassen
 %\appto{\bibsetup}{\raggedright} %Flattersatz, keine Silbentrennung zulassen
 \printbibliography[env=bibliographyNUM,%
@@ -148,6 +156,7 @@ entstanden in Zusammenarbeit mit...
 									 %heading=subbibliography,%
 									 %type=thesis,%
 									 heading=bibintoc,%
+									 %prenote=SupervThesisPrenote, % Falls besondere Notiz (s.o.) erwünscht							
 									 title={\TransSupervisedTheses}]
 \end{refsection}
 \end{showSupervisedTheses}%

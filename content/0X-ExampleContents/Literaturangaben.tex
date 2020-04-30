@@ -76,3 +76,28 @@ die im Text explizit zitiert werden, eine doppelte Listung --
 einmal in der Hauptliteraturliste (mit einer alphanumerischen Referenz)
 und einmal in der durchnummerierten Liste eigener Publikationen.
 Dies ist kein Bug, sondern ein Feature der Vorlage.
+
+Bei der Auflistung eigener Veröffentlichungen und Patente ist 
+in der Vorlage jeweils ein kleines Vorwort vorgesehen.
+Darin können beispielsweise Zusatzhinweise zur Abgrenzung der Publikationen bzw.
+der Patente, die während der Promotionszeit entstanden sind, zu den übrigen
+oder Hinweise zur Eingruppierung der Veröffentlichungen platziert werden.
+Diese einleitenden Texte sind ebenfalls in der Datei
+\printfilepath{content/Inhalt-BackMatter.tex}
+definiert und können dort editiert werden.
+
+Bei der Erwähnung der einzelnen eigenen Veröffentlichungen und Patente in den Vorworten 
+zu den jeweiligen Listen
+muss die Einbindung mit Hilfe des Makros
+\lstinline|\citefield{...}[labelnumberwidth]{labelnumber}|
+statt der üblichen Einbindung mit dem Makro
+\lstinline|\cite{...}|
+erfolgen, damit die zu den Listen passende (nummerische) Formatierung verwendet wird.
+
+Sind keine Vorworte vor den Listen eigener Veröffentlichungen und Patente erwünscht,
+lassen sich diese durch die Auskommentierung der Optionen
+\lstinline|prenote=OwnPublPrenote|
+\bzw
+\lstinline|prenote=OwnPatentPrenote|
+in den jeweiligen 
+\lstinline|printbibliography|"=Befehlen komplett ausblenden.
