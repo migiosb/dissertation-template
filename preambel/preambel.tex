@@ -550,6 +550,7 @@ verbose,
 					glspldat,%
 					glsplacc,%
 					resizebox,%
+					citefield,%
 					cref,%
 					href,%
 					url,%
@@ -1898,10 +1899,14 @@ afterskip=\myparagraphafterskip%
 %% Nach Autornamen: Doppelpunkt statt Punkt:
 \renewcommand*{\labelnamepunct}{\addcolon\addspace}
 
+%% Mehrere Zitate in einer Klammer, aber Komma statt Semikolon:
+\renewcommand*{\multicitedelim}{\addcomma\addspace}
+%% Nicht mehrere Zitate in einer Klammer, sondern eine Klammer pro Zitat:
+%\renewcommand*{\multicitedelim}{\bibclosebracket\addcomma\addspace\bibopenbracket}
+
 %% Vergrößerung des hängenden Einzuges
 %\setlength{\bibhang}{5em}
 %\addtolength{\bibhang}{2em}
-
 
 %% Nachnamen in Kapitälchen
 \AtBeginBibliography{\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}}
@@ -1910,16 +1915,9 @@ afterskip=\myparagraphafterskip%
 \DeclareFieldFormat{title}{{#1}}
 
 %%% Hack, damit man mehrere Bibliografien mit verschiedenen Zitationsstilen hat:
-\DeclareFieldFormat{squarebrackets}{\mkbibbrackets{#1}}
 
-\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
-
+%% Formatierung für alphanumerische Zitate in der "normalen" Literaturliste
 \DeclareFieldFormat{extraalpha}{\mknumalph{#1}}
-
-%% Mehrere Zitate in einer Klammer, aber Komma statt Semikolon:
-\renewcommand*{\multicitedelim}{\addcomma\addspace}
-%% Nicht mehrere Zitate in einer Klammer, sondern eine Klammer pro Zitat:
-%\renewcommand*{\multicitedelim}{\bibclosebracket\addcomma\addspace\bibopenbracket}
 
 %% Definition für die allgemeine Literaturliste
 \defbibenvironment{bibliography}
@@ -1945,7 +1943,11 @@ afterskip=\myparagraphafterskip%
   {\item}
 
 
-%% Definition für die Liste eigener Publikationen
+%% Formatierung für die durchnummerierte Zitate in der Liste eigener Publikationen:
+%% Nummer in eckigen Klammern
+\DeclareFieldFormat{labelnumber}{\mkbibbrackets{#1}}
+
+%% Definition für die Listen eigener Publikationen und Patente
 \defbibenvironment{bibliographyNUM}
   {\list
      {\printtext[labelnumberwidth]{%

@@ -44,7 +44,7 @@
 %
 %% Es lässt sich bei Bedarf eine besondere Notiz hinzufügen:
 %% Aktivierung erfolgt als Option von \printbibliography weiter unten
-\defbibnote{OwnpublPrenote}{%
+\defbibnote{OwnPublPrenote}{%
 Dieser Abschnitt enthält ein vollständiges Verzeichnis der eigenen Veröffentlichungen.
 %welche während der Promotionszeit entstanden sind.
 Die Publikationen
@@ -65,7 +65,7 @@ Die letzteren können nur im weiteren Sinne als relevant für die vorliegende Ar
 				   heading=bibintoc,%
 				   %heading=subbibliography,%
 				   %nottype=patent,%
-				   prenote={OwnpublPrenote}, % Falls besondere Notiz (s.o.) erwünscht
+				   prenote={OwnPublPrenote}, % Falls besondere Notiz (s.o.) erwünscht
 				   title={\TransOwnPublications}]
 \end{refsection}
 \end{showOwnPublications}%
@@ -97,15 +97,15 @@ Die letzteren können nur im weiteren Sinne als relevant für die vorliegende Ar
 %
 %% Es lässt sich bei Bedarf eine besondere Notiz hinzufügen:
 %% Aktivierung erfolgt als Option von \printbibliography weiter unten
-\defbibnote{OwnpatentPrenote}{%
+\defbibnote{OwnPatentPrenote}{%
 Dieser Abschnitt enthält Patente, welche während meiner Promotionszeit entstanden sind.
 Die Patente
 %% Bei Referenzierung von Publikationen in diesem Abschnitt bitte 
 %% statt dem üblichen \cite{...}-Makro das Makro
-%% \citefield{...}[squarebrackets]{labelnumber} mit den beiden 
-%% Optionen "squarebrackets" und "labelnumber" verwenden, damit
+%% \citefield{...}[labelnumberwidth]{labelnumber} mit den beiden 
+%% Optionen "labelnumberwidth" und "labelnumber" verwenden, damit
 %% die Nummern und nicht die alphanumerischen Bezeichnungen zitiert werden:
-\citefield{PatentValeoUltraschall2016DE,PatentValeoUltraschall2016WO}[squarebrackets]{labelnumber}
+\citefield{PatentValeoUltraschall2016DE,PatentValeoUltraschall2016WO}[labelnumberwidth]{labelnumber}
 entstanden in Zusammenarbeit mit...
 }
 %
@@ -116,7 +116,7 @@ entstanden in Zusammenarbeit mit...
 									 %heading=subbibliography,%
 									 heading=bibintoc,%
 									 type=patent,%
-									 prenote=OwnpatentPrenote, % Falls besondere Notiz (s.o.) erwünscht							
+									 prenote=OwnPatentPrenote, % Falls besondere Notiz (s.o.) erwünscht							
 									 title={\TransOwnPatents}]
 \end{refsection}
 \end{showOwnPatents}%
