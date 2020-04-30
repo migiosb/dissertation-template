@@ -27,7 +27,11 @@
 %% .preambel/AllePfade.tex in \bibpathOwnPublications definiert wird).
 \begin{refsection}[\bibpathOwnPublications]
 \newrefcontext[sorting=ynt]
-%%
+%
+%% Beim Erwähnen der Einträge in einer einleitenden Notiz:
+%% keine Backreferenzen in der Liste erzeugen:
+\backtrackerfalse
+%
 %% Aufruf der Quellen ohne Verweis im Text geschieht mit \nocite{...}:
 %%
 %%  -  entweder nur die benötigten Quellen einzeln mit \nocite{X,Y,Z} aufrufen, z.B.
@@ -38,6 +42,22 @@
 %%     ein Keyword (z.B. "ownpubl") als Filter verwenden
 \nocite{*}
 %
+%% Es lässt sich bei Bedarf eine besondere Notiz hinzufügen:
+%% Aktivierung erfolgt als Option von \printbibliography weiter unten
+\defbibnote{OwnpublPrenote}{%
+Dieser Abschnitt enthält ein vollständiges Verzeichnis der eigenen Veröffentlichungen.
+%welche während der Promotionszeit entstanden sind.
+Die Publikationen
+%% Bei Referenzierung von Publikationen in diesem Abschnitt bitte 
+%% statt dem üblichen \cite{...}-Makro das Makro
+%% \citefield{...}[squarebrackets]{labelnumber} mit den beiden 
+%% Optionen "squarebrackets" und "labelnumber" verwenden, damit
+%% die Nummern und nicht die alphanumerischen Bezeichnungen zitiert werden:
+\citefield{GrinbergOhrBeyerer-ITSC2009,TeutschGrinberg-RobustDetectionInWAMI-2016}[squarebrackets]{labelnumber}
+adressieren das Thema XXX, während die Publikationen YYY sich mit dem Thema ZZZ beschäftigen. 
+Die letzteren können nur im weiteren Sinne als relevant für die vorliegende Arbeit angesehen werden.
+}
+%
 \appto{\bibsetup}{\RaggedRight} %Flattersatz, Silbentrennung zulassen
 %\appto{\bibsetup}{\raggedright} %Flattersatz, keine Silbentrennung zulassen
 \printbibliography[env=bibliographyNUM,%
@@ -45,6 +65,7 @@
 				   heading=bibintoc,%
 				   %heading=subbibliography,%
 				   %nottype=patent,%
+				   prenote={OwnpublPrenote}, % Falls besondere Notiz (s.o.) erwünscht
 				   title={\TransOwnPublications}]
 \end{refsection}
 \end{showOwnPublications}%
@@ -59,7 +80,11 @@
 %% .preambel/AllePfade.tex in \bibpathOwnPatents definiert wird).
 \begin{refsection}[\bibpathOwnPatents]
 \newrefcontext[sorting=ynt]
-%%
+%
+%% Beim Erwähnen der Einträge in einer einleitenden Notiz:
+%% keine Backreferenzen in der Liste erzeugen:
+\backtrackerfalse
+%
 %% Aufruf der Quellen ohne Verweis im Text geschieht mit \nocite{...}:
 %%
 %%  -  entweder nur die benötigten Quellen einzeln mit \nocite{X,Y,Z} aufrufen, z.B.
@@ -69,7 +94,21 @@
 %%     eigenständige, sondern eine gemeinsame Literaturdatenbank verwendet wird)
 %%     ein Keyword (z.B. "ownpatent") als Filter verwenden
 \nocite{*}
-%%
+%
+%% Es lässt sich bei Bedarf eine besondere Notiz hinzufügen:
+%% Aktivierung erfolgt als Option von \printbibliography weiter unten
+\defbibnote{OwnpatentPrenote}{%
+Dieser Abschnitt enthält Patente, welche während meiner Promotionszeit entstanden sind.
+Die Patente
+%% Bei Referenzierung von Publikationen in diesem Abschnitt bitte 
+%% statt dem üblichen \cite{...}-Makro das Makro
+%% \citefield{...}[squarebrackets]{labelnumber} mit den beiden 
+%% Optionen "squarebrackets" und "labelnumber" verwenden, damit
+%% die Nummern und nicht die alphanumerischen Bezeichnungen zitiert werden:
+\citefield{PatentValeoUltraschall2016DE,PatentValeoUltraschall2016WO}[squarebrackets]{labelnumber}
+entstanden in Zusammenarbeit mit...
+}
+%
 \appto{\bibsetup}{\RaggedRight} %Flattersatz, Silbentrennung zulassen
 %\appto{\bibsetup}{\raggedright} %Flattersatz, keine Silbentrennung zulassen
 \printbibliography[env=bibliographyNUM,%
@@ -77,6 +116,7 @@
 									 %heading=subbibliography,%
 									 heading=bibintoc,%
 									 type=patent,%
+									 prenote=OwnpatentPrenote, % Falls besondere Notiz (s.o.) erwünscht							
 									 title={\TransOwnPatents}]
 \end{refsection}
 \end{showOwnPatents}%

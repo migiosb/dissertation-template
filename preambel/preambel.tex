@@ -1910,6 +1910,8 @@ afterskip=\myparagraphafterskip%
 \DeclareFieldFormat{title}{{#1}}
 
 %%% Hack, damit man mehrere Bibliografien mit verschiedenen Zitationsstilen hat:
+\DeclareFieldFormat{squarebrackets}{\mkbibbrackets{#1}}
+
 \DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
 
 \DeclareFieldFormat{extraalpha}{\mknumalph{#1}}
