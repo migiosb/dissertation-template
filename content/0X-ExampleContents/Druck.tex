@@ -5,9 +5,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 Vor der Abgabe einer Druckversion an den KSP-Verlag sollte die korrekte Schaltersetzung in der Datei \printfilepath{./preambel/AlleSchalter.tex} nochmals geprüft werden.
-Insbesondere sollte mit der Einstellung
+Insbesondere sollten mit der Einstellung
 \lstinline|\setUserDefinedBoolean{showFrame}{true}|
-die Satzspiegel-Ränder angezeigt werden und so kontrolliert werden,
+die Satzspiegel"=Ränder testweise angezeigt werden und so kontrolliert werden,
 ob nichts hinausragt und ob Tabellen und Bilder die komplett verfügbare Breite ausfüllen.
 Besonders sollte man dabei auch die Overfullbox- und Underfullbox"=Warnungen achten und diese beheben.
 Eine Overfullbox"=Warnung tritt dann auf, wenn ein Objekt (Text, Bild, Tabelle)
@@ -15,7 +15,7 @@ Eine Overfullbox"=Warnung tritt dann auf, wenn ein Objekt (Text, Bild, Tabelle)
 Eine Underfullbox"=Warnung tritt auf, wenn durch fehlende Möglichkeit der Zeilenumbrüche der Text zu stark gedehnt werden müsste und die Wortzwischenräume zu groß sind.
 Hierzu sollte man insbesondere auch Hinweise zur Silbentrennung aus
 \cref{sec:Hyphenation,sec:Titles} beachten.
-Danach sollte der Schalter wieder auf \printkeyword{false} umgestellt werden.
+Danach sollte der Schalter \printkeyword{showFrame} wieder auf \printkeyword{false} umgestellt werden.
 
 Bei Abbildungen, die am Anfang einer Seite stehen, ist dabei zu achten,
 dass es keinen leeren Zwischenraum zwischen dem oberen Rand des Satzspiegels und der Abbildung gibt.
