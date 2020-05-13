@@ -26,22 +26,25 @@
 		\DocDegree%
 		\vspace{1\baselineskip}\\%
 		\normalsize%
-		der \Department\texorpdfstring{\\}{}%
-		des Karlsruher Instituts für Technologie (KIT)%
+		\ifthenelse{\boolean{statusApproved}}{von der}{der}
+		\Department\\%
+		\UniversityGenitiv%
 		\vspace{0.75\baselineskip}\\%
-		\textbf{\DissStatus}%
+		\textbf{\ifthenelse{\boolean{statusApproved}}{genehmigte}{vorgelegte}}%
 		\vspace{0.5\baselineskip}\\%
-		\Large%
-		{Dissertation}%
+		{\Large\TypeOfThesis}%
 		\vspace{0.5\baselineskip}\\%
 		\normalsize%
 		von%
 		\vspace{0.5\baselineskip}\\%
-		\normalsize%
-		\AuthorTitle%
-		\vspace{0.5\baselineskip}\\%
-		\Large%
-		\textbf{\AuthorName}%
+		\begin{showCurrentAutorTitle}%
+		%\textbf{\Large%               <----- Einkommentieren, falls der Titel mit dem Namen in einer Zeile angezeigt werden soll
+		\AuthorTitle
+		%}%                            <----- Einkommentieren, falls der Titel mit dem Namen in einer Zeile angezeigt werden soll
+		\vspace{0.5\baselineskip}\\%  <----- Auskommentieren, falls der Titel mit dem Namen in einer Zeile angezeigt werden soll
+		\end{showCurrentAutorTitle}%
+		\textbf{\Large%
+		\AuthorName}%
 		\vspace{0.5\baselineskip}\\%
 		\normalsize%
 		\begin{showPlaceOfBirth}%

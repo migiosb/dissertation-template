@@ -23,21 +23,28 @@ Dissertation%
 %Technical report%
 }
 
+% Aktueller akad. Titel
+% Eine Deaktivierung der Anzeige des Titels auf der Titelseite kann durch das
+% Setzen des Schalters "showCurrentAutorTitle" auf "false" bewirkt werden
+% (s. Datei AlleSchalter.tex)
 \newcommand{\AuthorTitle}{Dipl.-Ing.~}
+%\newcommand{\AuthorTitle}{M.Sc.~}
+
 \newcommand{\AuthorFirstname}{Max}
 \newcommand{\AuthorSurname}{Mustermann}
 
 \newcommand{\AuthorName}{\AuthorFirstname \  \AuthorSurname}
 \newcommand{\AuthorFull}{\AuthorTitle \  \AuthorFirstname \  \AuthorSurname}
 
-\setUserDefinedBoolean{showPlaceOfBirth}{true} % soll der Geburtsort auf der Titelseite angezeigt werden?
 \newcommand{\PlaceOfBirth}{Kiel}
 
-\newcommand{\Uni}{Karlsruhe Institut für Technologie (KIT)}
-\newcommand{\Department}{Fakultät für Informatik}
+%% Fakultät:
+\newcommand{\Department}{KIT-Fakultät für Informatik}
 %\newcommand{\Department}{Fakultät für Elektrotechnik und Informationstechnik}
+%% Hochschule (Genitiv)
+\newcommand{\UniversityGenitiv}{des Karlsruher Instituts für Technologie (KIT)}
 
-% Aktuell in der Dissertationsvorlage nicht verwendet:
+%% Bei Diplomarbeiten (in der Dissertationsvorlage nicht verwendet):
 %\newcommand{\Institut}{Institut für Anthropomatik}
 %\newcommand{\Lehrstuhl}{Lehrstuhl für Interaktive Echtzeitsysteme}
 %\newcommand{\Lehrstuhlinhaber}{Prof.~Dr.-Ing.~habil.~Jürgen~Beyerer}
@@ -45,17 +52,18 @@ Dissertation%
 \newcommand{\MainAdvisor}{Prof.~Dr.-Ing.~habil.~Jürgen~Beyerer}
 \newcommand{\CoAdvisor}{Zweitgutachter}
 
-%% Umschaltung zwischen "vorgelegt" und "genehmigt":
-\newcommand{\DissStatus}{vorgelegte}
-%\newcommand{\DissStatus}{genehmigte}
+%% Umschaltung zwischen "vorgelegt" (false) und "genehmigt" (true):
+\setUserDefinedBoolean{statusApproved}{false}
 
-%% bei Vorlage beide Titel stehen lassen, da zu diesem Zeitpunkt noch nicht entschieden
-\newcommand{\DocDegree}{Doktors der Ingenieurwissenschaften /\newline Doktors der Naturwissenschaften}
-%% nach der Genehmigung:
+%% beim Vorlegen der Dissertation beide Titel stehen lassen, da zu diesem Zeitpunkt noch nicht entschieden
+\newcommand{\DocDegree}{Doktors der Ingenieurwissenschaften /\\ Doktors der Naturwissenschaften}
+%% nach der Genehmigung den vegebenen Titel wählen:
 %\newcommand{\DocDegree}{Doktors der Ingenieurwissenschaften}
 %\newcommand{\DocDegree}{Doktors der Naturwissenschaften}
 
+% Tag der mündlichen Prüfung:
 \newcommand{\ExamDate}{12.12.2017}
 
+%% Bei Diplomarbeiten (in der Dissertationsvorlage nicht verwendet):
 %\newcommand{\Submissiondate}{\today} %entsprechend ändern
 %\newcommand{\Signplace}{Karlsruhe}
