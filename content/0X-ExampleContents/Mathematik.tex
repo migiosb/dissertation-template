@@ -14,25 +14,6 @@ Grundsätzlich empfiehlt es sich, eigene Mathe-Makros zu definieren und durchgeh
 Damit kann man bei Bedarf die Formatierung der Variablen an einer einzigen Stelle anpassen,
 ohne den gesamten Code des Arbeit durchgehen zu müssen.
 
-Auf zwei besondere Kommandos wird näher eingegangen,
-weil dies häufig falsch gemacht wird.
-\begin{itemize}
-  \item Für die Matrixtransponierte gibt es das Kommando \verb#\Tr#, also
-	\verb#$A^{\Tr}$# liefert $A^{\Tr}$
-	
-	\item Bei \index{Integral}Integralen muss das \enquote{Differential-d} gemäß
-	ISO in aufrechter Schrift als Operator gesetzt sein mit einem kleinen Abstand
-	zum Integranden. Hierfür gibt es das spezielle Kommando \verb#\diff#. Also
-	\begin{equation}
-	 \int^1_0 x^2 d x = \frac{1}{3} \qquad \text{(falsche Typografie!)}
-	\end{equation}
-	ist falsch, während \verb#\int^1_0 x^2 \diff x = \frac{1}{3}# das Richtige
-	liefert
-	\begin{equation}
-	 \int^1_0 x^2 \diff x = \frac{1}{3} \qquad \text{(richtige Typografie!)}
-	\end{equation}
-\end{itemize}
-
 Die Einbettung der Formeln geschieht mit der \printkeyword{equation}"=Umgebung.
 Da die Formeln normalerweise keine eigenständigen Absätze darstellen,
 sollen zwischen dem Fließtext und der Formeldefinition keine leeren Zeilen stehen,
@@ -45,3 +26,24 @@ Dieser wird mit \verb+\,+  erzeugt und beträgt standardmäßig 0,1667\,em. Dies
 \begin{latex}
 Der eingefügte Abstand beträgt 0,1667\,em.
 \end{latex}
+
+Auf zwei besondere Kommandos wird näher eingegangen,
+weil dies in \LaTeX häufig falsch gemacht wird.
+\begin{itemize}
+  \item Für die Matrixtransponierte gibt es das Kommando \verb#\Tr#, also
+	\verb#$A^{\Tr}$# liefert $A^{\Tr}$	
+	\item Bei \index{Integral}Integralen muss das \enquote{Differential-d} gemäß
+	ISO in aufrechter Schrift als Operator gesetzt sein mit einem kleinen Abstand
+	zum Integranden. Hierfür gibt es das spezielle Kommando \verb#\diff#.
+	\Dhe, \verb#\int^1_0 x^2 d x = \frac{1}{3}# (\cref{eq:Diff-wrong}) ist falsch,
+	während \verb#\int^1_0 x^2 \diff x = \frac{1}{3}# (\cref{eq:Diff-correct}) das Richtige liefert:
+\end{itemize}
+\begin{equation}
+	\int^1_0 x^2 d x = \frac{1}{3} \qquad \text{(falsche Typografie!)}
+	\label{eq:Diff-wrong}
+\end{equation}
+\begin{equation}
+	\int^1_0 x^2 \diff x = \frac{1}{3} \qquad \text{(richtige Typografie!)}
+	\label{eq:Diff-correct}
+\end{equation}
+
