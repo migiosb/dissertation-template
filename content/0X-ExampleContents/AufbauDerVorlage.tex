@@ -47,15 +47,15 @@ Sie fangen mit \enquote{\texttt{\%~!TeX}} an und geben an, welche Kodierung für
 Außerdem kann damit angegeben werden, welche Sprache für die Rechtschreibprüfung innerhalb der IDE verwendet werden soll.
 Da es aktuell keine dokumentierte Möglichkeit gibt, Aufruf für \printkeyword{makeglossaries} miteinzubinden,
 führt eine Übernahme der durch die \enquote{Magic Comments} vordefinierten Reihenfolge dazu, dass keine Glossare generiert werden.
-Daher sind die Aktuell sind \enquote{Magic Comments} aktuell durch ein zusätzliches Prozentzeichen deaktiviert.
+Daher sind die \enquote{Magic Comments} aktuell durch ein zusätzliches Prozentzeichen deaktiviert.
 
 Im zweiten Abschnitt wird die Header-Datei eingebunden.
-In dieser wird die verwendeten Dokumentklasse (inklusive Papierformat und Schriftgröße) definiert, sowie weitere Dateien eingebunden.
+In dieser wird die verwendete Dokumentklasse (inklusive Papierformat und Schriftgröße) definiert sowie weitere Dateien eingebunden.
 In diesen werden die zu landenden Pakete, Layout"=Parameter sowie alle weiteren Einstellungen und Makros definiert und konfiguriert.
 
 Im dritten Abschnitt werden nun die einzelnen Inhalte der Arbeit eingebunden.
 
-Die einzelnen \index{Kapitel}Kapiteln der Arbeit werden im Verzeichnis \printfilepath{./content/} als separate Dateien gespeichert.
+Die einzelnen \index{Kapitel}Kapitel der Arbeit werden im Verzeichnis \printfilepath{./content/} als separate Dateien gespeichert.
 Es empfiehlt sich als Dateiname das Schema \printfilepath{nn-name.tex} zu verwenden, wobei \printkeyword{nn} die Nummer des Kapitels ist,
 sodass die Dateien in der semantisch richtigen Reihenfolge sortiert angezeigt werden.
 Die einzelnen Dateien werden per \verb+include{}+-Direktive in der Datei \printfilepath{Diss.tex} eingebunden.
@@ -144,7 +144,7 @@ Hier werden \ua Angaben zum Verfasser, Art und Titel der Arbeit sowie zu den Gut
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 Eine weitere wichtige Datei ist \printfilepath{./preambel/AlleSchalter.tex}.
-Darin wird u.a. die Hauptsprache \index{Sprache!Hauptsprache}Hauptsprache des Manuskriptes gesetzt, was sich an mehreren Stellen auswirkt.
+Darin wird u.a. die \index{Sprache!Hauptsprache}Hauptsprache des Manuskriptes gesetzt, was sich an mehreren Stellen auswirkt.
 So wird beispielsweise bei \index{Sprache!globale Umstellung}Umstellung auf Englisch als Hauptsprache
 \enquote{Danksagung} durch \enquote{Acknowledgments},
 \enquote{Inhaltsverzeichnis} durch \enquote{Contents}
@@ -194,7 +194,7 @@ ausschließlich am Bindestrich getrennt werden,
 wogegen auch ein Eintrag in die Datei \printfilepath{Hyphenation.tex} nicht hilft.
 Um Silbentrennung an anderen Stellen eines zusammengesetzten Wortes zu erlauben,
 muss man bei Verwendung zusammengesetzter Wörter mit Bindestrich diesen durch „\verb+"=+“ ersetzen.
-Alternative Trennstellen in bestimmten Wörtern kann man Hilfe der Hinweise auf 
+Alternative Trennstellen in bestimmten Wörtern kann man mit Hilfe der Hinweise auf 
 \href{https://de.wikibooks.org/wiki/LaTeX-W%C3%B6rterbuch:_Silbentrennung}{wikibooks.org}%
 \footnote{\url{https://de.wikibooks.org/wiki/LaTeX-W%C3%B6rterbuch:_Silbentrennung}}
 erreichen.
@@ -238,4 +238,4 @@ Die Einbindung von der Titelseite, Danksagung, dem englischen und deutschen Abst
 einer Notationsübersicht und ggf. einem Symbolverzeichnis
 erfolgt in der Datei \printfilepath{./content/Inhalt-FrontMatter.tex}.
 Die jeweilige Inhalte sind im Verzeichnis \printfilepath{./content/00-FrontMatter/} zu finden.
-Die Einbindung von Literatur-, Abbildungs, Tabellen, Quellcodelistings-, Abkürzungsverzeichnissen sowie ggf. einem Glossar, Stichwortverzeichnis (Index) und den Anhängen erfolgt in der Datei \printfilepath{./content/Inhalt-BackMatter.tex}.
+Die Einbindung von Literatur-, Abbildungs-, Tabellen-, Quellcodelistings-, Abkürzungsverzeichnissen sowie ggf. einem Glossar, Stichwortverzeichnis (Index) und den Anhängen erfolgt in der Datei \printfilepath{./content/Inhalt-BackMatter.tex}.

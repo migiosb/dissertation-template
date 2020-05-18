@@ -15,14 +15,14 @@ Dieses Kapitel zeigt den grundlegenden Aufbau eines einfachen Kapitels.
 Die einzelnen Abschnitte beschreiben die Struktur der Vorlage und geben wichtige allgemeine Tipps.
 Die Verwendung einzelner Features dieser Vorlage wird in \cref{chap:Examples} detailliert beschrieben und demonstriert.
 
-Es wird empfohlen, die einzelnen Unterkapiteln jedes Kapitels 
+Es wird empfohlen, die einzelnen Unterkapitel jedes Kapitels 
 als eigene Dateien anzulegen und sie mit dem \verb+\input{}+-Befehl einzubinden
 (s. Quelltext der Datei \printfilepath{content/Inhalt-Examples.tex}).
 Dies erlaubt die einzelnen Unterkapitel bei Bedarf leichter zu verschieben 
 oder mit einem einzigen \%-Zeichen temporär auszukommentieren 
 und erleichtert so die Fehlersuche.
 
-Teile des Manuskriptes lassen sich ebenfalls ausblenden ohne sie auskommentieren zu müssen,
+Teile des Manuskriptes lassen sich ebenfalls ausblenden, ohne sie auskommentieren zu müssen,
 indem man den auszublendenden Text zwischen
 \lstinline|\begin{ShowInhaltXXX}| und \lstinline|\end{ShowInhaltXXX}| einschließt.
 Hierzu ist in der Datei \printfilepath{preambel/AlleSchalter.tex}

@@ -4,12 +4,12 @@
 \label{sec:Druckanpassungen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Vor der Abgabe einer Druckversion an den KSP-Verlag sollte die korrekte Schaltersetzung in der Datei \printfilepath{./preambel/AlleSchalter.tex} nochmals geprüft werden.
+Vor der Abgabe einer Druckversion an den KSP Verlag sollte die korrekte Schaltersetzung in der Datei \printfilepath{./preambel/AlleSchalter.tex} nochmals geprüft werden.
 Insbesondere sollten mit der Einstellung
 \lstinline|\setUserDefinedBoolean{showFrame}{true}|
 die Satzspiegel"=Ränder testweise angezeigt werden und so kontrolliert werden,
 ob nichts hinausragt und ob Tabellen und Bilder die komplett verfügbare Breite ausfüllen.
-Besonders sollte man dabei auch die Overfullbox- und Underfullbox"=Warnungen achten und diese beheben.
+Besonders sollte man dabei auch auf die Overfullbox- und Underfullbox"=Warnungen achten und diese beheben.
 Eine Overfullbox"=Warnung tritt dann auf, wenn ein Objekt (Text, Bild, Tabelle)
 über den dafür vorgesehenen Bereich (normalerweise über den Satzspiegelrand) hinausragt.
 Eine Underfullbox"=Warnung tritt auf, wenn durch fehlende Möglichkeit der Zeilenumbrüche der Text zu stark gedehnt werden müsste und die Wortzwischenräume zu groß sind.
@@ -17,10 +17,10 @@ Hierzu sollte man insbesondere auch Hinweise zur Silbentrennung aus
 \cref{sec:Hyphenation,sec:Titles} beachten.
 Danach sollte der Schalter \printkeyword{showFrame} wieder auf \printkeyword{false} umgestellt werden.
 
-Bei Abbildungen, die am Anfang einer Seite stehen, ist dabei zu achten,
+Bei Abbildungen, die am Anfang einer Seite stehen, ist darauf zu achten,
 dass es keinen leeren Zwischenraum zwischen dem oberen Rand des Satzspiegels und der Abbildung gibt.
 Normalerweise passiert dies durch die Einstellungen der Vorlage automatisch.
-Falls doch noch ein leeres Raum entsteht, liegt dies zumeist daran, dass die Abbildung selbst weiße Ränder hat.
+Falls doch noch ein leerer Raum entsteht, liegt dies zumeist daran, dass die Abbildung selbst weiße Ränder hat.
 Bei Binärbildern können diese durch Setzen der Optionen
 \printkeyword{clip=true} und \printkeyword{trim=<left> <lower> <right> <upper>}
 im \printkeyword{includegraphics}-Befehl beschnitten werden, z.B. so:

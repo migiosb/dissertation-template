@@ -5,8 +5,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 Defaultmäßig befinden sich alle Literaturangaben in der Datei
-\printfilepath{bib/Diss.bib}
-Falls ein davon abweichendes Pfad oder weitere Literaturdatenbanken
+\printfilepath{bib/Diss.bib}.
+Falls ein davon abweichender Pfad oder weitere Literaturdatenbanken
 verwendet werden sollen, können entsprechende Pfade in der Datei
 \printfilepath{preambel/AllePfade.tex} mit
 \lstinline|\addbibresource{...}|
@@ -27,12 +27,12 @@ Durch Änderung der Definitionen der Pfade
 in der Datei
 \printfilepath{preambel/AllePfade.tex}
 können jedoch für die einzelnen Auflistungen 
-jeweils eigene, speziell dafür angelegten Datenbanken verwendet werden.
+jeweils eigene, speziell dafür angelegte Datenbanken verwendet werden.
 
 Die Einbindung der Literaturverzeichnisse in das Manuskript erfolgt in der Datei
 \printfilepath{content/Inhalt-BackMatter.tex}.
-Die Zusatz"=Literaturverzeichnisse werden separat von Haupt"=Literaturverzeichnis erstellt.
-Dazu wird in den einzelnen Abschnitten,
+Die Zusatz"=Literaturverzeichnisse werden separat erstellt und sind vom Haupt"=Literaturverzeichnis unabhängig.
+Dazu werden in den entsprechenden Abschnitten der Datei,
 welche jeweils mit Hilfe der \printkeyword{refsection}"=Umgebung abgegrenzt sind,
 die kompletten Inhalte der jeweiligen Literaturdatenbank unsichtbar referenziert.
 Dies geschieht mit dem \lstinline|\nocite{*}|"=Befehl.
@@ -42,7 +42,7 @@ explizit referenziert werden.
 
 Sofern man eine einzige Datenbank für sämtliche Literaturverzeichnisse verwendet
 und die unsichtbare Referenzierung jeweils mit dem \lstinline|\nocite{*}|"=Befehl erfolgt,
-müssen die relevanten Referenzen für das jeweilige Zusatzverzeichnis
+müssen die relevanten Referenzen für das jeweilige Zusatz"=Literaturverzeichnis
 gefiltert werden.
 Die Filterung der eigenen Publikationen, Patente und betreuten Arbeiten
 für die einzelnen Verzeichnisse geschieht jeweils mit der Angabe
@@ -71,7 +71,7 @@ in der Datei  \printfilepath{content/Inhalt-BackMatter.tex}
 deaktiviert (sprich auskommentiert) werden.
 
 Die Zusatzauflistungen sind von den Zitierungen im Text unabhängig.
-Damit ergibt sich sich für eigene Veröffentlichungen,
+Damit ergibt sich für eigene Veröffentlichungen,
 die im Text explizit zitiert werden, eine doppelte Listung --
 einmal in der Hauptliteraturliste (mit einer alphanumerischen Referenz)
 und einmal in der durchnummerierten Liste eigener Publikationen.
@@ -80,7 +80,7 @@ Dies ist kein Bug, sondern ein Feature der Vorlage.
 Bei der Auflistung eigener Veröffentlichungen und Patente ist 
 in der Vorlage jeweils ein kleines Vorwort vorgesehen.
 Darin können beispielsweise Zusatzhinweise zur Abgrenzung der Publikationen bzw.
-der Patente, die während der Promotionszeit entstanden sind, zu den übrigen
+der Patente, die während der Promotionszeit entstanden sind,
 oder Hinweise zur Eingruppierung der Veröffentlichungen platziert werden.
 Diese einleitenden Texte sind ebenfalls in der Datei
 \printfilepath{content/Inhalt-BackMatter.tex}
