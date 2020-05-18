@@ -5,27 +5,33 @@
 \\%
 \showrowcolors
 	\tableheadcolor
+	\toprule%
 	\tablehead Tabellenkopf &
 	\tablehead Tabellenkopf	&
 	\tablehead Tabellenkopf	&
 	\tablehead Tabellenkopf	&
 	\tablehead Tabellenkopf	&
 	\tablehead Tabellenkopf \tabularnewline
+	\midrule%
 \endfirsthead
 	\tableheadcolor
-	\tablehead Tabellenkopf &
-	\tablehead Tabellenkopf	&
-	\tablehead Tabellenkopf	&
-	\tablehead Tabellenkopf	&
-	\tablehead Tabellenkopf	&
-	\tablehead Tabellenkopf \tabularnewline
+	\toprule%
+	\tablehead Tabellenzwischenkopf &
+	\tablehead Tabellenzwischenkopf	&
+	\tablehead Tabellenzwischenkopf	&
+	\tablehead Tabellenzwischenkopf	&
+	\tablehead Tabellenzwischenkopf	&
+	\tablehead Tabellenzwischenkopf \tabularnewline
+	\midrule%
 \endhead
 	\hiderowcolors
-	\hline
+	%\hline
+	\bottomrule
 	\multicolumn{6}{r}{\emph{weiter auf der nächsten Seite}}
 \endfoot
 	\showrowcolors
-	\hline
+	%\hline
+	\bottomrule
 \endlastfoot
 \bfseries Beschreibung 	& 1 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
 \bfseries Beschreibung   & 2 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
