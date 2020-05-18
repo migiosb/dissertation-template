@@ -4,7 +4,8 @@
 \label{sec:Druckanpassungen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Vor der Abgabe einer Druckversion an den KSP Verlag sollte die korrekte Schaltersetzung in der Datei \printfilepath{./preambel/AlleSchalter.tex} nochmals geprüft werden.
+Vor der Abgabe einer Druckversion an den KSP Verlag sollte die korrekte Schaltersetzung 
+in der Datei \printfilepath{./preambel/AlleSchalter.tex} nochmals geprüft werden.
 Insbesondere sollten mit der Einstellung
 \lstinline|\setUserDefinedBoolean{showFrame}{true}|
 die Satzspiegel"=Ränder testweise angezeigt werden und so kontrolliert werden,
@@ -44,3 +45,14 @@ Beispiele dafür gibt es in der Datei \printfilepath{./preambel/ColorSettings.te
 Vorzugsweise sollten aber die KIT-Corporate-Identity-Farben verwendet werden,
 welche in der Datei \printfilepath{KAcolors.sty} definiert sind.
 Für diese Farben wurde sowohl eine RGB- als auch eine CMYK-Definition erstellt.}
+
+
+Auch gibt es zwei Sachen, die in der Datei 
+\printfilepath{./preambel/AlleAngaben.tex}
+geändert werden müssen.
+Zum einem ist der Status der Dissertation von \enquote{vorgelegt} auf \enquote{gemehmigt} zu ändern
+(dies geschieht durch die Umstellung des Schalters
+\printkeyword{statusApproved}
+von \printkeyword{false} auf \printkeyword{true}).
+Sofern erst nach der Prüfung entschieden wird, ob man beispielsweise Dr.-Ing. oder Dr. rer. nat. wird, 
+ist die \printkeyword{DocDegree}-Angabe entsprechend anzupassen.
