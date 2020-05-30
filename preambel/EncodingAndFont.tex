@@ -118,7 +118,10 @@
 								UprightFont = *-regular,
 								ItalicFont = *-italic,
 								BoldFont = *-bold,
-								%BoldItalicFont = *-bolditalic,
+								BoldItalicFont = *-italic,
+								BoldItalicFeatures = {RawFeature={embolden=3}},
+								BoldSlantedFont= *-Bold,
+								BoldSlantedFeatures = {FakeSlant=0.2, SmallCapsFont = *-Bold },
 								SmallCapsFeatures={Letters=SmallCaps},
 								Path=./fonts/,
 								Extension = .otf
@@ -127,9 +130,14 @@
 								Scale = 0.8,
 								FakeStretch = 0.8,
 								UprightFont = *-regular,
-								%ItalicFont = *-italic,
-								%BoldFont = *-bold,
-								% AutoFakeBold = 1.5,
+								ItalicFont = *-regular,
+								ItalicFeatures = {FakeSlant=0.2},
+								SlantedFont = *-regular,
+								SlantedFeatures= {FakeSlant=0.2},
+								BoldFont = *-regular,
+								BoldFeatures = {RawFeature={embolden=3}},
+								BoldItalicFont = *-regular,
+								BoldItalicFeatures={FakeSlant=0.2,RawFeature={embolden=3}},
 								Path=./fonts/,
 								Extension = .otf
 								]{libertinusmono}
@@ -201,7 +209,10 @@
 								UprightFont = *-regular,
 								ItalicFont = *-italic,
 								BoldFont = *-bold,
-								%BoldItalicFont = *-bolditalic,
+								BoldItalicFont = *-italic,
+								BoldItalicFeatures = {RawFeature={embolden=3}},
+								BoldSlantedFont= *-Bold,
+								BoldSlantedFeatures = {FakeSlant=0.2, SmallCapsFont = *-Bold },
 								SmallCapsFeatures={Letters=SmallCaps},
 								Path=./fonts/,
 								Extension = .otf
@@ -210,6 +221,14 @@
 								Scale = 0.8,
 								FakeStretch = 0.8,
 								UprightFont = *-regular,
+								ItalicFont = *-regular,
+								ItalicFeatures = {FakeSlant=0.2},
+								SlantedFont = *-regular,
+								SlantedFeatures= {FakeSlant=0.2},
+								BoldFont = *-regular,
+								BoldFeatures = {RawFeature={embolden=3}},
+								BoldItalicFont = *-regular,
+								BoldItalicFeatures={FakeSlant=0.2,RawFeature={embolden=3}},
 								Path=./fonts/,
 								Extension = .otf
 								]{libertinusmono}
@@ -241,8 +260,8 @@
 								Extension = .ttf
 								]{FrutigerLTCom}
 		\setmonofont[
-								Scale = 0.875,
-								FakeStretch = 0.85,
+								Scale = 0.8,
+								FakeStretch = 0.8,
 								UprightFont = *-regular,
 								Path=./fonts/,
 								Extension = .otf
@@ -260,7 +279,8 @@
 	\fi
 	\ifdefined\UseLibertinus
 		\usepackage{libertinus}
-		\usepackage{libertinust1math}
+		%\usepackage{libertinus-type1}
+		%\usepackage{libertinust1math}
 	\fi
 	\ifdefined\UseSTIX
 		\usepackage{stix}
@@ -269,11 +289,11 @@
 		\usepackage{xits}
 	\fi
 	\ifdefined\UseLibertinusSTIXMix
-		\usepackage{libertinus}
+		\usepackage[ScaleTT=.8]{libertinus}
 		\usepackage[notext]{stix}
 	\fi
 	\ifdefined\UseLibertinusFrutigerSTIXMix
-		\usepackage{libertinus}
+		\usepackage[ScaleTT=.8]{libertinus}
 		\usepackage[notext]{stix}
 		\usepackage{frutiger}
 	\fi
