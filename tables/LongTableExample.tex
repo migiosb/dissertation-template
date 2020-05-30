@@ -1,67 +1,67 @@
-\begin{longtable}{l*{5}{Y}}%
+\begin{longtable}{l*{3}{Y}}%
 \hiderowcolors%
 \caption{Longtable Tabelle über einen Seitenumbruch hinaus.}%
 \label{tab:MehrseitigeTabelle}%
-\\%
-\showrowcolors
-	\tableheadcolor
+\vspace{\mycaptionskip}%
+\tabularnewline%
+%% Definition für die erste Kopfzeile
+	\rowcolor{tableheadcolor}%
 	\toprule%
-	\tablehead Tabellenkopf &
-	\tablehead Tabellenkopf	&
-	\tablehead Tabellenkopf	&
-	\tablehead Tabellenkopf	&
-	\tablehead Tabellenkopf	&
-	\tablehead Tabellenkopf \tabularnewline
+	\tableheadfont Tabellenkopf &
+	\tableheadfont Tabellenkopf	&
+	\tableheadfont Tabellenkopf	&
+	\tableheadfont Tabellenkopf \tabularnewline
 	\midrule%
 \endfirsthead
-	\tableheadcolor
+%% Definition für die Kopfzeile auf den Folgeseiten
+	\rowcolor{tableheadcolor}%
 	\toprule%
-	\tablehead Tabellenzwischenkopf &
-	\tablehead Tabellenzwischenkopf	&
-	\tablehead Tabellenzwischenkopf	&
-	\tablehead Tabellenzwischenkopf	&
-	\tablehead Tabellenzwischenkopf	&
-	\tablehead Tabellenzwischenkopf \tabularnewline
+	\tableheadfont Zwischenkopf &
+	\tableheadfont Zwischenkopf	&
+	\tableheadfont Zwischenkopf	&
+	\tableheadfont Zwischenkopf \tabularnewline
 	\midrule%
 \endhead
-	\hiderowcolors
-	%\hline
-	\bottomrule
-	\multicolumn{6}{r}{\emph{weiter auf der nächsten Seite}}
+%% Definition für die Fußzeile auf Zwischenseiten
+	\hiderowcolors%
+	\bottomrule%
+	\multicolumn{4}{r}{\small\emph{weiter auf der nächsten Seite}}
 \endfoot
-	\showrowcolors
-	%\hline
-	\bottomrule
+%% Definition für das Tabellenende
+	%\showrowcolors%
+	\bottomrule%
 \endlastfoot
-\bfseries Beschreibung 	& 1 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 2 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 3 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 4 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 5 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 6 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 7 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 8 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 9 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 0 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 1 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 2 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 3 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 4 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 5 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 6 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 7 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 8 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 9 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 0 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 1 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 2 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 3 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 4 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 5 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 6 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 7 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 8 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 9 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 0 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
-\bfseries Beschreibung   & 1 Inhalt & Inhalt & Inhalt & Inhalt & Inhalt \tabularnewline
+%\tablestylealtcolored%
+\showrowcolors%
+\bfseries Beschreibung 	& 1 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 2 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 3 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 4 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 5 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 6 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 7 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 8 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 9 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 0 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 1 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 2 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 3 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 4 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 5 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 6 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 7 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 8 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 9 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 0 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 1 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 2 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 3 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 4 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 5 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 6 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 7 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 8 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 9 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 0 Inhalt & Inhalt & Inhalt \tabularnewline
+\bfseries Beschreibung   & 1 Inhalt & Inhalt & Inhalt \tabularnewline
 \end{longtable}            

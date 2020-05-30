@@ -6,11 +6,15 @@
 Die Vorlage besteht aus mehreren Dateien und Verzeichnissen.
 Ihre Bedeutung ist in \cref{tab:StrukturDerVorlage} zusammengefasst.
 
-{%%% Übersicht über die Dateien und Verzechnisse der Vorlage %%%
+%%% Übersicht über die Dateien und Verzechnisse der Vorlage %%%
+%%
+%% Durch Definition einer Gruppe mit \begingroup ... \endgroup 
+%% sicherstellen, dass Anpassungen nur lokal wirken
+%% und sich nicht auf die nachfolgenden tabellen erstrecken
+\begingroup%
 %% kleinere Schrift
-%\footnotesize%
 \small%
-% Abstand zwischen den Zeilen auf 1,5faches setzen
+% Abstand zwischen den Zeilen auf das 2fache setzen
 \renewcommand{\arraystretch}{2.0}%
 % Seitliche Abstände links und rechts eliminieren
 %\setlength\LTleft{0pt}%
@@ -18,7 +22,7 @@ Ihre Bedeutung ist in \cref{tab:StrukturDerVorlage} zusammengefasst.
 \setlength{\tabcolsep}{0pt}%
 % Tabelle aus einer Extra-Datei einlesen und auf die Seitenbreite strecken
 \LTXtable{\columnwidth}{tables/DateienUndVerzeichnisse.tex}%
-}%
+\endgroup%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

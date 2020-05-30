@@ -15,28 +15,29 @@ sowie die Dokumentation des \pkg{booktabs}-Pakets \cite{Fear2005}.
 zur Verfügung.
 
 Der Code für eine einfache Tabelle ist im \cref{lst:tabellenbeispiel} angeführt.
+Damit alle Tabellen einheitlich aussehen, empfiehlt es sich,
+überall das gleiche Makro zur Parameteranpassung zu verwenden.
+Dazu könnte beispielsweise das vordefinierte Makro
+\lstinline|\tablestylecommon| verwendet werden, welches in der Datei
+\printfilepath{./preambel/TableCommands.tex} definiert ist.
+Zu beachten ist, dass die Anpassungen an den Tabellenparametern wie z.B.
+\begin{itemize*}
+\item die Verkleinerung der Schriftgröße,
+\item die Entfernung der seitlichen Ränder sowie
+\item die Erhöhung der Abstandes zwischen den einzelnen Tabellenzeilen
+\end{itemize*}
+innerhalb einer Umgebung gesetzt werden müssen, damit sie lokal wirken und
+sich nicht auf die nachfolgenden Tabellen erstrecken.
+Wird die Tabelle nicht innerhalb einer \printkeyword{table}-Umgebung
+\oae gesetzt, muss man eine eigene Umgebung mit
+\lstinline|\begingroup| ... \lstinline|\endgroup|
+definieren.
 
 \begin{latex}[caption={Einfache Tabelle in \LaTeX},label={lst:tabellenbeispiel}]
 \begin{table}%
-	\centering%
-	\begin{tabularx}{\columnwidth}{l l X}%
-		\toprule%
-		Datei       &  Bedeutung    &  Benutzerinteraktion \\%
-		\midrule%
-		Diss.tex  &  Hauptdatei   &  nein     \\%
-		images/   &  Bilder       &  ja       \\%
-		content/  &  Kapitel      &  ja       \\%
-		\bottomrule%
-	\end{tabularx}%
+	\tablestylecommon% Aussehen anpassen
 	\caption{Dateien der Vorlage}%
 	\label{tab:tabellenbeispiel}%
-\end{table}
-\end{latex}
-
-Das Ergebnis sieht man in \cref{tab:tabellenbeispiel}.
-
-\begin{table}%
-	\centering%
 	\begin{tabular}{l l l}%
 		\toprule%
 		Datei       &  Bedeutung    &  Benutzerinteraktion \\%
@@ -46,38 +47,60 @@ Das Ergebnis sieht man in \cref{tab:tabellenbeispiel}.
 		content/  &  Kapitel      &  ja       \\%
 		\bottomrule%
 	\end{tabular}%
-	\caption{Dateien der Vorlage}%
-	\label{tab:tabellenbeispiel}%
 \end{table}
+\end{latex}
 
-Etwas komplizierter wird es, wenn man eine Tabelle mit alternierender Farbe einfügen möchte (\cref{tab:AlternierendeZeilenfarben}).
+Das Ergebnis sieht man in \cref{tab:tabellenbeispiel}.
 
 \begin{table}%
-\caption{Tabelle mit alternierender Zeilenfarbe}%
-\label{tab:AlternierendeZeilenfarben}%
-	\tablestyle%
-	\tablealtcolored%
-	\begin{tabular}{*{2}{v{0.45\textwidth}}}%
+	\tablestylecommon% Aussehen anpassen
+	\caption{Dateien der Vorlage}%
+	\label{tab:tabellenbeispiel}%
+	\begin{tabular}{l l l}%
 		\toprule%
-		\tableheadcolor%
-		\tableheadformat Tabellenkopf &	\tableheadformat Tabellenkopf
-		\tabularnewline%
+		Datei       &  Bedeutung    &  Benutzerinteraktion \\%
 		\midrule%
-		%% Zwischenkopf ---------------------------------------------
-		\multicolumn{2}{>{\columncolor{tablesubheadcolor}}l}{\bfseries\color{KITblue} Zwischenkopf}%
-		\tabularnewline%
-		%%-----------------------------------------------------------
-		Inhalt  & Inhalt \tabularnewline
-		Inhalt  & Inhalt \tabularnewline
-		Inhalt  & Inhalt \tabularnewline
-		%% Zwischenkopf ---------------------------------------------
-		\multicolumn{2}{>{\columncolor{tablesubheadcolor}}l}{\bfseries\color{KITgreen} Zwischenkopf}%
-		\tabularnewline
-		%%-----------------------------------------------------------
-		Inhalt  & Inhalt \tabularnewline
-		Inhalt  & Inhalt \tabularnewline
+		Diss.tex  &  Hauptdatei   &  nein     \\%
+		images/   &  Bilder       &  ja       \\%
+		content/  &  Kapitel      &  ja       \\%
 		\bottomrule%
 	\end{tabular}%
+\end{table}
+
+Ist die Tabelle seitenbreit, sollte statt der \printkeyword{tabular}-Umgebung die \printkeyword{tabularx}-Umgebung verwendet werden (\cref{tab:AlternierendeZeilenfarben}).
+Mit dem \printkeyword{tablealtcolored}-Makro kann man die einzelnen Zeilen mit alternierender Farbe einfärben.
+Die Anpassungsmöglichkeiten für das Aussehen der Tabellen befinden sich in der Datei \printfilepath{./preambel/TableCommands.tex}.
+
+\begin{table}%
+\tablestylealtcolored%
+\caption{Seitenbreite Tabelle mit alternierender Zeilenfarbe}%
+\label{tab:AlternierendeZeilenfarben}%
+	\begin{tabularx}{\linewidth}{llX}%
+		\toprule%
+		\rowcolor{tableheadcolor}%
+		\tableheadfont Tabellenkopf &	\tableheadfont Tabellenkopf & \tableheadfont Tabellenkopf 
+		\tabularnewline%
+		\midrule%
+		Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt \tabularnewline
+		Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt \tabularnewline
+		Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt \tabularnewline
+		%% Zwischenkopf ---------------------------------------------
+		\rowcolor{tablesubheadcolor}%
+		\multicolumn{3}{l}{\bfseries\color{KITblue} Zwischenkopfzeile}%
+		\tabularnewline%
+		%%-----------------------------------------------------------
+		Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt \tabularnewline
+		Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt \tabularnewline
+		Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt \tabularnewline
+		%% Zwischenkopf ---------------------------------------------
+		\rowcolor{tablesubheadcolor}%
+		\multicolumn{3}{l}{\bfseries\color{KITgreen} Zwischenkopfzeile}%
+		\tabularnewline
+		%%-----------------------------------------------------------
+		Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt \tabularnewline%
+		Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt \tabularnewline%
+		\bottomrule%
+	\end{tabularx}%
 \end{table}
 
 %% ------------------------------------------------------------
@@ -86,26 +109,11 @@ Lange Tabellen, die umbrochen werden sollen, können mit
 eingebunden werden, wobei die Tabelle in eine Datei ausgelagert werden muss.
 Ein Beispiel dafür sieht man in \cref{tab:MehrseitigeTabelle}.
 
-\IfDefined{LTXtable}{%
-	%--Einstellungen für Tabellen ----------
-	\colorlet{tablerowcolor}{gray!10.0}%
-	\renewcommand\tableheadcolor{\rowcolor{tableheadcolor}}%
-	\renewcommand\tablehead{%
-			\tableheadfontsize%
-			\sffamily\bfseries%
-			\slshape%
-			\color{black}%
-	}%
-	%---------------------------------------
-	{
-		\tablestyle%
-		%\tablealtcolored
-		\rowcolors{1}{tablerowcolor}{white!100}%
-		 \LTXtable{\textwidth}{tables/LongTableExample.tex}%
-	}%
-} % End If 
-%
-%
+% Angaben zur Tabellenstil innerhalb einer eigenen Umgebung, damit diese nur lokal wirken
+\begingroup%
+\tablestylealtcolored%
+\LTXtable{\textwidth}{tables/LongTableExample.tex}
+\endgroup%
 %
 Sollte eine Tabelle so breit sein, dass sie nicht mehr horizontal auf
 eine Seite passt, so ist es natürlich möglich, diese mithilfe des Pakets

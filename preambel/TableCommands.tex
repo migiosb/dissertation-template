@@ -2,12 +2,48 @@
 
 %%% ---| Farben fuer Tabellen |-------------------
 \IfPackageLoaded{xcolor}{
-   \colorlet{tablesubheadcolor}{gray!30}
-   \colorlet{tableheadcolor}{gray!25}
+   \colorlet{tableheadcolor}{gray!30}
+   \colorlet{tablesubheadcolor}{gray!20}
    \colorlet{tableblackheadcolor}{black!100}
-   \colorlet{tablerowcolor}{gray!10.0}
+   \colorlet{tableoddrowcolor}{gray!10.0}
+   \colorlet{tableevenrowcolor}{white}
 }
 %%% ---------------------------------------------
+
+
+
+%%% ---|Layout der Tabellen |-------------------
+
+
+% Groesse der Schrift in Tabellen
+\newcommand{\tablefontsize}{\small}
+\newcommand{\tableheadfontsize}{\small}
+\newcommand{\tablesubheadfontsize}{\small}
+
+
+% Layout der Tabelle: Ausrichtung, Schrift, Zeilenabstand
+\newcommand{\tablestylecommon}{%
+  \renewcommand{\arraystretch}{1.3}%  Groessere Abstaende zwischen Zeilen
+  %\setlength{\tabcolsep}{0pt}%        Seitliches Padding entfernen
+	\small%                             Kleine Schrift
+  %\sffamily%                         Serifenlose Schrift
+  \centering%                         Tabelle zentrieren
+}
+
+
+% Alternierende Farben:
+\newcommand\tablealtcolored{%
+	%% Verwendung:
+	%% \rowcolors{<starting row index>}{<odd row color>}{<even row color>}
+	\rowcolors{1}{tableoddrowcolor}{tableevenrowcolor}%
+}
+
+
+\newcommand{\tablestylealtcolored}{%
+	\tablestylecommon%
+	\tablealtcolored%
+}
+
 
 
 %%% -| Neue Spaltendefinitionen 'columntypes' |--
@@ -108,79 +144,53 @@
 }
 %%% --------------------------------------------
 
-%%% ---|Layout der Tabellen |-------------------
 
 % Neue Umgebung fuer Tabellen:
 
 \newenvironment{Tabelle}[2][c]{%
-  \tablestylecommon
+  \begingroup%
+  \tablestylecommon%
   \begin{longtable}[#1]{#2}
-  }
-  {\end{longtable}%
-  \tablerestoresettings
+  }{
+  \end{longtable}%
+  \endgroup%
 }
 
-
-% Groesse der Schrift in Tabellen
-\newcommand{\tablefontsize}{\footnotesize}
-\newcommand{\tableheadfontsize}{\footnotesize}
-
-% Layout der Tabelle: Ausrichtung, Schrift, Zeilenabstand
-\newcommand\tablestylecommon{%
-  \renewcommand{\arraystretch}{1.4} % Groessere Abstaende zwischen Zeilen
-  \normalfont\normalsize            %
-  \sffamily\tablefontsize           % Serifenlose und kleine Schrift
-  \centering%                       % Tabelle zentrieren
-}
-
-\newcommand{\tablestyle}{
-	\tablestylecommon
-	%\tablealtcolored
-}
 
 % Ruecksetzten der Aenderungen
 \newcommand\tablerestoresettings{%
-  \renewcommand{\arraystretch}{1}% Abstaende wieder zuruecksetzen
-  \normalsize\rmfamily % Schrift wieder zuruecksetzen
+  \renewcommand{\arraystretch}{1.0}% Abstaende wieder zuruecksetzen
+  \normalsize\rmfamily% Schrift wieder zuruecksetzen
 }
 
 % Tabellenkopf: Serifenlos+fett+schraeg+Schriftfarbe
-\newcommand\tableheadformat{%
-  \tableheadfontsize%
-  \sffamily\bfseries%
-  %\slshape
-  %\color{white}
+\newcommand\tableheadfont{%
+  %\tableheadfontsize%
+  %\sffamily%
+	\bfseries%
+  %\slshape%
+  %\color{white}%
 }
 
+% Tabellenzwischenüberschrift auf nächsten Seiten
 \newcommand\tablesubheadfont{%
-  \tableheadfontsize%
-  \sffamily\bfseries%
-  \slshape
-  %\color{white}
+	%\tablesubheadfontsize%
+  %\sffamily%
+	\bfseries%
+  %\slshape%
 }
 
-
-\newcommand\tableheadcolor{%
-	%\rowcolor{tablesubheadcolor}
-	%\rowcolor{tableblackheadcolor}
-	\rowcolor{tableheadcolor}%
-}
-
-\newcommand\tablesubheadcolor{%
-	\rowcolor{tablesubheadcolor}
-	%\rowcolor{tableblackheadcolor}
-}
 
 
 \newcommand{\tableend}{\arrayrulecolor{black}\hline}
 
 % Tabellenkopf (1=Spaltentyp, 2=Text)
-% \newcommand{\tablehead}[2]{
-%   \multicolumn{1}{#1@{}}{%
-%     \raisebox{.1mm}{% Ausrichtung der Beschriftung
-%       #2%
-%     }\rule{0pt}{4mm}}% unsichtbare Linie, die die Kopfzeile hoeher macht
-% }
+\newcommand{\tableheadrow}[2]{%
+   \multicolumn{1}{#1@{}}{%
+     \raisebox{.1mm}{% Ausrichtung der Beschriftung
+       #2%
+     }\rule{0pt}{4mm}}% unsichtbare Linie, die die Kopfzeile hoeher macht
+}
 
 
 \newcommand{\tablesubhead}[2]{%
@@ -189,15 +199,15 @@
 
 % Tabellenbody (=Inhalt)
 \newcommand\tablebody{%
-\tablefontsize\sffamily\upshape%
+	\small%
+	%\sffamily%
+	%\upshape%
 }
 
 \newcommand\tableheadshaded{%
 	\rowcolor{tableheadcolor}%
 }
-\newcommand\tablealtcolored{%
-	\rowcolors{1}{tablerowcolor}{white!100}%
-}
+
 %%% --------------------------------------------
 
 \newlength{\mylen}

@@ -29,9 +29,13 @@ komplett ausblenden.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \minisec{Persönliche Angaben}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-{\small
+%% Durch Definition einer Gruppe mit \begingroup ... \endgroup 
+%% sicherstellen, dass Anpassungen nur lokal wirken
+%% und sich nicht auf die nachfolgenden tabellen erstrecken
+\begingroup%
+\small% Kleinere Schrift
 \setlength{\tabcolsep}{0pt}% Kein Einzug
-\renewcommand{\arraystretch}{1.0}% Etwas mehr Abstand zwuischen den Zeilen, damit sie nicht zusammenfasllen
+\renewcommand{\arraystretch}{1.0}% Abstand zwischen den Zeilen nicht vergrößern
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.4\linewidth-2\tabcolsep}>{\raggedright\arraybackslash}p{0.6\linewidth-2\tabcolsep}}%
 %%-----------------------------------------------------------------------------------------------------
 Titel: & \AuthorTitle \\
@@ -41,14 +45,18 @@ Geburtsort: & \PlaceOfBirth \\
 Nationalität: & deutsch \\
 %%-----------------------------------------------------------------------------------------------------
 \end{longtable}
-}
+\endgroup%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \minisec{Bildung}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-{\small
+%% Durch Definition einer Gruppe mit \begingroup ... \endgroup 
+%% sicherstellen, dass Anpassungen nur lokal wirken
+%% und sich nicht auf die nachfolgenden tabellen erstrecken
+\begingroup%
+\small% Kleinere Schrift
 \setlength{\tabcolsep}{0pt}% Kein Einzug
-\renewcommand{\arraystretch}{1.3}% Etwas mehr Abstand zwuischen den Zeilen, damit sie nicht zusammenfasllen
+\renewcommand{\arraystretch}{1.3}% Etwas mehr Abstand zwischen den Zeilen, damit sie nicht zusammenfallen
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.4\linewidth-2\tabcolsep}>{\raggedright\arraybackslash}p{0.6\linewidth-2\tabcolsep}}%
 %%-----------------------------------------------------------------------------------------------------
 01.01.1900 -- 01.01.2000 & \textbf{Gymnasium XYZ in ABC}\\
@@ -56,14 +64,18 @@ Nationalität: & deutsch \\
 01.01.1900 -- 01.01.2000 & \textbf{Studium der XXX am KIT}\newline Abschluss als ...\\
 %%-----------------------------------------------------------------------------------------------------
 \end{longtable}
-}
+\endgroup%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \minisec{Berufserfahrung}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-{\small
+%% Durch Definition einer Gruppe mit \begingroup ... \endgroup 
+%% sicherstellen, dass Anpassungen nur lokal wirken
+%% und sich nicht auf die nachfolgenden tabellen erstrecken
+\begingroup%
+\small% Kleinere Schrift
 \setlength{\tabcolsep}{0pt}% Kein Einzug
-\renewcommand{\arraystretch}{1.3}% Etwas mehr Abstand zwuischen den Zeilen, damit sie nicht zusammenfasllen
+\renewcommand{\arraystretch}{1.3}% Etwas mehr Abstand zwischen den Zeilen, damit sie nicht zusammenfallen
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.4\linewidth-2\tabcolsep}>{\raggedright\arraybackslash}p{0.6\linewidth-2\tabcolsep}}%
 %-----------------------------------------------------------------------------------------------------
 01.01.1900 -- 01.01.2000 & \textbf{Stelle XXX}\newline Wissenschaftliche Hilfskraft\\
@@ -71,4 +83,4 @@ Nationalität: & deutsch \\
 01.01.1900 -- 01.01.2000 & \textbf{Stelle YYY}\newline Berufsbezeichnung\\
 %%-----------------------------------------------------------------------------------------------------
 \end{longtable}
-}
+\endgroup%
