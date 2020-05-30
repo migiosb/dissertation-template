@@ -1615,6 +1615,12 @@ afterskip=\myparagraphafterskip%
 % Einzug im Tabellenverzeichnis zu Null setzen
 \renewcommand{\cfttabindent}{0cm}
 
+% Abstand zwischen Abbildungsnummer und Text im Abbildungsverzeichnis fest auf 3em setzen
+\setlength{\cftfignumwidth}{3em}
+% Abstand zwischen Tabellennummer und Text im Tabellenverzeichnis fest auf 3em setzen
+\setlength{\cfttabnumwidth}{3em}
+
+
 %% Minestanzahl an Punkten (2 Punkte zwischen den Kapiteleinträgen und korrespondierenden Seitenzahlen:
 %% s. https://tex.stackexchange.com/questions/204945/leaders-in-tocloft-with-minimum-width
 \renewcommand{\cftchapleader}{\leaders\hbox to1em{\hss.\hss}\hskip 3em plus1fill}
@@ -1631,7 +1637,8 @@ afterskip=\myparagraphafterskip%
 \renewcommand\lstlistoflistings{\bgroup
 	\let\contentsname\lstlistlistingname
 	%\def\l@lstlisting##1##2{\@dottedtocline{1}{1.5em}{2.3em}{\bfseries L ##1}{##2}}
-	\def\l@lstlisting##1##2{\@dottedtocline{1}{0em}{2.3em}{##1}{##2}}
+	%\def\l@lstlisting##1##2{\@dottedtocline{1}{0em}{2.3em}{##1}{##2}}
+	\def\l@lstlisting##1##2{\@dottedtocline{1}{0em}{3em}{##1}{##2}}
 	\let\lst@temp\@starttoc \def\@starttoc##1{\lst@temp{lol}}%
 	\tableofcontents 
 	\addcontentsline{toc}{chapter}{\lstlistlistingname} % <-- diese Zeile selbst hinzugefügt
