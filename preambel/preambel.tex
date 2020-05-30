@@ -524,6 +524,24 @@ verbose,
 			numberstyle=\tiny,          % Stil der Zeilennummern	
 }
 
+\lstdefinestyle{nonumbersgraybackgrd}{%
+			numbers=none,%
+			frame = none,             % keinen Rahmen um Listings zeichnen
+			backgroundcolor = \color{lightgray},
+			xleftmargin=0pt,
+			xrightmargin=0pt,
+}
+
+\lstdefinestyle{numbersgraybackgrd}{%
+			numbers=left,			          % Ort der Zeilennummern (falls gewünscht, 
+			frame = single,             % Rahmen um Listings zeichnen
+			backgroundcolor = \color{lightgray},
+			xleftmargin=0pt,
+			xrightmargin=0pt,
+			numberstyle=\tiny,          % Stil der Zeilennummern	
+}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% User-Defined styles for different programming languages %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
