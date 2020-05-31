@@ -1591,12 +1591,17 @@ afterskip=\myparagraphafterskip%
 %\cftsetpnumwidth{1.7em}% default is 1.55em
 
 %% Flattersatz ohne Silbentrennung in Inhaltsverzeichnis
-%(Lösung aus https://tex.stackexchange.com/questions/283730/left-align-toc-items-when-using-tableofcontents)
 \makeatletter
-\bgroup
-\advance\@flushglue by \@tocrmarg
-\xdef\@tocrmarg{\the\@flushglue}%
-\egroup
+%% (Lösung aus https://tex.stackexchange.com/questions/283730/left-align-toc-items-when-using-tableofcontents)
+%\bgroup
+%\advance\@flushglue by \@tocrmarg
+%\xdef\@tocrmarg{\the\@flushglue}%
+%\egroup
+%%% Lösung aus der KSP-Vorlage
+\renewcommand{\@tocrmarg}{\@pnumwidth plus1fil} % Weitere Einstellung zu "Punkte im Inhaltsverzeichnis"
+\renewcommand*\@tocrmarg{4em plus1fil} % "4em": Automatischer Zeilenumbruch im Inhaltsverzeichnis bei langen Überschriften, 
+                                       % horizontaler Abstand zum rechten Satzspiegelrand;
+                                       % "plus1fil": Keine Silbentrennung im Inhaltsverzeichnis
 \makeatother
 
 %Wird in der Datei settings.tex gesetzt
@@ -1612,6 +1617,7 @@ afterskip=\myparagraphafterskip%
 
 % Gepunktete Verbindung zwischen den Kapiteleinträgen und korrespondierenden Seitenzahlen:
 % funktioniert!
+%\renewcommand\cftdotsep{4.621757} % Vorschlag KSP: Definition des Abstandes zwischen den Punkten. Bei größeren Werten wird der letzte Punkt nicht mehr gezeichnet, weil er "außerhalb der Zeile" liegt
 \renewcommand{\cftchapdotsep}{\cftdotsep}
 %\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
 
@@ -1634,6 +1640,11 @@ afterskip=\myparagraphafterskip%
 \renewcommand{\cftfigleader}{\leaders\hbox to1em{\hss.\hss}\hskip 3em plus1fill}
 \renewcommand{\cftsubfigleader}{\leaders\hbox to1em{\hss.\hss}\hskip 3em plus1fill}
 \renewcommand{\cfttableader}{\leaders\hbox to1em{\hss.\hss}\hskip 3em plus1fill}
+
+
+
+%% Eventuell ändern, um eine schönere Seitendarstellung im Inhaltsverzeichnis zu erhalten
+%\BeforeStartingTOC{\setstretch{1.075}}
 
 % Workaround for correct setting of the list of listings taken from
 % https://tex.stackexchange.com/questions/319372/customize-list-of-listings/319374#319374
