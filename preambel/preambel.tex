@@ -646,7 +646,7 @@ verbose,
 				commentstyle=\color{commentcolor},
 				directivestyle=\color{keywordcolor},
 				aboveskip=\mytextfloatsep,
-				abovecaptionskip=\mycaptionskip,
+				abovecaptionskip=\mylistingcaptionskip,
 				belowcaptionskip=\mytextfloatsep,
 				captionpos=b, %Überschrift unterhalb (ggf. weitere Einstellung in captionsetup beachten!)
 }
@@ -1461,6 +1461,7 @@ afterskip=\myparagraphafterskip%
 
 %%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/caption/caption.pdf
 \usepackage{caption}
+%\usepackage[skip=\mycaptionskip]{caption}
 %\usepackage[aboveskip=\myaboveskip,belowskip=\mybelowskip]{caption}
 % Caption fuer nicht fliessende Umgebungen
 %%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/misc/capt-of.sty
@@ -1474,15 +1475,15 @@ afterskip=\myparagraphafterskip%
 %\setlength{\abovecaptionskip}{\mycaptionskip}
 %\setlength{\belowcaptionskip}{\mycaptionskip}
 %\setlength{\subfigtopskip}{0pt}
-%\setlength{\subfigbottomskip}{pt}
+%\setlength{\subfigbottomskip}{0pt}
 
 % Aussehen der Captions
 \captionsetup[figure]{
    margin = 0pt,
-   aboveskip = \myaboveskip,
-   belowskip = \mybelowskip,
-   captionskip = \mycaptionskip,
-   %skip = \mycaptionskip,
+   aboveskip = \myfigureaboveskip,
+   belowskip = \myfigurebelowskip,
+   captionskip = \myfigurecaptionskip,
+   %skip = \myfigureskip,
    font = {footnotesize,rm},
    labelfont = {footnotesize,bf},
    %format = plain, % oder 'hang'
@@ -1497,10 +1498,10 @@ afterskip=\myparagraphafterskip%
 }
 \captionsetup[table]{
    margin = 0pt,
-   aboveskip = \myaboveskip,
-   belowskip = \mybelowskip,
-   captionskip = \mycaptionskip,
-   %skip = \mycaptionskip,
+   aboveskip = \mytableaboveskip,
+   belowskip = \mytablebelowskip,
+   captionskip = \mytablecaptionskip,
+   %skip = \mytableskip,
    font = {footnotesize,rm},
    labelfont = {footnotesize,bf},
    %format = plain, % oder 'hang'
@@ -1515,10 +1516,10 @@ afterskip=\myparagraphafterskip%
 }
 \captionsetup[lstlisting]{
    margin = 0pt,
-   aboveskip = \myaboveskip,
-   belowskip = \mybelowskip,
-   captionskip = \mycaptionskip,
-   skip = \mycaptionskip,
+   aboveskip = \mylistingaboveskip,
+   belowskip = \mylistingbelowskip,
+   captionskip = \mylistingcaptionskip,
+   skip = \mylistingskip,
    font = {footnotesize,rm},
    labelfont = {footnotesize,bf},
    %format = plain, % oder 'hang'
@@ -1541,10 +1542,10 @@ afterskip=\myparagraphafterskip%
    %margin = 10pt,
    margin = 5pt,
    %margin = 0pt,
-   aboveskip = \myaboveskip,
-   belowskip = \mybelowskip,
+   aboveskip = \mysubfigaboveskip,
+   belowskip = \mysubfigbelowskip,
    farskip = 0pt, %Glue placed opposite the sub-float caption (default: 10pt)
-   nearskip = 0pt, %Glue placed opposite the caption from the sub-float (default: 0pt)
+   nearskip = 5pt, %Glue placed opposite the caption from the sub-float (default: 0pt)
    captionskip = \mysubcaptionskip, %Glue placed between the sub-float and the caption (default: 4pt)
    %skip = \mycaptionskip,
    %topadjust=0pt, %Extra glue added to 'captionskip' when above the sub-float (default: 0pt)
@@ -1621,7 +1622,7 @@ afterskip=\myparagraphafterskip%
 \setlength{\cfttabnumwidth}{3em}
 
 
-%% Minestanzahl an Punkten (2 Punkte zwischen den Kapiteleinträgen und korrespondierenden Seitenzahlen:
+%% Mindestanzahl an Punkten (2 Punkte zwischen den Kapiteleinträgen und korrespondierenden Seitenzahlen:
 %% s. https://tex.stackexchange.com/questions/204945/leaders-in-tocloft-with-minimum-width
 \renewcommand{\cftchapleader}{\leaders\hbox to1em{\hss.\hss}\hskip 3em plus1fill}
 \renewcommand{\cftsecleader}{\leaders\hbox to1em{\hss.\hss}\hskip 3em plus1fill}

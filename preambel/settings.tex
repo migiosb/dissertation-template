@@ -50,21 +50,86 @@
 \setlength{\myparagraphbeforeskip}{1.5\myparskip}
 \setlength{\myparagraphafterskip}{1\myparskip}
 
-%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
-%funktioniert aus irgendeinem Grund nicht!
+
+%%Abstand zwischen der Abbilung und der Überschrift:
+%%funktioniert aus irgendeinem Grund nicht!
 \newlength{\myaboveskip}
 %\setlength{\myaboveskip}{10pt}
 \setlength{\myaboveskip}{0pt}
-%Abstand nach der Überschrift einer Abbilung/Tabelle:
+
+%%Abstand nach der Überschrift einer Abbilung:
+%%funktioniert aus irgendeinem Grund nicht!
 \newlength{\mybelowskip}
 %\setlength{\mybelowskip}{10pt}
 \setlength{\mybelowskip}{0pt}
-%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+
+
+%Abstand zwischen der Subfigure-Überschrift und der Überschrift:
 \newlength{\mysubcaptionskip}
 \setlength{\mysubcaptionskip}{6pt}
-%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+
+%Abstand zwischen der Float-Umgebung und der Unter-/Überschrift
 \newlength{\mycaptionskip}
 \setlength{\mycaptionskip}{5pt}
+
+
+%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+\newlength{\myfigureskip}
+\setlength{\myfigureskip}{\mycaptionskip}
+%Abstand zwischen der Abbilung und der Überschrift:
+%funktioniert aus irgendeinem Grund nicht!
+\newlength{\myfigureaboveskip}
+\setlength{\myfigureaboveskip}{\mycaptionskip}
+%Abstand nach der Überschrift einer Abbilung:
+\newlength{\myfigurebelowskip}
+\setlength{\myfigurebelowskip}{\mycaptionskip}
+%Abstand zwischen der Abbilung und der Überschrift:
+\newlength{\myfigurecaptionskip}
+\setlength{\myfigurecaptionskip}{\mycaptionskip}
+
+
+
+%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+\newlength{\mytableskip}
+\setlength{\mytableskip}{\mycaptionskip}
+%Abstand zwischen der Tabelle und der Überschrift:
+%funktioniert aus irgendeinem Grund nicht!
+\newlength{\mytableaboveskip}
+\setlength{\mytableaboveskip}{\mycaptionskip}
+%Abstand nach der Überschrift einer Tabelle:
+\newlength{\mytablebelowskip}
+\setlength{\mytablebelowskip}{\mycaptionskip}
+%Abstand zwischen der Tabelle und der Überschrift:
+\newlength{\mytablecaptionskip}
+\setlength{\mytablecaptionskip}{\mycaptionskip}
+
+
+%Abstand zwischen der Listing und der Überschrift:
+\newlength{\mylistingskip}
+\setlength{\mylistingskip}{\mycaptionskip}
+%Abstand zwischen der Listing und der Überschrift:
+%funktioniert aus irgendeinem Grund nicht!
+\newlength{\mylistingaboveskip}
+\setlength{\mylistingaboveskip}{\mycaptionskip}
+%Abstand nach der Überschrift einer Listing:
+\newlength{\mylistingbelowskip}
+\setlength{\mylistingbelowskip}{\mycaptionskip}
+%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+\newlength{\mylistingcaptionskip}
+\setlength{\mylistingcaptionskip}{\mycaptionskip}
+
+
+%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+%funktioniert aus irgendeinem Grund nicht!
+\newlength{\mysubfigaboveskip}
+\setlength{\mysubfigaboveskip}{\mycaptionskip}
+%Abstand nach der Überschrift einer Abbilung/Tabelle:
+\newlength{\mysubfigbelowskip}
+\setlength{\mysubfigbelowskip}{\mycaptionskip}
+%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+\newlength{\mysubfigcaptionskip}
+\setlength{\mysubfigcaptionskip}{\mysubcaptionskip}
+
 %Abstand zwischen zwei Subfloats (muss manuell hinzugefügt werden)
 \newlength{\mysubfloatvskip}
 \setlength{\mysubfloatvskip}{10pt} % (default 12pt plus 2pt minus 2pt)
