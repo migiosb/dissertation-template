@@ -251,6 +251,11 @@
 %% Man muss händisch an die Absätze \vskipnextgrid setzen und für jedes \vskipnextgrid braucht man (mehr od. weniger) einen extra-Durchlauf von pdfLaTeX :-(
 %\usepackage{gridset}
 
+%% for better aligning images and captions
+%% settings are done after call of \captionsetup
+%% Führt zur Ignorierung der definierten skip-Abtände!!!?
+\usepackage{floatrow}
+
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Tables (Tabular)
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -645,10 +650,16 @@ verbose,
 				showstringspaces=false,      % Leerzeichen in Strings anzeigen ?
 				commentstyle=\color{commentcolor},
 				directivestyle=\color{keywordcolor},
-				aboveskip=\mytextfloatsep,
-				abovecaptionskip=\mylistingcaptionskip,
-				belowcaptionskip=\mytextfloatsep,
-				captionpos=b, %Überschrift unterhalb (ggf. weitere Einstellung in captionsetup beachten!)
+				%captionpos=b, %Überschrift unterhalb (ggf. weitere Einstellung in captionsetup beachten!)
+				%aboveskip=\mytextfloatsep,
+				%belowskip=\mytextfloatsep,
+				%abovecaptionskip=\mylistingcaptionskip,
+				%belowcaptionskip=\mytextfloatsep,
+				captionpos=t, %Überschrift oberhalb (ggf. weitere Einstellung in captionsetup beachten!)
+				%aboveskip=\mytextfloatsep,
+				%belowskip=\mytextfloatsep,
+				%abovecaptionskip=\mytextfloatsep,
+				%belowcaptionskip=\mylistingcaptionskip,
 }
 
 
@@ -1475,9 +1486,11 @@ afterskip=\myparagraphafterskip%
 }
 %
 
-%Funktioniert auch nicht...
+%Scheint durch floatrow überschrieben zu werden
 %\setlength{\abovecaptionskip}{\mycaptionskip}
 %\setlength{\belowcaptionskip}{\mycaptionskip}
+%\setlength{\abovecaptionskip}{\myaboveskip}
+%\setlength{\belowcaptionskip}{\mybelowskip}
 %\setlength{\subfigtopskip}{0pt}
 %\setlength{\subfigbottomskip}{0pt}
 
@@ -1534,7 +1547,7 @@ afterskip=\myparagraphafterskip%
    %justification = centering, % zentriert
    justification = justified, % Blocksatz
    singlelinecheck = true, % false (true=bei einer Zeile immer zentrieren)
-   position = bottom %top (ggf. weitere Einstellung in lstset beachten!)
+   position = top %bottom (ggf. weitere Einstellung in lstset beachten!)
 }
 %%% Bugfix Workaround
 \DeclareCaptionOption{parskip}[]{}
@@ -1575,7 +1588,7 @@ afterskip=\myparagraphafterskip%
 %% for better aligning images and captions
 %% has to be loaded after call of \captionsetup
 %% Führt zur Ignorierung der definierten skip-Abtände!!!
-\usepackage{floatrow}
+%\usepackage{floatrow}
 \floatsetup[table]{style=plain,capposition=TOP}
 
 %% Inhaltsverzeichnis (Schrift, Aussehen) sowie weitere Verzeichnisse ====
