@@ -1572,8 +1572,9 @@ afterskip=\myparagraphafterskip%
 % \numberwithin{figure}{chapter} %Befehl zum Kapitelweise Nummerieren der Bilder, setzt `amsmath' vorraus
 % \numberwithin{table}{chapter}  %Befehl zum Kapitelweise Nummerieren der Tabellen, setzt `amsmath' vorraus
 
-%for better aligning images and captions
-% has to be loaded after call of \captionsetup
+%% for better aligning images and captions
+%% has to be loaded after call of \captionsetup
+%% Führt zur Ignorierung der definierten skip-Abtände!!!
 \usepackage{floatrow}
 \floatsetup[table]{style=plain,capposition=TOP}
 
