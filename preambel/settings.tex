@@ -22,7 +22,9 @@
 %\setlength{\myparskip}{0.5\baselineskip plus 0.5\baselineskip} % das wäre wohl default
 %\setlength{\myparskip}{0.5\baselineskip} %ohne Pluswerte (= keine Dehnung)
 %\setlength{\myparskip}{0.6\baselineskip} %ohne Pluswerte (= keine Dehnung)
-\setlength{\myparskip}{0.6\baselineskip plus 1pt minus 1pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
+%\setlength{\myparskip}{0.6\baselineskip plus 1pt minus 1pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
+%\setlength{\myparskip}{0.6\baselineskip plus 0pt minus 0pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
+\setlength{\myparskip}{6pt} %ohne Pluswerte (= Dehnung) und Minuswerte (= Stauchung)
 
 \newlength{\mychapterbeforeskip}
 \newlength{\mychapterafterskip}
@@ -137,23 +139,24 @@
 %%% Vertikaler Abstand zwischen zwei Gleitobjekten
 \newlength{\myfloatsep}
 %\setlength{\myfloatsep}{\baselineskip} % (default 12pt plus 2pt minus 2pt)
-\setlength{\myfloatsep}{\baselineskip}
-%\setlength{\myfloatsep}{12pt}
+%\setlength{\myfloatsep}{\baselineskip}
+\setlength{\myfloatsep}{12pt}
 
 %%% Vertikaler Abstand zwischen der Top- oder Bottom-Bereich und Text-Bereich
 \newlength{\mytextfloatsep}
 %\setlength{\mytextfloatsep}{\baselineskip} % (default 20pt plus 2pt minus 4pt)
 %\setlength{\mytextfloatsep}{\myfloatsep}
-\setlength{\mytextfloatsep}{1.5\baselineskip}
-%\setlength{\mytextfloatsep}{12pt}
+%\setlength{\mytextfloatsep}{1.5\baselineskip}
+\setlength{\mytextfloatsep}{12pt}
 
 %% Abstand zwischen Inline-Gleitobjekten, die mit "here" platziert worden sind,
 %% und dem darüber und darunter angeordneten Fließtext fest
 %% Beispiel: \intextsep5mm plus3mm minus2mm
 %\setlength{\intextsep}{0.5\baselineskip} % Platz ober- und unterhalb des Bildes
 \newlength{\myintextsep}
-\setlength{\myintextsep}{2\baselineskip} % (default 12pt plus 2pt minus 2pt) 
-%\setlength{\myintextsep}{10pt} % (default 12pt plus 2pt minus 2pt) 
+%\setlength{\myintextsep}{2\baselineskip} % (default 12pt plus 2pt minus 2pt) 
+%\setlength{\myintextsep}{10pt}
+\setlength{\myintextsep}{12pt}
 
 %% Weitere Angaben:
 %% Forderung des KSP-Verlages:
