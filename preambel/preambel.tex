@@ -237,6 +237,26 @@
 }
 
 
+% Abstand zwischen zwei Absätzen
+\setlength{\parskip}{\myparskip}
+
+%% Kleiner Abstand zwischen zwei Absätzen 
+\setlength{\smallskipamount}{\mysmallskip}
+
+%% Mittelgroßer Abstand zwischen zwei Absätzen 
+\setlength{\medskipamount}{\mymedskip}
+
+%% Mittelgroßer Abstand zwischen zwei Absätzen 
+\setlength{\bigskipamount}{\mybigskip}
+
+%% Abstand zwischen Gleitobjekten und dem darüber und darunter angeordneten Fließtext fest
+\setlength{\intextsep}{\myintextsep}
+\setlength{\floatsep}{\myfloatsep}
+\setlength{\textfloatsep}{\mytextfloatsep}
+%\setlength{\columnsep}{1em} % Abstand zum Text
+
+
+
 %% Doc: (inside relsize.sty )
 %% ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/misc/relsize.sty
 %  Set the font size relative to the current font size
@@ -516,6 +536,8 @@ verbose,
 			framerule=\mylistingframerule,
 			xleftmargin=\dimexpr\mylistingframesep+\mylistingframerule,
 			xrightmargin=\dimexpr\mylistingframesep+\mylistingframerule,
+			%aboveskip=\dimexpr\medskipamount+\mylistingframesep+\mylistingframerule,
+			%belowskip=\dimexpr\medskipamount+\mylistingframesep+\mylistingframerule,
 }
 
 
@@ -526,6 +548,8 @@ verbose,
 			framerule=\mylistingframerule,
 			xleftmargin=\dimexpr\mylistingframesep+\mylistingframerule+2\marginparsep,
 			xrightmargin=\dimexpr\mylistingframesep+\mylistingframerule,
+			%aboveskip=\dimexpr\medskipamount+\mylistingframesep+\mylistingframerule,
+			%belowskip=\dimexpr\medskipamount+\mylistingframesep+\mylistingframerule,
 			numberstyle=\tiny,          % Stil der Zeilennummern	
 }
 
@@ -656,10 +680,12 @@ verbose,
 				%abovecaptionskip=\mylistingcaptionskip,
 				%belowcaptionskip=\mytextfloatsep,
 				captionpos=t, %Überschrift oberhalb (ggf. weitere Einstellung in captionsetup beachten!)
-				%aboveskip=\mytextfloatsep,
-				%belowskip=\mytextfloatsep,
+				aboveskip=\mylistingaboveskip,
+				belowskip=\mylistingbelowskip,
+				%abovecaptionskip=0pt,
 				%abovecaptionskip=\mytextfloatsep,
-				%belowcaptionskip=\mylistingcaptionskip,
+				belowcaptionskip=\mylistingcaptionskip,
+				%belowcaptionskip=0pt,
 }
 
 
@@ -747,15 +773,6 @@ verbose,
 \setcounter{bottomnumber}{3}           % vorher: 1
 %% maximum number of floats on a page (default: 3)
 \setcounter{totalnumber}{5}            % vorher: 3
-
-% Abstand zwischen zwei Absätzen
-\setlength{\parskip}{\myparskip}
-
-%% Abstand zwischen Gleitobjekten und dem darüber und darunter angeordneten Fließtext fest
-\setlength{\intextsep}{\myintextsep}
-\setlength{\floatsep}{\myfloatsep}
-\setlength{\textfloatsep}{\mytextfloatsep}
-%\setlength{\columnsep}{1em} % Abstand zum Text
 
 
 \makeatletter
@@ -1533,10 +1550,10 @@ afterskip=\myparagraphafterskip%
 }
 \captionsetup[lstlisting]{
    margin = 0pt,
-   aboveskip = \mylistingaboveskip,
-   belowskip = \mylistingbelowskip,
-   captionskip = \mylistingcaptionskip,
-   skip = \mylistingskip,
+   %aboveskip = \mylistingaboveskip,
+   %belowskip = \mylistingbelowskip,
+   %captionskip = \mylistingcaptionskip,
+   %skip = \mylistingskip,
    font = {footnotesize,rm},
    labelfont = {footnotesize,bf},
    %format = plain, % oder 'hang'
