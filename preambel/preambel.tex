@@ -237,16 +237,23 @@
 }
 
 
-% Abstand zwischen zwei Absätzen
+%% Abstand zwischen zwei Absätzen
+%% Anpassung in der Datei settings.tex
 \setlength{\parskip}{\myparskip}
 
-%% Kleiner Abstand zwischen zwei Absätzen 
+%% Kleiner Abstand zwischen zwei Absätzen
+%% default: 3.0pt plus 1.0pt minus 1.0pt
+%% Anpassung in der Datei settings.tex
 \setlength{\smallskipamount}{\mysmallskip}
 
-%% Mittelgroßer Abstand zwischen zwei Absätzen 
+%% Mittelgroßer Abstand zwischen zwei Absätzen
+%% default 6.0pt plus 2.0pt minus 2.0pt
+%% Anpassung in der Datei settings.tex
 \setlength{\medskipamount}{\mymedskip}
 
-%% Mittelgroßer Abstand zwischen zwei Absätzen 
+%% Mittelgroßer Abstand zwischen zwei Absätzen
+%% default 12.0pt plus 4.0pt minus 4.0pt
+%% Anpassung in der Datei settings.tex
 \setlength{\bigskipamount}{\mybigskip}
 
 %% Abstand zwischen Gleitobjekten und dem darüber und darunter angeordneten Fließtext fest
@@ -1382,7 +1389,7 @@ verbose,
 %% indirekte Auswirkung auch auf \raggedchapter
 
 %%% Adjust space above and below chapter titles, section titles etc.
-
+%% Definition angepasster Parameter in der Datei settings.tex
 \RedeclareSectionCommand[%
 %%beforeskip=-10pt plus -2pt minus -1pt,%
 %%afterskip=1sp plus -1sp minus 1sp%
@@ -1511,7 +1518,8 @@ afterskip=\myparagraphafterskip%
 %\setlength{\subfigtopskip}{0pt}
 %\setlength{\subfigbottomskip}{0pt}
 
-% Aussehen der Captions
+%% Aussehen der Captions
+%% Definition angepasster Parameter in der Datei settings.tex
 \captionsetup[figure]{
    margin = 0pt,
    aboveskip = \myfigureaboveskip,
@@ -1657,9 +1665,11 @@ afterskip=\myparagraphafterskip%
 % Einzug im Tabellenverzeichnis zu Null setzen
 \renewcommand{\cfttabindent}{0cm}
 
-% Abstand zwischen Abbildungsnummer und Text im Abbildungsverzeichnis fest auf 3em setzen
+% Abstand zwischen der Abbildungsnummer und dem Namen der Abbildung im Abbildungsverzeichnis vergrößern,
+% indem die Größe der unsichtbaren Box für die Abbildungsnummer fest auf 3em gesetzt wird
 \setlength{\cftfignumwidth}{3em}
-% Abstand zwischen Tabellennummer und Text im Tabellenverzeichnis fest auf 3em setzen
+% Abstand zwischen der Tabellennummer und dem Tabellennamen im Tabellenverzeichnis vergrößern,
+%indem die Größe der unsichtbaren Box für die Tabellennummer fest auf 3em gesetzt wird
 \setlength{\cfttabnumwidth}{3em}
 
 
@@ -1683,11 +1693,22 @@ afterskip=\myparagraphafterskip%
 \AtBeginDocument{%
 \renewcommand\lstlistoflistings{\bgroup
 	\let\contentsname\lstlistlistingname
+	%% Change formatting of the entries in the list of listings:
+	%% Original definition in listings.sty: indentation of 1.5em, listing number in a box with the width of 2.3em
+	%%   \def\l@lstlisting#1#2{\@dottedtocline{1}{1.5em}{2.3em}{#1}{#2}}
+	%% Examples of modification:
+	%% - Listing number in bold preceded by an "L":
 	%\def\l@lstlisting##1##2{\@dottedtocline{1}{1.5em}{2.3em}{\bfseries L ##1}{##2}}
+	%% - no identation:
 	%\def\l@lstlisting##1##2{\@dottedtocline{1}{0em}{2.3em}{##1}{##2}}
+	%% - no identation, increased spacing between the number and the name of the listing
+	%%   by setting the width of the number box to 3em:
+	%% Abstand zwischen der Nummer und dem Namen des Listings im Listingsverzeichnis vergrößern,
+	%% indem die Größe der unsichtbaren Box für die Listingsnummer fest auf 3em gesetzt wird
 	\def\l@lstlisting##1##2{\@dottedtocline{1}{0em}{3em}{##1}{##2}}
 	\let\lst@temp\@starttoc \def\@starttoc##1{\lst@temp{lol}}%
 	\tableofcontents 
+	%% Add the list of listings to the table of contexts at the chapter level
 	\addcontentsline{toc}{chapter}{\lstlistlistingname} % <-- diese Zeile selbst hinzugefügt
 	\egroup}
 }
