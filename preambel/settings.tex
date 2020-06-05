@@ -17,11 +17,23 @@
 %\setlength{\mymarginparsep}{5mm}
 %\setlength{\mymarginparsep}{0pt}
 
+
+
+
+%%% Absatzangaben von Komaskript:
+%%%\setparsizes{<Einzug>}{<Abstand>}{<Endzeilenleerraum>}
+%%%\setparsizes{<parindent>}{<parskip>}{<parfillskip>}
+%%\setparsizes{\myparindent}{\myparskip}{0pt plus\dimexpr\textwidth-10ex}
+%\setparsizes{0pt}{6.6pt}{0pt plus\dimexpr\textwidth-10ex}
+
+
+
+
 % Abstand zwischen den Paragraphen
 \newlength{\myparskip}
 %\setlength{\myparskip}{0.5\baselineskip plus 0.5\baselineskip} % das wäre wohl default
-%\setlength{\myparskip}{0.5\baselineskip} %ohne Pluswerte (= keine Dehnung)
-%\setlength{\myparskip}{0.6\baselineskip} %ohne Pluswerte (= keine Dehnung)
+%\setlength{\myparskip}{0.5\baselineskip} %ohne Pluswerte (= keine Dehnung) und Minuswerte (= keine Stauchung)
+%\setlength{\myparskip}{0.6\baselineskip} %ohne Pluswerte (= keine Dehnung) und Minuswerte (= keine Stauchung)
 %\setlength{\myparskip}{0.6\baselineskip plus 1pt minus 1pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
 %\setlength{\myparskip}{0.6\baselineskip plus 0pt minus 0pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
 \setlength{\myparskip}{6.6pt} %ohne Pluswerte (= Dehnung) und Minuswerte (= Stauchung)
@@ -56,10 +68,10 @@
 %\setlength{\intextsep}{0.5\baselineskip} % Platz ober- und unterhalb des Bildes
 \newlength{\myintextsep}
 %\setlength{\myintextsep}{2\baselineskip} % (default 12pt plus 2pt minus 2pt) 
-%\setlength{\myintextsep}{10pt}
-\setlength{\myintextsep}{12pt} %ohne Pluswerte (= Dehnung) und Minuswerte (= Stauchung)
+\setlength{\myintextsep}{10pt}
+%\setlength{\myintextsep}{12pt} %ohne Pluswerte (= Dehnung) und Minuswerte (= Stauchung)
 %\setlength{\myintextsep}{12pt plus 1pt minus 1pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
-
+%\setlength{\myintextsep}{0pt} %kein Zusatzabstand!
 
 
 \newlength{\mychapterbeforeskip}
@@ -149,21 +161,33 @@
 \setlength{\mytablecaptionskip}{\mycaptionskip}
 
 
-%Abstand zwischen der Listing und der Überschrift:
+%% Abstand zwischen der Listing und der Überschrift:
 \newlength{\mylistingskip}
 \setlength{\mylistingskip}{\mycaptionskip}
-%Abstand zwischen der Listing und der Überschrift:
-%funktioniert aus irgendeinem Grund nicht!
+%% Abstand zwischen dem Text und der Listing über der Listing (d.h. ggf. über der Überschrift)
 \newlength{\mylistingaboveskip}
 %\setlength{\mylistingaboveskip}{\myaboveskip}
-\setlength{\mylistingaboveskip}{0.5\mytextfloatsep}
-%Abstand nach der Überschrift einer Listing:
+%\setlength{\mylistingaboveskip}{0.5\mytextfloatsep}
+%\setlength{\mylistingaboveskip}{0pt}
+\setlength{\mylistingaboveskip}{\myintextsep}
+%% Abstand nach der Listing (d.h. ggf. unter der Unterschrift):
 \newlength{\mylistingbelowskip}
 %\setlength{\mylistingbelowskip}{\mybelowskip}
-\setlength{\mylistingbelowskip}{\mytextfloatsep}
-%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
-\newlength{\mylistingcaptionskip}
-\setlength{\mylistingcaptionskip}{\mycaptionskip}
+%\setlength{\mylistingbelowskip}{\mytextfloatsep}
+%\setlength{\mylistingbelowskip}{0pt}
+\setlength{\mylistingbelowskip}{\myintextsep}
+%\setlength{\mylistingbelowskip}{\myintextsep}
+%\setlength{\mylistingbelowskip}{2\parskip}
+%%% Abstand zwischen der Listing und der Überschrift:
+%\newlength{\mylistingcaptionskip}
+%\setlength{\mylistingcaptionskip}{\mycaptionskip}
+%%% Abstand vor der Überschrift einer Listing:
+%\newlength{\mylistingcaptionaboveskip}
+%\setlength{\mylistingcaptionaboveskip}{\myparskip}
+%%% Abstand nach der Überschrift einer Listing:
+%\newlength{\mylistingcaptionbelowskip}
+%\setlength{\mylistingcaptionbelowskip}{\myparskip}
+
 
 
 %Abstand zwischen der Abbilung/Tabelle und der Überschrift:
