@@ -107,17 +107,24 @@
 \newcommand{\linewidthwithoutfbox}{\linewidth-2\fboxsep-2\fboxrule}
 
 
-
-\newenvironment{myNotationTable}{%
+%% Notationstabelle mit zwei Spalten mit variablen Spaltenbreite
+%% Breite der ersten Spalte als optionaler Argument in eckigen Klammern angebbar
+%% Default ist 0.21\linewidth (21% der Seitenbreite)
+\newenvironment{myNotationTable}[1][0.21\linewidth]{%
 		\begingroup%
 		\setlength{\tabcolsep}{0pt}% Kein Einzug bei Notation
-		\renewcommand{\arraystretch}{1.3}% Etwas mehr Abstand zwuischen den Zeilen, damit sie nicht zusammenfasllen
+		\renewcommand{\arraystretch}{1.3}% Etwas mehr Abstand zwuischen den Zeilen, damit sie nicht zusammenfallen
 		%% Forderung des KSP-Verlages: keine Worttrennung in einer Tabelle, daher \raggedright statt \RaggedRight
-		\begin{longtable}{>{\raggedright\arraybackslash}p{0.21\linewidth-2\tabcolsep}>{\raggedright\arraybackslash}p{0.79\linewidth-2\tabcolsep}}%
+		\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr#1-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-#1-2\tabcolsep\relax}}%
 	}{%
 		\end{longtable}%
 		\endgroup%
 	}
+
+%% Notationstabelle mit zwei Spalten mit festen Spaltenbreite
+%% Die Breite der ersten Spalte ist 30% der Seitenbreite (0.3\linewidth),
+%% die Breite der zweiten Spelate ist 60% der Seitenbreite
+%% und die Breite der letzten Spalte ist 10% der Seitenbreite
 \newenvironment{myNotationDescTable}{%
 		\begingroup%
 		\setlength{\tabcolsep}{0pt}% Kein Einzug bei Notation
@@ -129,7 +136,10 @@
 		\endgroup%
 	}
 
+%% Achtung, dritte Zelle ist in Mathe-Format
 \newcommand{\myNotationDescTableEntry}[3]{{#1}&{#2}&{$#3$}\\}
+%% Beide Zellen im Text-Fomrat
 \newcommand{\myNotationTableEntryText}[2]{{#1}&{#2}\\}
+%% Achtung, erste Zelle ist in Mathe-Format
 \newcommand{\myNotationTableEntryMath}[2]{{$#1$}&{#2}\\}
 
