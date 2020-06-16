@@ -17,10 +17,10 @@ z.B. \printkeyword{-main-memory=500000000}, \printkeyword{-extra-mem-top=5000000
 Zum anderen kann man diese Einstellungen ein für alle Male direkt bei den LaTeX-Distributionen setzen.
 
 Unter TeXLive kann die Einstellung in der Datei
-\printfilepath{/Pfad-zur-TeXLive-Installation/texmf.cnf} vorgenommen werden.
+\printfilepathquoted{/Pfad-zur-TeXLive-Installation/texmf.cnf} vorgenommen werden.
 Der Aufruf erfolgt am besten, indem man im Terminal den Befehl \printkeyword{kpsewhich -a texmf.cnf} eintippt.
 In der Datei kann dann beispielsweise folgendes gesetzt werden:
-\begin{lstlisting}[caption={[Einstellungen zur erweiterten Speichernutzung]Einstellungen zur erweiterten Speichernutzung in der Datei \printfilepath{texmf.cnf} bei TeXLive bzw. \printfilepath{xelatex.ini} bei MiKTeX},label={lst:Speichererweiterung}]
+\begin{lstlisting}[caption={[Einstellungen zur erweiterten Speichernutzung]Einstellungen zur erweiterten Speichernutzung in der Datei \printfilepathquoted{texmf.cnf} bei TeXLive bzw. \printfilepathquoted{xelatex.ini} bei MiKTeX},label={lst:Speichererweiterung}]
 main_memory=5000000
 extra_mem_top=5000000
 extra_mem_bot=5000000
@@ -44,12 +44,12 @@ Um die Einstellungen nur für alle Benutzer zu setzen,
 (dazu auf den Menüeintrag \printkeyword{Eingabeaufforderung} mit der rechten Maustaste anklicken und \printkeyword{Als Administrator ausführen} wählen)
 und tippt dort \printkeyword{initexmf \textbf{--admin} --edit-config-file=xelatex} ein.
 
-Dabei öffnet sich die Datei \printfilepath{xelatex.ini}, in welcher die \og Einstellungen (s. \cref{lst:Speichererweiterung}) gesetzt werden sollten.%
-\footnote{Die Datei \printfilepath{xelatex.ini} mit benutzerübergreifend gültigen Einstellungen befindet sich unter
-\printfilepath{C:\bs Program Files\bs MiKTeX 2.9\bs miktex\bs config}.
+Dabei öffnet sich die Datei \printfilepathquoted{xelatex.ini}, in welcher die \og Einstellungen (s. \cref{lst:Speichererweiterung}) gesetzt werden sollten.%
+\footnote{Die Datei \printfilepathquoted{xelatex.ini} mit benutzerübergreifend gültigen Einstellungen befindet sich unter
+\printfilepathquoted{C:\bs Program Files\bs MiKTeX 2.9\bs miktex\bs config}.
 Die dort gesetzten Einstellungen gelten, sofern der einzelne Benutzer keine eigenen Einstellungen definiert hat.
 Die benutzerspezifische Datei, deren Einstellungen die globalen Einstellungen überrufen können, befindet sich unter
-\printfilepath{C:\bs Users\bs <Benutzername>\bs AppData\bs Roaming\bs MiKTeX\bs 2.9\bs miktex\bs config}.}
+\printfilepathquoted{C:\bs Users\bs <Benutzername>\bs AppData\bs Roaming\bs MiKTeX\bs 2.9\bs miktex\bs config}.}
 
 Nach Speicherung der Datei ist bei der benutzerspezifischen Anpassung in der Eingabeaufforderung der Befehl
 \printkeyword{initexmf --dump=xelatex} aufzurufen.

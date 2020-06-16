@@ -31,7 +31,7 @@ Ihre Bedeutung ist in \cref{tab:StrukturDerVorlage} zusammengefasst.
 \label{sec:Projektdatei}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Bei der Datei \printfilepath{Diss.tcp} handelt es sich um die Projektdatei für den \LaTeX-Editor TeXnicCenter.
+Bei der Datei \printfilepathquoted{Diss.tcp} handelt es sich um die Projektdatei für den \LaTeX-Editor TeXnicCenter.
 In ihr werden die projektbezogenen Einstellungen des TeXnicCenter festgehalten.
 Das sind u.a. Angaben zur Hauptdatei des Projektes und zur Projektsprache.
 Die korrekte Angabe der Projektsprache ist insofern wichtig, als dass diese in TeXnicCenter ab Version 2.0 Beta 1 zur Bestimmung der Sprache für die Rechtschreibprüfung verwendet wird.
@@ -44,7 +44,7 @@ Die entsprechenden Einstellungen können im TeXnicCenter über den Menüeintrag 
 \label{sec:Hauptdatei}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Die Hauptdatei ist die Datei \printfilepath{Diss.tex}.
+Die Hauptdatei ist die Datei \printfilepathquoted{Diss.tex}.
 Sie ist verhältnismäßig kurz, da die Hauptinhalte in andere Dateien ausgelagert sind, welche mit Hilfe des \lc{input\{\}} \bzw des \lc{include\{\}}-Befehls eingebunden werden.
 Die Hauptdatei besteht im Wesentlichen aus drei Abschnitten.
 Im ersten stehen die sogenannten \index{Magic Comments}\enquote{Magic comments}, mit deren Hilfe manche \LaTeX-IDEs (wie \zB TeXStudio) sich selbst vorkonfigurieren können.
@@ -60,10 +60,10 @@ In diesen werden die zu landenden Pakete, Layout"=Parameter sowie alle weiteren 
 
 Im dritten Abschnitt werden nun die einzelnen Inhalte der Arbeit eingebunden.
 
-Die einzelnen \index{Kapitel}Kapitel der Arbeit werden im Verzeichnis \printfilepath{./content/} als separate Dateien gespeichert.
-Es empfiehlt sich als Dateiname das Schema \printfilepath{nn-name.tex} zu verwenden, wobei \printkeyword{nn} die Nummer des Kapitels ist,
+Die einzelnen \index{Kapitel}Kapitel der Arbeit werden im Verzeichnis \printfilepathquoted{./content/} als separate Dateien gespeichert.
+Es empfiehlt sich als Dateiname das Schema \printfilepathquoted{nn-name.tex} zu verwenden, wobei \printkeyword{nn} die Nummer des Kapitels ist,
 sodass die Dateien in der semantisch richtigen Reihenfolge sortiert angezeigt werden.
-Die einzelnen Dateien werden per \verb+include{}+-Direktive in der Datei \printfilepath{Diss.tex} eingebunden.
+Die einzelnen Dateien werden per \verb+include{}+-Direktive in der Datei \printfilepathquoted{Diss.tex} eingebunden.
 Theoretisch wäre es an dieser Stelle auch möglich mit \verb+\input{}+ zu arbeiten, was jedoch seine Nachteile hätte.
 Der Unterschied zwischen den beiden Befehlen wird \href{https://texwelt.de/wissen/fragen/32/was-ist-der-unterschied-zwischen-include-and-input}{auf texwelt.de} erklärt:
 
@@ -78,24 +78,24 @@ d.h. eine eingebundene Datei kann ihrerseits Dateien mit \verb+\input+ einbinden
 Im Gegensatz zu \verb+\input+ kann eine Datei, die mit \verb+\include+ eingebunden wird,
 kein weiteres \verb+\include+ enthalten, es ist also keine verschachtelte Anwendung möglich.
 Eine mit \verb+\include+ eingebundene Datei kann aber natürlich \verb+\input+ enthalten.
-\verb+\include+ erzeugt eine neue \printfilepath{aux}-Datei für die eingebundene Datei.
+\verb+\include+ erzeugt eine neue \printfilepathquoted{aux}-Datei für die eingebundene Datei.
 Das erlaubt es beispielsweise, ein Dokument in mehrere logische Einheiten zu zerlegen (etwa einzelne Kapitel),
 die jede einer Datei entsprechen, die mit \verb+\include+ in die Hauptdatei eingebunden wird.
 \verb+\includeonly{file1,file3}+ würde dann erlauben, nur gerade bearbeitete Dateien für die Kompilation einzubinden
-und durch die separaten \printfilepath{aux}-Dateien dennoch korrekte Seitenzahlen und Querverweise zu erhalten.
+und durch die separaten \printfilepathquoted{aux}-Dateien dennoch korrekte Seitenzahlen und Querverweise zu erhalten.
 Es gibt auch das \pkg{excludeonly} Paket, dessen Befehl \verb+\excludeonly+ das gegensätzliche Verhalten bietet.%
 }%
 \footnote{\url{https://texwelt.de/wissen/fragen/32/was-ist-der-unterschied-zwischen-include-and-input}}
 \end{quote}
 
 Es empfiehlt sich, die bestehende Struktur (zumindest jedoch die beiden Dateien
-\printfilepath{Inhalt-FrontMatter.tex} und \printfilepath{Inhalt-Backmatter.tex})
+\printfilepathquoted{Inhalt-FrontMatter.tex} und \printfilepathquoted{Inhalt-Backmatter.tex})
 als Vorlage zu übernehmen.
 
 Das entstehende PDF heißt genauso wie die Hauptdatei.
 
 Zur besseren Übersicht und zur Vereinfachung der Fehlersuche wird empfohlen,
-die einzelnen Unterkapitel ebenfalls als separate Dateien in Unterverzeichnissen von \printfilepath{./content/} anzulegen
+die einzelnen Unterkapitel ebenfalls als separate Dateien in Unterverzeichnissen von \printfilepathquoted{./content/} anzulegen
 und sie mit den \verb+\input{}+-Direktiven in die jeweiligen Kapitel-Dateien einzubinden.
 
 
@@ -107,9 +107,9 @@ und sie mit den \verb+\input{}+-Direktiven in die jeweiligen Kapitel-Dateien ein
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 Es wird davon ausgegangen, dass sich sämtliche Bibliografie-Angaben in der Datei
-\printfilepath{./bib/Diss.bib} befinden.
+\printfilepathquoted{./bib/Diss.bib} befinden.
 Sollten mehrere Bibliografie-Dateien verwendet werden, können diese in der Datei
-\printfilepath{./preamble/AllePfade.tex} gesetzt werden.
+\printfilepathquoted{./preamble/AllePfade.tex} gesetzt werden.
 Details dazu gibt es im \cref{sec:Literaturverzeichnisse}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,10 +124,10 @@ Bilder im \index{Bild!Binär-}Binärformat (PNG, JPEG, TIFF, PDF, etc.)
 werden mit \lc{includegraphics}-Befehl eingebunden. 
 Bei den \index{Bild!TikZ}\gls{gls:tikz}-Zeichnungen handelt es sich um reguläre TeX-Quellcode-Dateien,
 die mit dem \verb+\input+-Befehl eingebunden werden.
-Für eine einfache Verwaltung wird empfohlen, Binärbilder im Verzeichnis \printfilepath{./images/} abzulegen.
-Zusätzliche Pfade können in der Datei \printfilepath{./preambel/AllePfade.tex} definiert werden.
-Die \gls{gls:tikz}-Quellcode-Dateien sollten im Verzeichnis \printfilepath{./figures-src/} abgelegt werden.
-Während des Kompilierens werden für jede \gls{gls:tikz}-Zeichnung im Verzeichnis \printfilepath{./figures-compiled/} mehrere Dateien erzeugt.
+Für eine einfache Verwaltung wird empfohlen, Binärbilder im Verzeichnis \printfilepathquoted{./images/} abzulegen.
+Zusätzliche Pfade können in der Datei \printfilepathquoted{./preambel/AllePfade.tex} definiert werden.
+Die \gls{gls:tikz}-Quellcode-Dateien sollten im Verzeichnis \printfilepathquoted{./figures-src/} abgelegt werden.
+Während des Kompilierens werden für jede \gls{gls:tikz}-Zeichnung im Verzeichnis \printfilepathquoted{./figures-compiled/} mehrere Dateien erzeugt.
 Der Inhalt dieses Verzeichnisses kann gefahrlos gelöscht werden.
 Weitere Hinweise und Beispiele zur Einbindung von Grafiken finden sich in \cref{sec:Bilder}.
 
@@ -139,7 +139,7 @@ Weitere Hinweise und Beispiele zur Einbindung von Grafiken finden sich in \cref{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 Die wichtigsten Einstellungen, die auf jeden Fall geändert werden müssen,
-finden sich in der Datei \printfilepath{./preambel/AlleAngaben.tex}.
+finden sich in der Datei \printfilepathquoted{./preambel/AlleAngaben.tex}.
 Hier werden \ua Angaben zum Verfasser, Art und Titel der Arbeit sowie zu den Gutachtern gemacht.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -148,7 +148,7 @@ Hier werden \ua Angaben zum Verfasser, Art und Titel der Arbeit sowie zu den Gut
 \label{sec:Schalter}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Eine weitere wichtige Datei ist \printfilepath{./preambel/AlleSchalter.tex}.
+Eine weitere wichtige Datei ist \printfilepathquoted{./preambel/AlleSchalter.tex}.
 Darin wird u.a. die \index{Sprache!Hauptsprache}Hauptsprache des Manuskriptes gesetzt, was sich an mehreren Stellen auswirkt.
 So wird beispielsweise bei \index{Sprache!globale Umstellung}Umstellung auf Englisch als Hauptsprache
 \enquote{Danksagung} durch \enquote{Acknowledgments},
@@ -159,7 +159,7 @@ Auch die Regeln der \index{Silbentrennung!allgemeine Einstellung}Silbentrennung 
 Durch das Umsetzen der Schalter 
 \lstinline|\setUserDefinedBoolean{SchalterName}{Bool-Wert}| 
 können hier Teile der Arbeit aus- und wieder eingeblendet werden, ohne dass sie auskommentiert werden müssen.
-Neben diesen Einstellungen befinden sich in der Datei \printfilepath{./preambel/AlleSchalter.tex} auch Einstellungen,
+Neben diesen Einstellungen befinden sich in der Datei \printfilepathquoted{./preambel/AlleSchalter.tex} auch Einstellungen,
 die für die Vorbereitung des Manuskriptes zum Druck über den \gls{ac:KSP} wichtig sind.
 Insbesondere können hier
 \begin{itemize}
@@ -180,9 +180,9 @@ Diese Einstellung sollte nur für die Druckversion vorgenommen werden.%
 \footnote{Da manche RGB-Farben bei der Konvertierung in den CMYK-Farbraum blass aussehen,
 ist es sinnvoll, eine Alternativversion der betroffenen Farben im CYMK-Farbraum zu definieren,
 die gut aussieht.
-Beispiele dafür gibt es in der Datei \printfilepath{./preambel/ColorSettings.tex}.
+Beispiele dafür gibt es in der Datei \printfilepathquoted{./preambel/ColorSettings.tex}.
 Vorzugsweise sollten aber die KIT-Corporate-Identity-Farben verwendet werden,
-welche in der Datei \printfilepath{KAcolors.sty} definiert sind.
+welche in der Datei \printfilepathquoted{KAcolors.sty} definiert sind.
 Für diese Farben wurde sowohl eine RGB- als auch eine CMYK-Definition erstellt.}
 \end{itemize}
 
@@ -193,10 +193,10 @@ Für diese Farben wurde sowohl eine RGB- als auch eine CMYK-Definition erstellt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 Regeln zur Silbentrennung unbekannter Wörter (\zB Fachbegriffe)
-können in der Datei \printfilepath{./preambel/Hyphenation.tex} festgelegt werden.
+können in der Datei \printfilepathquoted{./preambel/Hyphenation.tex} festgelegt werden.
 Zu beachten ist, dass zusammengesetzte Wörter mit einem Bindestrich
 ausschließlich am Bindestrich getrennt werden,
-wogegen auch ein Eintrag in die Datei \printfilepath{Hyphenation.tex} nicht hilft.
+wogegen auch ein Eintrag in die Datei \printfilepathquoted{Hyphenation.tex} nicht hilft.
 Um Silbentrennung an anderen Stellen eines zusammengesetzten Wortes zu erlauben,
 muss man bei Verwendung zusammengesetzter Wörter mit Bindestrich diesen durch „\verb+"=+“ ersetzen.
 Alternative Trennstellen in bestimmten Wörtern kann man mit Hilfe der Hinweise auf 
@@ -215,9 +215,9 @@ erreichen.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 In den Dateien
-\printfilepath{./preambel/Acronyms.tex},
-\printfilepath{./preambel/Glossary.tex} und
-\printfilepath{./preambel/GlossarySymbols.tex}
+\printfilepathquoted{./preambel/Acronyms.tex},
+\printfilepathquoted{./preambel/Glossary.tex} und
+\printfilepathquoted{./preambel/GlossarySymbols.tex}
 kann eine Liste der Abkürzungen, Fachbegriff"=Definitionen und Symbole angelegt werden.
 Details hierzu finden sich im \cref{sec:Glossare}.
 
@@ -240,6 +240,6 @@ Details hierzu finden sich im \cref{sec:Glossare}.
 %
 Die Einbindung von der Titelseite, Danksagung, dem englischen und deutschen Abstract,
 einer Notationsübersicht und ggf. einem Symbolverzeichnis
-erfolgt in der Datei \printfilepath{./content/Inhalt-FrontMatter.tex}.
-Die jeweilige Inhalte sind im Verzeichnis \printfilepath{./content/00-FrontMatter/} zu finden.
-Die Einbindung von Literatur-, Abbildungs-, Tabellen-, Quellcodelistings-, Abkürzungsverzeichnissen sowie ggf. einem Glossar, Stichwortverzeichnis (Index) und den Anhängen erfolgt in der Datei \printfilepath{./content/Inhalt-BackMatter.tex}.
+erfolgt in der Datei \printfilepathquoted{./content/Inhalt-FrontMatter.tex}.
+Die jeweilige Inhalte sind im Verzeichnis \printfilepathquoted{./content/00-FrontMatter/} zu finden.
+Die Einbindung von Literatur-, Abbildungs-, Tabellen-, Quellcodelistings-, Abkürzungsverzeichnissen sowie ggf. einem Glossar, Stichwortverzeichnis (Index) und den Anhängen erfolgt in der Datei \printfilepathquoted{./content/Inhalt-BackMatter.tex}.

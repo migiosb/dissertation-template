@@ -56,7 +56,8 @@
 % Formatting keywords, menu settings, parameters
 \newcommand{\printkeyword}[1]{\enquote{\ttfamily #1}}
 % Formatting file names or file paths
-\newcommand{\printfilepath}[1]{\enquote{\ttfamily #1}}
+\newcommand{\printfilepath}[1]{{\ttfamily #1}}
+\newcommand{\printfilepathquoted}[1]{\enquote{\ttfamily #1}}
 % Formatting name of a software (in bold)
 \newcommand{\printswname}[1]{{\bfseries #1}}
 % Short command for referencing a latex package in the text (adds an index)

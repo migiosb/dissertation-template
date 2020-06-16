@@ -17,7 +17,7 @@ Die Verwendung einzelner Features dieser Vorlage wird in \cref{chap:Examples} de
 
 Es wird empfohlen, die einzelnen Unterkapitel jedes Kapitels 
 als eigene Dateien anzulegen und sie mit dem \verb+\input{}+-Befehl einzubinden
-(s. Quelltext der Datei \printfilepath{content/Inhalt-Examples.tex}).
+(s. Quelltext der Datei \printfilepathquoted{content/Inhalt-Examples.tex}).
 Dies erlaubt die einzelnen Unterkapitel bei Bedarf leichter zu verschieben 
 oder mit einem einzigen \%-Zeichen temporär auszukommentieren 
 und erleichtert so die Fehlersuche.
@@ -25,7 +25,7 @@ und erleichtert so die Fehlersuche.
 Teile des Manuskriptes lassen sich ebenfalls ausblenden, ohne sie auskommentieren zu müssen,
 indem man den auszublendenden Text zwischen
 \lstinline|\begin{ShowInhaltXXX}| und \lstinline|\end{ShowInhaltXXX}| einschließt.
-Hierzu ist in der Datei \printfilepath{preambel/AlleSchalter.tex}
+Hierzu ist in der Datei \printfilepathquoted{preambel/AlleSchalter.tex}
 eine entsprechende \LaTeX{}"=Umgebung mittels
 \lstinline|\setUserDefinedBoolean{showInhaltXXX}{Bool-Wert}| zu definieren und
 auf \printkeyword{true} (Inhalt einblenden) 
