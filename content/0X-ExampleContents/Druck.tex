@@ -5,7 +5,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 Vor der Abgabe einer Druckversion an den KSP Verlag sollte die korrekte Schaltersetzung 
-in der Datei \printfilepath{./preambel/AlleSchalter.tex} nochmals geprüft werden.
+in der Datei \printfilepathquoted{./preambel/AlleSchalter.tex} nochmals geprüft werden.
 Insbesondere sollten mit der Einstellung
 \lstinline|\setUserDefinedBoolean{showFrame}{true}|
 die Satzspiegel"=Ränder testweise angezeigt werden und so kontrolliert werden,
@@ -41,14 +41,14 @@ So kann man die Farbgebung der Druckversion begutachten und sicherstellen, dass 
 \footnote{Da manche RGB-Farben bei der Konvertierung in den CMYK-Farbraum blass aussehen,
 ist es sinnvoll, eine Alternativversion der betroffenen Farben im CYMK-Farbraum zu definieren,
 die gut aussieht.
-Beispiele dafür gibt es in der Datei \printfilepath{./preambel/ColorSettings.tex}.
+Beispiele dafür gibt es in der Datei \printfilepathquoted{./preambel/ColorSettings.tex}.
 Vorzugsweise sollten aber die KIT-Corporate-Identity-Farben verwendet werden,
-welche in der Datei \printfilepath{KAcolors.sty} definiert sind.
+welche in der Datei \printfilepathquoted{KAcolors.sty} definiert sind.
 Für diese Farben wurde sowohl eine RGB- als auch eine CMYK-Definition erstellt.}
 
 
 Auch gibt es zwei Sachen, die in der Datei 
-\printfilepath{./preambel/AlleAngaben.tex}
+\printfilepathquoted{./preambel/AlleAngaben.tex}
 geändert werden müssen.
 Zum einem ist der Status der Dissertation von \enquote{vorgelegt} auf \enquote{gemehmigt} zu ändern
 (dies geschieht durch die Umstellung des Schalters
@@ -62,6 +62,6 @@ Vor der Abgabe des Manuskriptes sollte man sich vergewissern,
 dass alle TODOs erledigt sind und die Liste der noch zu erledigenden Punkte
 am Ende des Manuskriptes nicht mehr erscheint.
 Die TODOs sowie ggf. eine Auflistung dieser am Ende des Manuskriptes lassen sich ausblenden,
-indem man in der Datei \printfilepath{./preambel/AlleSchalter.tex} den Wert des Schalters
+indem man in der Datei \printfilepathquoted{./preambel/AlleSchalter.tex} den Wert des Schalters
 \printkeyword{showTODOs} auf \printkeyword{false} setzt.
 }

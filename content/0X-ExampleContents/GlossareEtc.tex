@@ -26,7 +26,7 @@ Zur Erzeugung des Abkürzungsverzeichnises und des Glossars wird intern das
 Zudem wurden einige Makros definiert, welche die Erfassung der Begriffe erleichtern sollen.
 %
 Um ein Abkürzungsverzeichnis zu erzeugen, muss zuerst eine Liste der Abkürzungen angelegt werden.
-Dies geschieht in der Datei \printfilepath{./preambel/Acronyms.tex}.
+Dies geschieht in der Datei \printfilepathquoted{./preambel/Acronyms.tex}.
 Hierfür wird das Makro \lstinline|\newacronym| verwendet.
 Dieses Makro hat drei obligatorische Argumente, nämlich
 \begin{itemize*}
@@ -134,7 +134,7 @@ Durch eine Option des \pkg{glossaries}-\glsgen{gls:pkg} kann man sicher stellen,
 dass alle Glossar-Einträge auf das Glossar am Ende des Manuskripts verlinkt werden.
 Standardmäßig ist diese Option jedoch deaktiviert.
 
-Die Glossar-Einträge werden in der Datei  \printfilepath{./preambel/Glossary.tex} definiert.
+Die Glossar-Einträge werden in der Datei  \printfilepathquoted{./preambel/Glossary.tex} definiert.
 
 Die Definition der Glossar-Einträge geschieht mit dem Makro \lc{myglossaryentry},
 welches drei obligatorische Argumente hat, nämlich
@@ -188,7 +188,7 @@ Die Verwendung des oben definierten Eintrages im Text mit dem Befehl
 %
 Ein Symbolverzeichnis kann auf zwei Arten angelegt werden.
 Normalerweise reicht eine manuell erstellte Übersicht über die Notation,
-so wie sie in der Datei \printfilepath{./00-Front-Matter/Notation.tex}
+so wie sie in der Datei \printfilepathquoted{./00-Front-Matter/Notation.tex}
 mit Hilfe von Befehlen
 \lstinline|\myNotationTableEntryMath{<Mathe-Ausdruck>}{<Beschreibung>}|
 und
@@ -215,11 +215,11 @@ Die Referenzierung des Symbols \gls{symb:pi} im Text geschieht dann mit
 
 In der Vorlage sind beide Arten von Symbolverzeichnissen vorgesehen.
 Sie werden am Anfang des Manuskriptes vor dem Inhaltsverzeichnis eingebunden.
-Es passiert in der Datei \printfilepath{./content/Inhalt-FrontMatter.tex}.
+Es passiert in der Datei \printfilepathquoted{./content/Inhalt-FrontMatter.tex}.
 Bei Bedarf lässt sich diese Einbindung auch an eine geeignete Stelle in den Backmatter verschieben.
 
 Zum einfachen Ein- bzw. Ausblenden der beiden Symbolverzeichnisse
-gibt es in der Datei \printfilepath{preambel/AlleSchalter.tex}
+gibt es in der Datei \printfilepathquoted{preambel/AlleSchalter.tex}
 die beiden Schalter
 \begin{itemize*}
 \item \printkeyword{showNotation} für den manuell erstelle Notationübersicht
