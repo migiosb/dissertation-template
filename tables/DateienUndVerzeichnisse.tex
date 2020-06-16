@@ -26,88 +26,88 @@
 \midrule%
 \endhead%
 %-----------------------------------------------------------------------------------------------------
-\texttt{./Diss.tcp}                       & TeXnicCenter-Projektdatei. Aufruf im TeXnicCenter.
-                                          Indirekte Änderung durch Einstellungen im Programm.\\
+\printfilepath{./Diss.tcp}                       & TeXnicCenter-Projektdatei. Aufruf im TeXnicCenter.
+                                                 Indirekte Änderung durch Einstellungen im Programm.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./Diss.tex}                       & \texttt{TeX}-Hauptdatei. Einbindung der Inhalte.\\
+\printfilepath{./Diss.tex}                       & \texttt{TeX}-Hauptdatei. Einbindung der Inhalte.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./bib/Diss.bib}                   & Literaturdatenbank im \texttt{BibLaTeX}-Format. Verwendete Referenzen einfügen.\\
+\printfilepath{./bib/Diss.bib}                   & Literaturdatenbank im \texttt{BibLaTeX}-Format. Verwendete Referenzen einfügen.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./content/*}                      & Inhalte der Arbeit. Hier Inhalte der einzelnen \texttt{LaTeX}-Kapitel einfügen.\\
+\printfilepath{./content/*}                      & Inhalte der Arbeit. Hier Inhalte der einzelnen \texttt{LaTeX}-Kapitel einfügen.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./figures-src/*}                  & \texttt{TikZ}-Zeichnungen. %(Quellcode).
-                                          Ggf. weitere hinzufügen.\\
+\printfilepath{./figures-src/*}                  & \texttt{TikZ}-Zeichnungen. %(Quellcode).
+                                                 Ggf. weitere hinzufügen.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./figures-compiled/*}             & Temporäre Kompilate der \texttt{TikZ}-Zeichnungen.
-                                          Bei Aktualisierung der \texttt{TikZ}-Zeichnungen löschen.\\
+\printfilepath{./figures-compiled/*}             & Temporäre Kompilate der \texttt{TikZ}-Zeichnungen.
+                                                 Bei Aktualisierung der \texttt{TikZ}-Zeichnungen löschen.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./fonts/*}                        & Verwendete Schriften. Keine.\\
+\printfilepath{./fonts/*}                        & Verwendete Schriften. Keine.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./images/*}                       & Bilder im Binärformat. %(jpg, png, pdf etc).
-                                          Ggf. weitere hinzufügen. \\
+\printfilepath{./images/*}                       & Bilder im Binärformat. %(jpg, png, pdf etc).
+                                                 Ggf. weitere hinzufügen. \\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/*}                     & Konfigurationsdateien (s. u.)\\
+\printfilepath{./preambel/*}                     & Konfigurationsdateien (s. u.)\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/Acronyms.tex}          & Definition der Akronyme.
-                                          Ggf. weitere hinzufügen.\\
+\printfilepath{./preambel/Acronyms.tex}          & Definition der Akronyme.
+                                                 Ggf. weitere hinzufügen.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/AlleAngaben.tex}       & Wichtige Angaben und Einstellungen.
-                                          Hier Angaben zum Typ der Arbeit, zum Autor und zu den Gutachtern ändern.\\
+\printfilepath{./preambel/AlleAngaben.tex}       & Wichtige Angaben und Einstellungen.
+                                                 Hier Angaben zum Typ der Arbeit, zum Autor und zu den Gutachtern ändern.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/AllePfade.tex}         & Definition von Suchpfaden für Bildverzeichnisse und Bibliografie"=Dateien.
-                                          Ggf. ergänzen.\\
+\printfilepath{./preambel/AllePfade.tex}         & Definition von Suchpfaden für Bildverzeichnisse und Bibliografie"=Dateien.
+                                                 Ggf. ergänzen.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/AlleSchalter.tex}      & Schalter zur Umstellung der Hauptsprache des Manuskriptes,
-                                          zur Einstellung der Druckfarben sowie zur
-                                          Aus- und Wieder"=Einblenden der einzelnen Manuskript"=Teile.
-                                          Bei Bedarf umstellen.\\
+\printfilepath{./preambel/AlleSchalter.tex}      & Schalter zur Umstellung der Hauptsprache des Manuskriptes,
+                                                 zur Einstellung der Druckfarben sowie zur
+                                                 Aus- und Wieder"=Einblenden der einzelnen Manuskript"=Teile.
+                                                 Bei Bedarf umstellen.\\
 %-----------------------------------------------------------------------------------------------------
-%\texttt{./preambel/BibSettings.tex}       & Konfiguration der Bibliografie
-%                                          Normalerweise keine, es sei denn man möchte den Stil der Literaturverzeichnisse ändern.\\
+%\printfilepath{./preambel/BibSettings.tex}       & Konfiguration der Bibliografie
+%                                                 Normalerweise keine, es sei denn man möchte den Stil der Literaturverzeichnisse ändern.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/EncodingAndFont.tex}   & Schriftarteinstellungen.
-                                          Keine, sofern man die vorgegeben Schriftarten nutzen möchte.\\
+\printfilepath{./preambel/EncodingAndFont.tex}   & Schriftarteinstellungen.
+                                                 Keine, sofern man die vorgegeben Schriftarten nutzen möchte.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/Glossary.tex}          & Definition der Glossar-Einträge.
-                                          Ggf. weitere hinzufügen.\\
+\printfilepath{./preambel/Glossary.tex}          & Definition der Glossar-Einträge.
+                                                 Ggf. weitere hinzufügen.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/GlossarySymbols.tex}   & Glossar-Einträge für automatisches Symbolverzeichnis.
-                                          Bei Verwendung ergänzen.\\
+\printfilepath{./preambel/GlossarySymbols.tex}   & Glossar-Einträge für automatisches Symbolverzeichnis.
+                                                 Bei Verwendung ergänzen.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/Header.tex}            & Alle Präambel-Definitionen (\teilw in weiteren Dateien).
-                                          Aktivierung der \printkeyword{draft}-Option und des A4-Layouts.\\
+\printfilepath{./preambel/Header.tex}            & Alle Präambel-Definitionen (\teilw in weiteren Dateien).
+                                                 Aktivierung der \printkeyword{draft}-Option und des A4-Layouts.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/Hyphenation.tex}       & Silbentrennung für unbekannte Wörter.
-                                          Ggf. Regeln für die Silbentrennung weiterer Begriffe hinzufügen.\\
+\printfilepath{./preambel/Hyphenation.tex}       & Silbentrennung für unbekannte Wörter.
+                                                 Ggf. Regeln für die Silbentrennung weiterer Begriffe hinzufügen.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/IndexStyle.tex}        & Layout des Stichwortverzeichnisses.
-                                          Keine.\\
+\printfilepath{./preambel/IndexStyle.tex}        & Layout des Stichwortverzeichnisses.
+                                                 Keine.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/KomaOptions.tex}       & KomaScript-Optionen.
-                                          Keine.\\
+\printfilepath{./preambel/KomaOptions.tex}       & KomaScript-Optionen.
+                                                 Keine.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/Math.tex}              & Mathe-Einstellungen und Makros.
-                                          Bei Bedarf eigene Mathe-Makros definieren.\\
+\printfilepath{./preambel/Math.tex}              & Mathe-Einstellungen und Makros.
+                                                 Bei Bedarf eigene Mathe-Makros definieren.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/MyPackages.tex}        & Zusatzpakete
-                                          Ggf. Einbindung von Zusatzpaketen.\\
+\printfilepath{./preambel/MyPackages.tex}        & Zusatzpakete
+                                                 Ggf. Einbindung von Zusatzpaketen.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/Newcommands.tex}       & Eigene \LaTeX{}-Makros.
-                                          Ggf. weitere Makros hinzufügen.\\
+\printfilepath{./preambel/Newcommands.tex}       & Eigene \LaTeX{}-Makros.
+                                                 Ggf. weitere Makros hinzufügen.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/preambel-commands.tex} & Interne Befehle aus der alten Vorlage.
-                                          Normalerweise keine.\\
+\printfilepath{./preambel/preambel-commands.tex} & Interne Befehle aus der alten Vorlage.
+                                                 Normalerweise keine.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/settings.tex}          & Einstellungen zu Längen, Breiten, Verzeichnistiefen etc.
-                                          Normalerweise müssen keine Änderungen vorgenommen werden, 
-                                          da diese Einstellungen mit dem \gls{ac:KSP} abgestimmt 
-                                          und bereits in der Vorlage umgesetzt wurden.\\
+\printfilepath{./preambel/settings.tex}          & Einstellungen zu Längen, Breiten, Verzeichnistiefen etc.
+                                                 Normalerweise müssen keine Änderungen vorgenommen werden, 
+                                                 da diese Einstellungen mit dem \gls{ac:KSP} abgestimmt 
+                                                 und bereits in der Vorlage umgesetzt wurden.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preambel/TableCommands.tex}     & Tabelleneinstellungen.
-                                          Normalerweise keine.\\
+\printfilepath{./preambel/TableCommands.tex}     & Tabelleneinstellungen.
+                                                 Normalerweise keine.\\
 %-----------------------------------------------------------------------------------------------------
-\texttt{./preamble/Translations.tex}      & Multilinguale Begriffsdefinitionen für Beschriftungen etc.
-                                          Normalerweise keine.\\
+\printfilepath{./preamble/Translations.tex}      & Multilinguale Begriffsdefinitionen für Beschriftungen etc.
+																				         Normalerweise keine.\\
 %-----------------------------------------------------------------------------------------------------
 \bottomrule%
 %-----------------------------------------------------------------------------------------------------
