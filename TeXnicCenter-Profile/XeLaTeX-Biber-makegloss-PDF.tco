@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
 <txcop:outputProfiles version="2" xmlns:txcop="http://schemas.ToolsCenter.org/TeXnicCenter/OutputProfiles.xsd">
 	<outputProfileList>
-		<outputProfile name="PdfLaTeX &#8680; Biber &#8680; makegloss &#8680; PDF" stopOnLatexError="false">
-			<texCommand execute="true" path="pdflatex.exe" arguments="-halt-on-error -synctex=-1 -max-print-line=180 -error-line=180 -half-error-line=140 -interaction=nonstopmode -max-in-open=100 &quot;%wm&quot;"/>
+		<outputProfile name="XeLaTeX &#8680; Biber &#8680; makegloss &#8680; PDF" stopOnLatexError="false">
+			<texCommand execute="true" path="xelatex.exe" arguments="-halt-on-error -synctex=-1 -max-print-line=180 -error-line=180 -half-error-line=140 -interaction=nonstopmode -max-in-open=100 &quot;%wm&quot;"/>
 			<bibTexCommand execute="true" path="biber.exe" arguments="&quot;%tm&quot;"/>
 			<makeIndexCommand execute="true" path="makeglossaries.exe" arguments="&quot;%tm&quot;"/>
 			<preProcessors/>
