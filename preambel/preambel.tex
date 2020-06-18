@@ -529,12 +529,14 @@ verbose,
          C,
          [Visual]C++,
          [ISO]C++,
+         Python,				 
          %XML,
          %HTML,
  }
 
 
 \lstdefinestyle{nonumbers}{%
+				basicstyle=\ttfamily,%
 				numbers=none,%
 				frame=none,
 				xleftmargin=0pt,  % keine Einrückung
@@ -542,6 +544,7 @@ verbose,
 }
 
 \lstdefinestyle{numbers}{%
+				basicstyle=\ttfamily,%
 				numbers=left,			          % Ort der Zeilennummern (falls gewünscht, 
 				frame=none,
 				xleftmargin=2\marginparsep,  % Einrückung, damit die Zeilennummern innerhalb des Textrahmens stehen!}
@@ -549,12 +552,14 @@ verbose,
 				numberstyle=\tiny,          % Stil der Zeilennummern
 }
 
-\lstdefinestyle{nonumbersframed}{%
+\lstdefinestyle{nonumbersframed}{% Listing mit Rahmen ohne Nummerirerung
+			basicstyle=\ttfamily,%
 			numbers=none,%
 			frame = single,             % Rahmen um Listings zeichnen
 			framesep=\mylistingframesep,
 			framerule=\mylistingframerule,
 			xleftmargin=\dimexpr(\mylistingframesep+\mylistingframerule)\relax,
+			framexleftmargin=0pt,
 			xrightmargin=\dimexpr(\mylistingframesep+\mylistingframerule)\relax,
 			%% Abstände ausgeglichen, dedoch variabel!!
 			%aboveskip=\parskip, % default is \medskipamount
@@ -568,25 +573,30 @@ verbose,
 }
 
 
-\lstdefinestyle{numbersframed}{%
+\lstdefinestyle{numbersframed}{% Listing mit Rahmen mit Nummerirerung
+			basicstyle=\ttfamily,%
 			numbers=left,			          % Ort der Zeilennummern (falls gewünscht, 
 			frame = single,             % Rahmen um Listings zeichnen
 			framesep=\mylistingframesep,
 			framerule=\mylistingframerule,
 			xleftmargin=\dimexpr(\mylistingframesep+\mylistingframerule+2\marginparsep)\relax,
+			framexleftmargin=2\marginparsep,
 			xrightmargin=\dimexpr(\mylistingframesep+\mylistingframerule)\relax,
 			%% Abstände ausgeglichen!
 			%aboveskip=\parskip, % default is \medskipamount
 			%belowskip=\dimexpr(\mylistingframesep+\mylistingframerule+\parskip)\relax, % default is \medskipamount
 			%% Abstände unausgeglichen!
-			aboveskip=\mylistingaboveskip, % default is \medskipamount
-			belowskip=\dimexpr(\mylistingframesep+\mylistingframerule+\mylistingbelowskip)\relax, % default is \medskipamount
+			%aboveskip=\mylistingaboveskip, % default is \medskipamount
+			%belowskip=\dimexpr(\mylistingframesep+\mylistingframerule+\mylistingbelowskip)\relax, % default is \medskipamount
+			aboveskip=\dimexpr(\mylistingaboveskip-\mylistingframesep-\mylistingframerule)\relax, % default is \medskipamount
+			belowskip=\dimexpr(\mylistingbelowskip-\mylistingframesep-\mylistingframerule)\relax, % default is \medskipamount
 			%aboveskip=\mylistingaboveskip, % default is \medskipamount
 			%belowskip=\mylistingbelowskip, % default is \medskipamount
 			numberstyle=\tiny,          % Stil der Zeilennummern	
 }
 
 \lstdefinestyle{nonumbersgraybackgrd}{%
+			basicstyle=\ttfamily,%
 			numbers=none,%
 			frame = none,             % keinen Rahmen um Listings zeichnen
 			backgroundcolor = \color{lightgray},
@@ -595,6 +605,7 @@ verbose,
 }
 
 \lstdefinestyle{numbersgraybackgrd}{%
+			basicstyle=\ttfamily,%
 			numbers=left,			          % Ort der Zeilennummern (falls gewünscht, 
 			frame = single,             % Rahmen um Listings zeichnen
 			backgroundcolor = \color{lightgray},
@@ -663,7 +674,7 @@ verbose,
 }
 
 % same as "latex" style but for listings without without caption 
-\lstdefinestyle{inlinelatex}{
+\lstdefinestyle{inlinelatex}{% Inline-Listing (ohne Überschrift) mit Rahmen ohne Nummerirerung
 				style=latex,
 				%% Abstände ausgeglichen, aber variabel!!
 				%aboveskip=\parskip,
@@ -693,32 +704,38 @@ verbose,
 				%belowskip=\dimexpr(\mylistingframesep+\mylistingframerule+\mylistingbelowskip)\relax, % eigentlich \medskipamount
 }
 
+\lstdefinestyle{python}{
+				%style=numbers,%
+				%stile=nonumbers,%
+				style=numbersframed,%
+				%style=nonumbersframed,%
+				language=Python,%
+}
+
 \lstdefinestyle{java}{
 				%style=numbers,%
 				%stile=nonumbers,
-				%style=numbersframed,
-				style=nonumbersframed,
+				style=numbersframed,
+				%style=nonumbersframed,
         language=Java,%
 }
 
 \lstdefinestyle{C++}{
 				%style=numbers,%
 				%stile=nonumbers,%
-				%style=numbersframed,%
-				style=nonumbersframed,%
+				style=numbersframed,%
+				%style=nonumbersframed,%
         language=[Visual]C++,%
 }
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Global settings for listings %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lstset{%
-				basicstyle=\ttfamily,%
 				%style=numbers,
-				%stile=nonumbers,
-				%style=numbersframed,
-				style=nonumbersframed,
+				%style=nonumbers,
+				style=numbersframed,
+				%style=nonumbersframed,
 				%style=latex,
 				%style=java,
 				%style=C++,
@@ -762,6 +779,10 @@ verbose,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lstnewenvironment{latex}[1][]{%
 	\lstset{style=latex,#1}%
+}{}
+
+\lstnewenvironment{python}[1][]{%
+  \lstset{style=python,#1}%
 }{}
 
 \lstnewenvironment{java}[1][]{%
