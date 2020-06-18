@@ -190,20 +190,32 @@
 
 
 
-%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
-%funktioniert aus irgendeinem Grund nicht!
+%Abstand zwischen zwei Subfloats (muss manuell hinzugefügt werden)
+\newlength{\mysubfloatvskip}
+\setlength{\mysubfloatvskip}{10pt} % (default 12pt plus 2pt minus 2pt)
+
+
+%Abstand oberhalb von Subfigures:
 \newlength{\mysubfigaboveskip}
-\setlength{\mysubfigaboveskip}{\myaboveskip}
-%Abstand nach der Überschrift einer Abbilung/Tabelle:
+%% Problem: Fügt auch einen (unnötigen) Abstand vor der ersten Reihe von Subfigures ein,
+%% so dass der Abstand zwischen dem vorherigen Absatz und der Abbildung unnötig vergrößert wird.
+%% Dasselbe gilt auch am Anfang einer Seite, auch wenn die Doku sagt, dass dort der Abstand unterdrückt werden sollte 
+%% Muss daher auf Null gesetzt werden
+%\setlength{\mysubfigaboveskip}{\mysubfloatvskip} %funktioniert nicht
+\setlength{\mysubfigaboveskip}{0pt}
+%Abstand nach der Subfigure-Unterschrift
 \newlength{\mysubfigbelowskip}
-\setlength{\mysubfigbelowskip}{\mybelowskip}
+%% Problem: Fügt auch einen (unnötigen) Abstand nach der letzten Reihe von Subfigures ein,
+%% so dass der Abstand zwischen den Subfigure-Unterschriften der letzten Subfigure-Reihe
+%% und der Gesamt-Unterschrift der Abbildung zu groß wird!
+%% Muss daher auf Null gesetzt werden
+%\setlength{\mysubfigbelowskip}{\mysubfloatvskip} %funktioniert nicht
+\setlength{\mysubfigbelowskip}{0pt}
 %Abstand zwischen der Abbilung/Tabelle und der Überschrift:
 \newlength{\mysubfigcaptionskip}
 \setlength{\mysubfigcaptionskip}{\mysubcaptionskip}
 
-%Abstand zwischen zwei Subfloats (muss manuell hinzugefügt werden)
-\newlength{\mysubfloatvskip}
-\setlength{\mysubfloatvskip}{10pt} % (default 12pt plus 2pt minus 2pt)
+
 
 
 %% Weitere Angaben:

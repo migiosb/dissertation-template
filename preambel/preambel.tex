@@ -281,6 +281,18 @@
 \usepackage{caption}
 %% for better aligning images and captions
 %% settings are done after call of \captionsetup
+%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/caption/caption.pdf
+%\usepackage{caption}
+%\usepackage[skip=\mycaptionskip]{caption}
+%\usepackage[aboveskip=\myaboveskip,belowskip=\mybelowskip]{caption}
+% Caption fuer nicht fliessende Umgebungen
+%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/capt-of/capt-of.pdf
+\IfPackageNotLoaded{caption}{
+	\usepackage{capt-of} % only load when caption is not loaded. Otherwise compiling will fail.
+	%Usage: \captionof{table}[short Titel]{long Titel}
+}
+%%% 
+%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/floatrow/floatrow.pdf
 %% Führt zur Ignorierung der definierten skip-Abtände!!!?
 \usepackage{floatrow}
 
@@ -1356,6 +1368,8 @@ verbose,
 % Silbentrennung zwischen zwei Seiten verhindern:
 \brokenpenalty=10000
 
+%% Vorgabe von KSP:
+%% Länge der letzten Zeile eines Absatzes mindestens 10ex!
 %% control the last line length of a paragraph
 \setlength{\parfillskip}{0pt plus\dimexpr\textwidth-10ex}
 
@@ -1547,17 +1561,7 @@ afterskip=\myparagraphafterskip%
 % \setkomafont{caption}{\color{black}\small\sffamily\RaggedRight}  % Schrift fuer Caption
 % \setkomafont{captionlabel}{\color{black}\small}   % Schrift fuer 'Abbildung' usw.
 
-%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/caption/caption.pdf
-%\usepackage{caption}
-%\usepackage[skip=\mycaptionskip]{caption}
-%\usepackage[aboveskip=\myaboveskip,belowskip=\mybelowskip]{caption}
-% Caption fuer nicht fliessende Umgebungen
-%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/misc/capt-of.sty
-\IfPackageNotLoaded{caption}{
-	\usepackage{capt-of} % only load when caption is not loaded. Otherwise compiling will fail.
-	%Usage: \captionof{table}[short Titel]{long Titel}
-}
-%
+
 
 %Scheint durch floatrow überschrieben zu werden
 %\setlength{\abovecaptionskip}{0pt}
@@ -1672,12 +1676,17 @@ afterskip=\myparagraphafterskip%
    %margin = 10pt,
    margin = 5pt,
    %margin = 0pt,
-   %aboveskip = \mysubfigaboveskip,
-   %belowskip = \mysubfigbelowskip,
-   farskip = 0pt, %Glue placed opposite the sub-float caption (default: 10pt)
-   nearskip = 0pt, %Glue placed opposite the caption from the sub-float (default: 0pt)
-	 captionskip = \mysubcaptionskip, %Glue placed between the sub-float and the caption (default: 4pt)
-   %skip = \mycaptionskip,
+   %% Problem mit parskip: Fügt auch einen (unnötigen) Abstand vor der ersten Reihe von Subfigures ein,
+   %% so dass der Abstand zwischen dem vorherigen Absatz und der Abbildung unnötig vergrößert wird.
+   %% Dasselbe gilt auch am Anfang einer Seite, auch wenn die Doku sagt, dass dort der Abstand unterdrückt werden sollte 
+   %% Muss daher auf Null gesetzt werden
+   farskip = \mysubfigaboveskip, %Glue placed opposite the sub-float caption (default: 10pt)
+   %% Problem mit nearskip: Fügt auch einen (unnötigen) Abstand nach der letzten Reihe von Subfigures ein,
+   %% so dass der Abstand zwischen den Subfigure-Unterschriften der letzten Subfigure-Reihe
+   %% und der Gesamt-Unterschrift der Abbildung zu groß wird!
+   %% Muss daher auf Null gesetzt werden
+   nearskip = \mysubfigbelowskip, %Glue placed opposite the caption from the sub-float (default: 0pt)
+   captionskip = \mysubcaptionskip, %Glue placed between the sub-float and the caption (default: 4pt)
    %topadjust=0pt, %Extra glue added to 'captionskip' when above the sub-float (default: 0pt)
    font = {footnotesize,rm},
    labelfont = {footnotesize,bf},
