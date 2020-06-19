@@ -1,0 +1,47 @@
+%% Um 90° gedrehte Tabelle
+%
+\begin{sidewaystable}[p]
+\raggedleft%% Rechtsbündig, damit die Tabelle oben ausgerichtet wird (Forderung KSP)
+\renewcommand{\arraystretch}{1.3}%% Etwas mehr Abstand zwischen den Tabellenzeilen
+%% Tabelle mit einer festen Breite (hier: so breit wie die Seitenhöhe).
+%% Spaltendefinition:
+%% Spalte vom Typ "l": Spalte so breit, wie der Inhalt, linksbündige Ausrichtung
+%% Spalte vom Typ "L": Spalte mit einer festen Breitenangabe, linksbündiger Flattersatz. Inhalt wird umbrochen, wenn zu lang
+%% 2 Spalten vom Typ "x": die Breite wird automatisch berechnet in Abhängigkeit von der Gesamtbreite und Breite anderer Spalten
+\begin{tabularx}{\linewidth}{l L{10em} *{2}x}%
+	\toprule%
+	\rowcolor{tableheadcolor}%
+	\tableheadfont Spalte vom Typ \enquote{l} &	
+	\tableheadfont Spalte vom Typ \enquote{L} & 
+	\tableheadfont Spalte vom Typ \enquote{x} & 
+	\tableheadfont Spalte vom Typ \enquote{x}
+	\tabularnewline%
+	\midrule%
+		Spaltenbreite inhaltsabhängig  & 
+		Spalte mit der festen Breite von 10\,em & 
+		Spaltenbreite wird automatisch bestimmt & 
+		Etwas längerer Inhalt, der bei Bedarf umbrochen werden kann
+	\tabularnewline
+	%%-----------------------------------------------------------
+	Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt & und noch etwas \tabularnewline
+	Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt & und noch etwas \tabularnewline
+	%% Zwischenkopf ---------------------------------------------
+	\rowcolor{tablesubheadcolor}%
+	\multicolumn{4}{l}{\bfseries\color{KITblue} Zwischenkopfzeile, welche über mehrere Spalten geht}%
+	\tabularnewline%
+	%%-----------------------------------------------------------
+	Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt & und noch etwas \tabularnewline
+	Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt & und noch etwas \tabularnewline
+	Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt & und noch etwas \tabularnewline
+	%% Zwischenkopf ---------------------------------------------
+	\rowcolor{tablesubheadcolor}%
+	\multicolumn{4}{l}{\bfseries\color{KITgreen} Zwischenkopfzeile, welche über mehrere Spalten geht}%
+	\tabularnewline
+	%%-----------------------------------------------------------
+	Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt & und noch etwas \tabularnewline
+	Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt & und noch etwas \tabularnewline
+	\bottomrule%
+\end{tabularx}%
+\caption{Beispiel für eine breite, gedrehte Tabelle}%
+\label{tab:ex-sideways}%
+\end{sidewaystable}
