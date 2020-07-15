@@ -5,12 +5,12 @@
 \chapter*{\TransAcknowledgements}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%% No entry for this chapter to the table of contents:
-%% Kein Eintrag für dieses Kapitel im Imhaltsverzeichnis
-%\addcontentsline{toc}{chapter}{\TransAcknowledgements}
+%% Add an entry to the table of contents and a PDF bookmark
+\addcontentsline{toc}{chapter}{\TransAcknowledgements}
 %
-%% However, set a PDF bookmark (PDF-Lesezeichen setzen):
-\pdfbookmark[0]{\TransAcknowledgements}{acknowledgements}
+%% If no entry to the table of contents:
+%% Set a PDF bookmark (PDF-Lesezeichen):
+%\pdfbookmark[0]{\TransAcknowledgements}{acknowledgements}
 %
 %Add a header title (Kolumnentitel beidseitig setzen)
 \markboth{\TransAcknowledgements}{\TransAcknowledgements}
@@ -19,12 +19,14 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \todo[inline,caption={Danksagung einfügen oder ausblenden!}]{%
-Hier die Danksagung einfügen.
+%Hier die Danksagung einfügen.
 
-Die Seite kann aber auch durch das Umsetzen des Schalters
+Notiz: Die Seite kann durch das Umsetzen des Schalters
 \printkeyword{showAcknowledgments} auf \printkeyword{false}
 in der Datei \printfilepathquoted{preambel/AlleSchalter.tex}
 ausgeblendet werden.
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Hier kommt die Danksagung rein.
+Hier steht die Danksagung.
+
+\blindtext
