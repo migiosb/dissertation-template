@@ -1,10 +1,17 @@
 \begin{longtable}{l*{3}{y}}%
-\hiderowcolors%
-\caption{Longtable Tabelle über einen Seitenumbruch hinaus.}%
-\label{tab:MehrseitigeTabelle}%
-\vspace{\mycaptionskip}%
-\tabularnewline%
 %% Definition für die erste Kopfzeile
+	%% Bei Longtable ist Caption Teil der Kopfzeile
+	\hiderowcolors%
+	%\vspace{-1.6\baselineskip}% Workaround, um den Abstand vor der Überschrift, welcher durch arraystretch eingeführt wird, zu "entfernen"
+	\vspace{-18pt}%
+	%\vspace{\dimexpr (\baselineskip * \numexpr (1 - \numexpr \arraystretch \relax) \relax) \relax}}%
+	\tabularnewline%
+	\caption{Longtable Tabelle über einen Seitenumbruch hinaus.}%
+	\label{tab:MehrseitigeTabelle}%
+	%\vspace{\mytablecaptionskip}%
+	\tabularnewline%
+	%\\%
+	%% Definition für die erste Kopfzeile
 	\rowcolor{tableheadcolor}%
 	\toprule%
 	\tableheadfont Tabellenkopf &
@@ -64,4 +71,4 @@
 \bfseries Beschreibung   & 9 Inhalt & Inhalt & Inhalt \tabularnewline
 \bfseries Beschreibung   & 0 Inhalt & Inhalt & Inhalt \tabularnewline
 \bfseries Beschreibung   & 1 Inhalt & Inhalt & Inhalt \tabularnewline
-\end{longtable}            
+\end{longtable}

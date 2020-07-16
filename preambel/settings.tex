@@ -17,12 +17,62 @@
 %\setlength{\mymarginparsep}{5mm}
 %\setlength{\mymarginparsep}{0pt}
 
+
+
+
+%%% Absatzangaben von Komaskript:
+%%%\setparsizes{<Einzug>}{<Abstand>}{<Endzeilenleerraum>}
+%%%\setparsizes{<parindent>}{<parskip>}{<parfillskip>}
+%%\setparsizes{\myparindent}{\myparskip}{0pt plus\dimexpr\textwidth-10ex}
+%\setparsizes{0pt}{6.6pt}{0pt plus\dimexpr\textwidth-10ex}
+
+
+
+
 % Abstand zwischen den Paragraphen
 \newlength{\myparskip}
 %\setlength{\myparskip}{0.5\baselineskip plus 0.5\baselineskip} % das wäre wohl default
-%\setlength{\myparskip}{0.5\baselineskip} %ohne Pluswerte (= keine Dehnung)
-%\setlength{\myparskip}{0.6\baselineskip} %ohne Pluswerte (= keine Dehnung)
-\setlength{\myparskip}{0.6\baselineskip plus 1pt minus 1pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
+%\setlength{\myparskip}{0.5\baselineskip} %ohne Pluswerte (= keine Dehnung) und Minuswerte (= keine Stauchung)
+%\setlength{\myparskip}{0.6\baselineskip} %ohne Pluswerte (= keine Dehnung) und Minuswerte (= keine Stauchung)
+%\setlength{\myparskip}{0.6\baselineskip plus 1pt minus 1pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
+%\setlength{\myparskip}{0.6\baselineskip plus 0pt minus 0pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
+\setlength{\myparskip}{6.6pt} %ohne Pluswerte (= Dehnung) und Minuswerte (= Stauchung)
+
+\newlength{\mysmallskip} % default: 3.0pt plus 1.0pt minus 1.0pt
+\setlength{\mysmallskip}{3pt} %ohne Pluswerte (= Dehnung) und Minuswerte (= Stauchung)
+
+\newlength{\mymedskip} % default 6.0pt plus 2.0pt minus 2.0pt
+%\setlength{\mymedskip}{6pt plus 1pt minus 1pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
+\setlength{\mymedskip}{6pt} %ohne Pluswerte (= Dehnung) und Minuswerte (= Stauchung)
+
+\newlength{\mybigskip} % default 12.0pt plus 4.0pt minus 4.0pt
+%\setlength{\mybigskip}{12pt plus 2pt minus 2pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
+\setlength{\mybigskip}{12pt} %ohne Pluswerte (= Dehnung) und Minuswerte (= Stauchung)
+
+%%% Vertikaler Abstand zwischen zwei Gleitobjekten
+\newlength{\myfloatsep}
+%\setlength{\myfloatsep}{\baselineskip} % (default 12pt plus 2pt minus 2pt)
+%\setlength{\myfloatsep}{\baselineskip}
+\setlength{\myfloatsep}{12pt}
+
+%%% Vertikaler Abstand zwischen der Top- oder Bottom-Bereich und Text-Bereich
+\newlength{\mytextfloatsep}
+%\setlength{\mytextfloatsep}{\baselineskip} % (default 20pt plus 2pt minus 4pt)
+%\setlength{\mytextfloatsep}{\myfloatsep}
+%\setlength{\mytextfloatsep}{1.5\baselineskip}
+\setlength{\mytextfloatsep}{12pt}
+
+%% Abstand zwischen Inline-Gleitobjekten, die mit "here" platziert worden sind,
+%% und dem darüber und darunter angeordneten Fließtext fest
+%% Beispiel: \intextsep5mm plus3mm minus2mm
+%\setlength{\intextsep}{0.5\baselineskip} % Platz ober- und unterhalb des Bildes
+\newlength{\myintextsep}
+%\setlength{\myintextsep}{2\baselineskip} % (default 12pt plus 2pt minus 2pt) 
+\setlength{\myintextsep}{10pt}
+%\setlength{\myintextsep}{12pt} %ohne Pluswerte (= Dehnung) und Minuswerte (= Stauchung)
+%\setlength{\myintextsep}{12pt plus 1pt minus 1pt} %mit Pluswerten (= Dehnung) und Minuswerten (= Stauchung)
+%\setlength{\myintextsep}{0pt} %kein Zusatzabstand!
+
 
 \newlength{\mychapterbeforeskip}
 \newlength{\mychapterafterskip}
@@ -50,45 +100,123 @@
 \setlength{\myparagraphbeforeskip}{1.5\myparskip}
 \setlength{\myparagraphafterskip}{1\myparskip}
 
-%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
-%funktioniert aus irgendeinem Grund nicht!
+
+\newlength{\mylistingframesep}
+\setlength{\mylistingframesep}{1ex}
+
+\newlength{\mylistingframerule}
+\setlength{\mylistingframerule}{0.4pt}
+
+
+%%Abstand zwischen der Abbilung und der Überschrift:
+%%funktioniert aus irgendeinem Grund nicht!
 \newlength{\myaboveskip}
 %\setlength{\myaboveskip}{10pt}
 \setlength{\myaboveskip}{0pt}
-%Abstand nach der Überschrift einer Abbilung/Tabelle:
+
+%%Abstand nach der Überschrift einer Abbilung:
+%%funktioniert aus irgendeinem Grund nicht!
 \newlength{\mybelowskip}
 %\setlength{\mybelowskip}{10pt}
 \setlength{\mybelowskip}{0pt}
-%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+
+
+%Abstand zwischen der Subfigure-Überschrift und der Überschrift:
 \newlength{\mysubcaptionskip}
 \setlength{\mysubcaptionskip}{6pt}
-%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+
+%Abstand zwischen der Float-Umgebung und der Unter-/Überschrift
 \newlength{\mycaptionskip}
-\setlength{\mycaptionskip}{5pt}
+\setlength{\mycaptionskip}{10pt}
+
+
+%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+\newlength{\myfigureskip}
+\setlength{\myfigureskip}{\mycaptionskip}
+%Abstand zwischen der Abbilung und der Überschrift:
+%funktioniert aus irgendeinem Grund nicht!
+\newlength{\myfigureaboveskip}
+\setlength{\myfigureaboveskip}{\myaboveskip}
+%Abstand nach der Überschrift einer Abbilung:
+\newlength{\myfigurebelowskip}
+\setlength{\myfigurebelowskip}{\mybelowskip}
+%Abstand zwischen der Abbilung und der Überschrift:
+\newlength{\myfigurecaptionskip}
+\setlength{\myfigurecaptionskip}{\mycaptionskip}
+
+
+
+%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+\newlength{\mytableskip}
+\setlength{\mytableskip}{\mycaptionskip}
+%Abstand zwischen der Tabelle und der Überschrift:
+%funktioniert aus irgendeinem Grund nicht!
+\newlength{\mytableaboveskip}
+\setlength{\mytableaboveskip}{\myaboveskip}
+%Abstand nach der Überschrift einer Tabelle:
+\newlength{\mytablebelowskip}
+\setlength{\mytablebelowskip}{\mybelowskip}
+%Abstand zwischen der Tabelle und der Überschrift:
+\newlength{\mytablecaptionskip}
+\setlength{\mytablecaptionskip}{\mycaptionskip}
+
+
+%% Abstand zwischen der Listing und der Überschrift:
+\newlength{\mylistingskip}
+\setlength{\mylistingskip}{\mycaptionskip}
+%% Abstand zwischen dem Text und der Listing über der Listing (d.h. ggf. über der Überschrift)
+\newlength{\mylistingaboveskip}
+%\setlength{\mylistingaboveskip}{\myaboveskip}
+%\setlength{\mylistingaboveskip}{0.5\mytextfloatsep}
+%\setlength{\mylistingaboveskip}{0pt}
+\setlength{\mylistingaboveskip}{\myintextsep}
+%% Abstand nach der Listing (d.h. ggf. unter der Unterschrift):
+\newlength{\mylistingbelowskip}
+%\setlength{\mylistingbelowskip}{\mybelowskip}
+%\setlength{\mylistingbelowskip}{\mytextfloatsep}
+%\setlength{\mylistingbelowskip}{0pt}
+\setlength{\mylistingbelowskip}{\myintextsep}
+%\setlength{\mylistingbelowskip}{\myintextsep}
+%\setlength{\mylistingbelowskip}{2\parskip}
+%%% Abstand zwischen der Listing und der Überschrift:
+%\newlength{\mylistingcaptionskip}
+%\setlength{\mylistingcaptionskip}{\mycaptionskip}
+%%% Abstand vor der Überschrift einer Listing:
+%\newlength{\mylistingcaptionaboveskip}
+%\setlength{\mylistingcaptionaboveskip}{\myparskip}
+%%% Abstand nach der Überschrift einer Listing:
+%\newlength{\mylistingcaptionbelowskip}
+%\setlength{\mylistingcaptionbelowskip}{\myparskip}
+
+
+
 %Abstand zwischen zwei Subfloats (muss manuell hinzugefügt werden)
 \newlength{\mysubfloatvskip}
 \setlength{\mysubfloatvskip}{10pt} % (default 12pt plus 2pt minus 2pt)
 
-%%% Vertikaler Abstand zwischen zwei Gleitobjekten
-\newlength{\myfloatsep}
-%\setlength{\myfloatsep}{\baselineskip} % (default 12pt plus 2pt minus 2pt)
-\setlength{\myfloatsep}{\baselineskip}
-%\setlength{\myfloatsep}{12pt}
 
-%%% Vertikaler Abstand zwischen der Top- oder Bottom-Bereich und Text-Bereich
-\newlength{\mytextfloatsep}
-%\setlength{\mytextfloatsep}{\baselineskip} % (default 20pt plus 2pt minus 4pt)
-%\setlength{\mytextfloatsep}{\myfloatsep}
-\setlength{\mytextfloatsep}{1.5\baselineskip}
-%\setlength{\mytextfloatsep}{12pt}
+%Abstand oberhalb von Subfigures:
+\newlength{\mysubfigaboveskip}
+%% Problem: Fügt auch einen (unnötigen) Abstand vor der ersten Reihe von Subfigures ein,
+%% so dass der Abstand zwischen dem vorherigen Absatz und der Abbildung unnötig vergrößert wird.
+%% Dasselbe gilt auch am Anfang einer Seite, auch wenn die Doku sagt, dass dort der Abstand unterdrückt werden sollte 
+%% Muss daher auf Null gesetzt werden
+%\setlength{\mysubfigaboveskip}{\mysubfloatvskip} %funktioniert nicht
+\setlength{\mysubfigaboveskip}{0pt}
+%Abstand nach der Subfigure-Unterschrift
+\newlength{\mysubfigbelowskip}
+%% Problem: Fügt auch einen (unnötigen) Abstand nach der letzten Reihe von Subfigures ein,
+%% so dass der Abstand zwischen den Subfigure-Unterschriften der letzten Subfigure-Reihe
+%% und der Gesamt-Unterschrift der Abbildung zu groß wird!
+%% Muss daher auf Null gesetzt werden
+%\setlength{\mysubfigbelowskip}{\mysubfloatvskip} %funktioniert nicht
+\setlength{\mysubfigbelowskip}{0pt}
+%Abstand zwischen der Abbilung/Tabelle und der Überschrift:
+\newlength{\mysubfigcaptionskip}
+\setlength{\mysubfigcaptionskip}{\mysubcaptionskip}
 
-%% Abstand zwischen Inline-Gleitobjekten, die mit "here" platziert worden sind,
-%% und dem darüber und darunter angeordneten Fließtext fest
-%% Beispiel: \intextsep5mm plus3mm minus2mm
-%\setlength{\intextsep}{0.5\baselineskip} % Platz ober- und unterhalb des Bildes
-\newlength{\myintextsep}
-\setlength{\myintextsep}{2\baselineskip} % (default 12pt plus 2pt minus 2pt) 
-%\setlength{\myintextsep}{10pt} % (default 12pt plus 2pt minus 2pt) 
+
+
 
 %% Weitere Angaben:
 %% Forderung des KSP-Verlages:
@@ -126,12 +254,6 @@
 
 \newlength{\mytextwidth}
 \setlength{\mytextwidth}{106mm}
-
-\newlength{\mylistingframesep}
-\setlength{\mylistingframesep}{1ex}
-
-\newlength{\mylistingframerule}
-\setlength{\mylistingframerule}{0.4pt}
 
 %vertical float alignment for the only-float pages:
 %on float-only pages the figures/tables shall be aligned at the top of the page instead of being centered

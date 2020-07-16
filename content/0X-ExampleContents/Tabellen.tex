@@ -112,6 +112,9 @@ Ein Beispiel dafür sieht man in \cref{tab:MehrseitigeTabelle}.
 % Angaben zur Tabellenstil innerhalb einer eigenen Umgebung, damit diese nur lokal wirken
 \begingroup%
 \tablestylealtcolored%
+\setlength{\topskip}{0pt}%
+\setlength{\LTpre}{0pt}%
+\setlength{\LTpost}{0pt}%
 \LTXtable{\textwidth}{tables/LongTableExample.tex}
 \endgroup%
 %

@@ -237,6 +237,33 @@
 }
 
 
+%% Abstand zwischen zwei Absätzen
+%% Anpassung in der Datei settings.tex
+\setlength{\parskip}{\myparskip}
+
+%% Kleiner Abstand zwischen zwei Absätzen
+%% default: 3.0pt plus 1.0pt minus 1.0pt
+%% Anpassung in der Datei settings.tex
+\setlength{\smallskipamount}{\mysmallskip}
+
+%% Mittelgroßer Abstand zwischen zwei Absätzen
+%% default 6.0pt plus 2.0pt minus 2.0pt
+%% Anpassung in der Datei settings.tex
+\setlength{\medskipamount}{\mymedskip}
+
+%% Mittelgroßer Abstand zwischen zwei Absätzen
+%% default 12.0pt plus 4.0pt minus 4.0pt
+%% Anpassung in der Datei settings.tex
+\setlength{\bigskipamount}{\mybigskip}
+
+%% Abstand zwischen Gleitobjekten und dem darüber und darunter angeordneten Fließtext fest
+\setlength{\intextsep}{\myintextsep}
+\setlength{\floatsep}{\myfloatsep}
+\setlength{\textfloatsep}{\mytextfloatsep}
+%\setlength{\columnsep}{1em} % Abstand zum Text
+
+
+
 %% Doc: (inside relsize.sty )
 %% ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/misc/relsize.sty
 %  Set the font size relative to the current font size
@@ -250,6 +277,24 @@
 %%PW: Markus Kohms gridset zum registerhaltigen Satz. (Zeilen der Vorderseite matchen die Zeilen der Rückseite wenn man es gegen das Licht hält)
 %% Man muss händisch an die Absätze \vskipnextgrid setzen und für jedes \vskipnextgrid braucht man (mehr od. weniger) einen extra-Durchlauf von pdfLaTeX :-(
 %\usepackage{gridset}
+
+\usepackage{caption}
+%% for better aligning images and captions
+%% settings are done after call of \captionsetup
+%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/caption/caption.pdf
+%\usepackage{caption}
+%\usepackage[skip=\mycaptionskip]{caption}
+%\usepackage[aboveskip=\myaboveskip,belowskip=\mybelowskip]{caption}
+% Caption fuer nicht fliessende Umgebungen
+%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/capt-of/capt-of.pdf
+\IfPackageNotLoaded{caption}{
+	\usepackage{capt-of} % only load when caption is not loaded. Otherwise compiling will fail.
+	%Usage: \captionof{table}[short Titel]{long Titel}
+}
+%%% 
+%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/floatrow/floatrow.pdf
+%% Führt zur Ignorierung der definierten skip-Abtände!!!?
+\usepackage{floatrow}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Tables (Tabular)
@@ -484,12 +529,14 @@ verbose,
          C,
          [Visual]C++,
          [ISO]C++,
+         Python,				 
          %XML,
          %HTML,
  }
 
 
 \lstdefinestyle{nonumbers}{%
+				basicstyle=\ttfamily,%
 				numbers=none,%
 				frame=none,
 				xleftmargin=0pt,  % keine Einrückung
@@ -497,6 +544,7 @@ verbose,
 }
 
 \lstdefinestyle{numbers}{%
+				basicstyle=\ttfamily,%
 				numbers=left,			          % Ort der Zeilennummern (falls gewünscht, 
 				frame=none,
 				xleftmargin=2\marginparsep,  % Einrückung, damit die Zeilennummern innerhalb des Textrahmens stehen!}
@@ -504,27 +552,51 @@ verbose,
 				numberstyle=\tiny,          % Stil der Zeilennummern
 }
 
-\lstdefinestyle{nonumbersframed}{%
+\lstdefinestyle{nonumbersframed}{% Listing mit Rahmen ohne Nummerirerung
+			basicstyle=\ttfamily,%
 			numbers=none,%
 			frame = single,             % Rahmen um Listings zeichnen
 			framesep=\mylistingframesep,
 			framerule=\mylistingframerule,
-			xleftmargin=\dimexpr\mylistingframesep+\mylistingframerule,
-			xrightmargin=\dimexpr\mylistingframesep+\mylistingframerule,
+			xleftmargin=\dimexpr(\mylistingframesep+\mylistingframerule)\relax,
+			framexleftmargin=0pt,
+			xrightmargin=\dimexpr(\mylistingframesep+\mylistingframerule)\relax,
+			%% Abstände ausgeglichen, dedoch variabel!!
+			%aboveskip=\parskip, % default is \medskipamount
+			%belowskip=\dimexpr(\mylistingframesep+\mylistingframerule+\parskip)\relax, % default is \medskipamount
+			%% Abstände unausgeglichen!
+			%aboveskip=\mylistingaboveskip, % default is \medskipamount
+			%belowskip=\dimexpr(\mylistingframesep+\mylistingframerule+\mylistingbelowskip)\relax, % default is \medskipamount
+			%% Abstände ausgeglichen!
+			aboveskip=\dimexpr(\mylistingaboveskip-\mylistingframesep-\mylistingframerule)\relax, % default is \medskipamount
+			belowskip=\dimexpr(\mylistingbelowskip-\mylistingframesep-\mylistingframerule)\relax, % default is \medskipamount
 }
 
 
-\lstdefinestyle{numbersframed}{%
+\lstdefinestyle{numbersframed}{% Listing mit Rahmen mit Nummerirerung
+			basicstyle=\ttfamily,%
 			numbers=left,			          % Ort der Zeilennummern (falls gewünscht, 
 			frame = single,             % Rahmen um Listings zeichnen
 			framesep=\mylistingframesep,
 			framerule=\mylistingframerule,
-			xleftmargin=\dimexpr\mylistingframesep+\mylistingframerule+2\marginparsep,
-			xrightmargin=\dimexpr\mylistingframesep+\mylistingframerule,
+			xleftmargin=\dimexpr(\mylistingframesep+\mylistingframerule+2\marginparsep)\relax,
+			framexleftmargin=2\marginparsep,
+			xrightmargin=\dimexpr(\mylistingframesep+\mylistingframerule)\relax,
+			%% Abstände ausgeglichen!
+			%aboveskip=\parskip, % default is \medskipamount
+			%belowskip=\dimexpr(\mylistingframesep+\mylistingframerule+\parskip)\relax, % default is \medskipamount
+			%% Abstände unausgeglichen!
+			%aboveskip=\mylistingaboveskip, % default is \medskipamount
+			%belowskip=\dimexpr(\mylistingframesep+\mylistingframerule+\mylistingbelowskip)\relax, % default is \medskipamount
+			aboveskip=\dimexpr(\mylistingaboveskip-\mylistingframesep-\mylistingframerule)\relax, % default is \medskipamount
+			belowskip=\dimexpr(\mylistingbelowskip-\mylistingframesep-\mylistingframerule)\relax, % default is \medskipamount
+			%aboveskip=\mylistingaboveskip, % default is \medskipamount
+			%belowskip=\mylistingbelowskip, % default is \medskipamount
 			numberstyle=\tiny,          % Stil der Zeilennummern	
 }
 
 \lstdefinestyle{nonumbersgraybackgrd}{%
+			basicstyle=\ttfamily,%
 			numbers=none,%
 			frame = none,             % keinen Rahmen um Listings zeichnen
 			backgroundcolor = \color{lightgray},
@@ -533,6 +605,7 @@ verbose,
 }
 
 \lstdefinestyle{numbersgraybackgrd}{%
+			basicstyle=\ttfamily,%
 			numbers=left,			          % Ort der Zeilennummern (falls gewünscht, 
 			frame = single,             % Rahmen um Listings zeichnen
 			backgroundcolor = \color{lightgray},
@@ -600,32 +673,69 @@ verbose,
 				}%
 }
 
+% same as "latex" style but for listings without without caption 
+\lstdefinestyle{inlinelatex}{% Inline-Listing (ohne Überschrift) mit Rahmen ohne Nummerirerung
+				style=latex,
+				%% Abstände ausgeglichen, aber variabel!!
+				%aboveskip=\parskip,
+				%belowskip=\parskip
+				%% Abstände ungausgeglichen trotz gleicher Definition!!
+				%% Passt aber, da danach der nächste Absatz anfängt.
+				%% Falls der Text nach dem Listing fortgesetzt werden soll, lokal von belowskip die parskip-Größe abziehen
+				aboveskip=\dimexpr(\mylistingframesep+\mylistingframerule)\relax, % default is \medskipamount
+				belowskip=\dimexpr(\mylistingframesep+\mylistingframerule)\relax, % default is \medskipamount
+				%% Abstände ausgeglichen, aber variable!
+				%aboveskip=\dimexpr(\mylistingframesep+\mylistingframerule+\parskip)\relax, % default is \medskipamount
+				%belowskip=\dimexpr(\mylistingframesep+\mylistingframerule+\parskip)\relax, % default is \medskipamount
+				%% Abstände fast ausgeglichen trotz ungleicher Definition!!
+				%aboveskip=\dimexpr(\mylistingframesep+\mylistingframerule)\relax, % default is \medskipamount
+				%belowskip=\dimexpr(-\mylistingframesep-\mylistingframerule)\relax, % default is \medskipamount
+				%aboveskip=\myintextsep, % default is \medskipamount
+				%belowskip=0pt, % default is \medskipamount
+				%%% Damit werden kleine ausgeglichene Abstände erreicht!!!!
+				%aboveskip=\dimexpr(\myintextsep-\mylistingframesep-\mylistingframerule)\relax, % default is \medskipamount
+				%belowskip=0pt, % default is \medskipamount
+				%% Abstände ungausgeglichen trotz gleicher Definition!!
+				%aboveskip=\mymedskip, % default is \medskipamount
+				%belowskip=0pt, % default is \medskipamount
+				%aboveskip=\dimexpr(\myintextsep-\mylistingframesep-\mylistingframerule)\relax, % default is \medskipamount
+				%belowskip=\dimexpr(\myintextsep-\mylistingframesep-\mylistingframerule)\relax, % default is \medskipamount
+				%aboveskip=\dimexpr(\mylistingframesep+\mylistingframerule+\mylistingaboveskip)\relax, % default is \medskipamount
+				%belowskip=\dimexpr(\mylistingframesep+\mylistingframerule+\mylistingbelowskip)\relax, % eigentlich \medskipamount
+}
+
+\lstdefinestyle{python}{
+				%style=numbers,%
+				%stile=nonumbers,%
+				style=numbersframed,%
+				%style=nonumbersframed,%
+				language=Python,%
+}
+
 \lstdefinestyle{java}{
 				%style=numbers,%
 				%stile=nonumbers,
-				%style=numbersframed,
-				style=nonumbersframed,
+				style=numbersframed,
+				%style=nonumbersframed,
         language=Java,%
 }
 
 \lstdefinestyle{C++}{
 				%style=numbers,%
 				%stile=nonumbers,%
-				%style=numbersframed,%
-				style=nonumbersframed,%
+				style=numbersframed,%
+				%style=nonumbersframed,%
         language=[Visual]C++,%
 }
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Global settings for listings %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lstset{%
-				basicstyle=\ttfamily,%
 				%style=numbers,
-				%stile=nonumbers,
-				%style=numbersframed,
-				style=nonumbersframed,
+				%style=nonumbers,
+				style=numbersframed,
+				%style=nonumbersframed,
 				%style=latex,
 				%style=java,
 				%style=C++,
@@ -645,10 +755,21 @@ verbose,
 				showstringspaces=false,      % Leerzeichen in Strings anzeigen ?
 				commentstyle=\color{commentcolor},
 				directivestyle=\color{keywordcolor},
-				aboveskip=\mytextfloatsep,
-				abovecaptionskip=\mycaptionskip,
-				belowcaptionskip=\mytextfloatsep,
-				captionpos=b, %Überschrift unterhalb (ggf. weitere Einstellung in captionsetup beachten!)
+				%aboveskip=0pt, % Abstand vor dem Listing (oben gesetzt, abhängig vom Vorhandensein des Rahmens)
+				%belowskip=0pt, % Abstand vor dem Listing (oben gesetzt, abhängig vom Vorhandensein des Rahmens)
+				%aboveskip=\mylistingaboveskip, % Abstand vor dem Listing (funktioniert, macht aber Probleme am Anfang einer Seite)
+				%belowskip=\mylistingbelowskip, % Abstand nach dem Listing (funktioniert, wie sieht es am Ende einer Seite aus?)
+				%% Falls Positionierung des Captions unten:
+				%captionpos=b, %Überschrift unterhalb (ggf. weitere Einstellung in captionsetup beachten!)
+				%% default value for abovecaptionskip and belowcaptionskip is \smallskipamount
+				%abovecaptionskip=\mylistingcaptionskip, % Abstand vor der Listing-Caption (überschreibt vorausgehende Definition, wird von nachfolgenden Definitionen überschrieben!
+				%belowcaptionskip=\mytextfloatsep, % Abstand nach der Listing-Caption (überschreibt vorausgehende Definition, wird von nachfolgenden Definitionen überschrieben!
+				captionpos=t, %Überschrift oberhalb (ggf. weitere Einstellung in captionsetup beachten!)
+				%% default value for abovecaptionskip and belowcaptionskip is \smallskipamount
+				%abovecaptionskip=0pt, % Abstand vor der Listing-Caption (überschreibt vorausgehende Definition, wird von nachfolgenden Definitionen überschrieben!
+				%abovecaptionskip=\myintextsep, % Abstand nach der Listing-Caption (überschreibt vorausgehende Definition, wird von nachfolgenden Definitionen überschrieben!
+				%belowcaptionskip=\mylistingcaptionskip,
+				%belowcaptionskip=0pt,
 }
 
 
@@ -660,6 +781,10 @@ verbose,
 	\lstset{style=latex,#1}%
 }{}
 
+\lstnewenvironment{python}[1][]{%
+  \lstset{style=python,#1}%
+}{}
+
 \lstnewenvironment{java}[1][]{%
   \lstset{style=java,#1}%
 }{}
@@ -668,8 +793,9 @@ verbose,
   \lstset{style=C++,#1}%
 }{}
 
-
-
+\lstnewenvironment{inlinelatex}[1][]{%
+	\lstset{style=inlinelatex,#1}%
+}{}
 
 %% PW
 % Weitere Algorithmenumgebungen: http://en.wikibooks.org/wiki/LaTeX/Algorithms_and_Pseudocode
@@ -736,15 +862,6 @@ verbose,
 \setcounter{bottomnumber}{3}           % vorher: 1
 %% maximum number of floats on a page (default: 3)
 \setcounter{totalnumber}{5}            % vorher: 3
-
-% Abstand zwischen zwei Absätzen
-\setlength{\parskip}{\myparskip}
-
-%% Abstand zwischen Gleitobjekten und dem darüber und darunter angeordneten Fließtext fest
-\setlength{\intextsep}{\myintextsep}
-\setlength{\floatsep}{\myfloatsep}
-\setlength{\textfloatsep}{\mytextfloatsep}
-%\setlength{\columnsep}{1em} % Abstand zum Text
 
 
 \makeatletter
@@ -1271,6 +1388,12 @@ verbose,
 \displaywidowpenalty=9000 % Alter Wert: 9000
 % Silbentrennung zwischen zwei Seiten verhindern:
 \brokenpenalty=10000
+
+%% Vorgabe von KSP:
+%% Länge der letzten Zeile eines Absatzes mindestens 10ex!
+%% control the last line length of a paragraph
+\setlength{\parfillskip}{0pt plus\dimexpr\textwidth-10ex}
+
 %% Schriften (Sections )==================================================
 
 
@@ -1350,7 +1473,7 @@ verbose,
 %% indirekte Auswirkung auch auf \raggedchapter
 
 %%% Adjust space above and below chapter titles, section titles etc.
-
+%% Definition angepasster Parameter in der Datei settings.tex
 \RedeclareSectionCommand[%
 %%beforeskip=-10pt plus -2pt minus -1pt,%
 %%afterskip=1sp plus -1sp minus 1sp%
@@ -1459,30 +1582,28 @@ afterskip=\myparagraphafterskip%
 % \setkomafont{caption}{\color{black}\small\sffamily\RaggedRight}  % Schrift fuer Caption
 % \setkomafont{captionlabel}{\color{black}\small}   % Schrift fuer 'Abbildung' usw.
 
-%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/caption/caption.pdf
-\usepackage{caption}
-%\usepackage[aboveskip=\myaboveskip,belowskip=\mybelowskip]{caption}
-% Caption fuer nicht fliessende Umgebungen
-%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/misc/capt-of.sty
-\IfPackageNotLoaded{caption}{
-	\usepackage{capt-of} % only load when caption is not loaded. Otherwise compiling will fail.
-	%Usage: \captionof{table}[short Titel]{long Titel}
-}
-%
 
-%Funktioniert auch nicht...
+
+%Scheint durch floatrow überschrieben zu werden
+%\setlength{\abovecaptionskip}{0pt}
 %\setlength{\abovecaptionskip}{\mycaptionskip}
 %\setlength{\belowcaptionskip}{\mycaptionskip}
+%s. https://tex.stackexchange.com/questions/32614/vertical-spacing-in-floats
+%\setlength{\belowcaptionskip}{-\baselineskip}\addtolength{\belowcaptionskip}{1.6ex}%
+%\setlength{\abovecaptionskip}{\myaboveskip}
+%\setlength{\belowcaptionskip}{0pt}
 %\setlength{\subfigtopskip}{0pt}
-%\setlength{\subfigbottomskip}{pt}
+%\setlength{\subfigbottomskip}{0pt}
 
-% Aussehen der Captions
+%% Aussehen der Captions
+%% Definition angepasster Parameter in der Datei settings.tex
 \captionsetup[figure]{
    margin = 0pt,
-   aboveskip = \myaboveskip,
-   belowskip = \mybelowskip,
-   captionskip = \mycaptionskip,
-   %skip = \mycaptionskip,
+   %% Die nachfolgenden Einstellungen werden weiter unten mit flotrow-Paket gesetzt
+   %aboveskip = \myfigureaboveskip, % wird von floatrow-Paket mit \floatsetup[figure] gesetzt
+   %belowskip = \myfigurebelowskip, % wird von floatrow-Paket mit \floatsetup[figure] gesetzt
+   %captionskip = \myfigurecaptionskip, % wird von floatrow-Paket mit \floatsetup[figure] gesetzt
+   %skip = \myfigureskip, % wird von floatrow-Paket mit \floatsetup[figure] gesetzt
    font = {footnotesize,rm},
    labelfont = {footnotesize,bf},
    %format = plain, % oder 'hang'
@@ -1493,14 +1614,19 @@ afterskip=\myparagraphafterskip%
    %justification = centering, % zentriert
    justification = justified, % Blocksatz
    singlelinecheck = true, % false (true=bei einer Zeile immer zentrieren)
-   position = bottom %top
+   %% Der Position-Parameter setzt die Caption nicht nach oben oder nach unten, das macht rowfloat-paket!
+   %% Hier wird lediglich gemutmasst, wo die Caption steht und wie der Abstand gesetzt werden soll
+   %position = bottom % Annahme: Caption ist unten platziert, d.h. skip-Abstand oberhalb der Caption hinzufügen
+   %position = top % Annahme: Caption ist oben platziert, d.h. skip-Abstand unterhalb von Caption hinzufügen
+   position = auto % Die Caption-Position in Bezug auf die Abbildung soll vom Paket geraten werden
 }
 \captionsetup[table]{
    margin = 0pt,
-   aboveskip = \myaboveskip,
-   belowskip = \mybelowskip,
-   captionskip = \mycaptionskip,
-   %skip = \mycaptionskip,
+   %% Die nachfolgenden Einstellungen werden weiter oben mit flotrow-Paket gesetzt
+   %aboveskip = \mytableaboveskip, % wird von floatrow-Paket mit \floatsetup[table] gesetzt
+   %belowskip = \mytablebelowskip, % wird von floatrow-Paket mit \floatsetup[table] gesetzt
+   %captionskip = \mytablecaptionskip, % wird von floatrow-Paket mit \floatsetup[table] gesetzt
+   %skip = \mytableskip, % wird von floatrow-Paket mit \floatsetup[table] gesetzt
    font = {footnotesize,rm},
    labelfont = {footnotesize,bf},
    %format = plain, % oder 'hang'
@@ -1511,14 +1637,40 @@ afterskip=\myparagraphafterskip%
    %justification = centering, % zentriert
    justification = justified, % Blocksatz
    singlelinecheck = true, % false (true=bei einer Zeile immer zentrieren)
-   position = top %bottom (wird durch die Einstellung \floatsetup[table]{style=plain,capposition=TOP} überrufen!!!)
+   %% Der Position-Parameter setzt die Caption nicht nach oben oder nach unten, das macht rowfloat-paket!
+   %% Hier wird lediglich gemutmasst, wo die Caption steht und wie der Abstand gesetzt werden soll
+   %position = top % Annahme: Caption ist oben platziert, d.h. skip-Abstand unterhalb von Caption hinzufügen
+   %position = bottom % Annahme: Caption ist unten platziert, d.h. skip-Abstand oberhalb der Caption hinzufügen
+   position = auto % Die Caption-Position in Bezug auf die Tabelle soll vom Paket geraten werden
+}
+\captionsetup[longtable]{
+   margin = 0pt,
+   %aboveskip = \mytableaboveskip,
+   %belowskip = \mytablebelowskip,
+   %captionskip = \mytablecaptionskip,
+   %skip = \mytableskip,
+   font = {footnotesize,rm},
+   labelfont = {footnotesize,bf},
+   %format = plain, % oder 'hang'
+   format = hang, %zweite und weitere Zeilen einrücken (an die erste ausrichten)
+   indention = 0em,  % Einruecken der Beschriftung
+   labelsep = colon, %period, space, quad, newline
+   %justification = RaggedRight, % Falettersatz
+   %justification = centering, % zentriert
+   justification = justified, % Blocksatz
+   singlelinecheck = true, % false (true=bei einer Zeile immer zentrieren)
+   %% Der Position-Parameter setzt die Caption nicht nach oben oder nach unten, das macht rowfloat-paket!
+   %% Hier wird lediglich gemutmasst, wo die Caption steht und wie der Abstand gesetzt werden soll
+   %position = top % Annahme: Caption ist oben platziert, d.h. skip-Abstand unterhalb von Caption hinzufügen
+   %position = bottom % Annahme: Caption ist unten platziert, d.h. skip-Abstand oberhalb der Caption hinzufügen
+   position = auto % Die Caption-Position in Bezug auf die Tabelle soll vom Paket geraten werden
 }
 \captionsetup[lstlisting]{
    margin = 0pt,
-   aboveskip = \myaboveskip,
-   belowskip = \mybelowskip,
-   captionskip = \mycaptionskip,
-   skip = \mycaptionskip,
+   %aboveskip = \mylistingaboveskip, % Überschreibt vorhergehenden Einstellungen von lstset, wird ggf. von nachfolgenden Einstellungen überschrieben
+   %belowskip = \mylistingbelowskip, % Überschreibt vorhergehenden Einstellungen von lstset, wird ggf. von nachfolgenden Einstellungen überschrieben
+   %captionskip = \mylistingcaptionskip, % Überschreibt vorhergehenden Einstellungen von lstset, wird ggf. von nachfolgenden Einstellungen überschrieben
+   skip = \mylistingskip,
    font = {footnotesize,rm},
    labelfont = {footnotesize,bf},
    %format = plain, % oder 'hang'
@@ -1529,7 +1681,11 @@ afterskip=\myparagraphafterskip%
    %justification = centering, % zentriert
    justification = justified, % Blocksatz
    singlelinecheck = true, % false (true=bei einer Zeile immer zentrieren)
-   position = bottom %top (ggf. weitere Einstellung in lstset beachten!)
+   %% Der Position-Parameter setzt die Caption nicht nach oben oder nach unten, das macht rowfloat-paket!
+   %% Hier wird lediglich gemutmasst, wo die Caption steht und wie der Abstand gesetzt werden soll
+   %position = top % Annahme: Caption ist oben platziert, d.h. skip-Abstand unterhalb von Caption hinzufügen
+   %position = bottom % Annahme: Caption ist unten platziert, d.h. skip-Abstand oberhalb der Caption hinzufügen
+   position = auto % Die Caption-Position in Bezug auf die Tabelle soll vom Paket geraten werden
 }
 %%% Bugfix Workaround
 \DeclareCaptionOption{parskip}[]{}
@@ -1541,12 +1697,17 @@ afterskip=\myparagraphafterskip%
    %margin = 10pt,
    margin = 5pt,
    %margin = 0pt,
-   aboveskip = \myaboveskip,
-   belowskip = \mybelowskip,
-   farskip = 0pt, %Glue placed opposite the sub-float caption (default: 10pt)
-   nearskip = 0pt, %Glue placed opposite the caption from the sub-float (default: 0pt)
+   %% Problem mit parskip: Fügt auch einen (unnötigen) Abstand vor der ersten Reihe von Subfigures ein,
+   %% so dass der Abstand zwischen dem vorherigen Absatz und der Abbildung unnötig vergrößert wird.
+   %% Dasselbe gilt auch am Anfang einer Seite, auch wenn die Doku sagt, dass dort der Abstand unterdrückt werden sollte 
+   %% Muss daher auf Null gesetzt werden
+   farskip = \mysubfigaboveskip, %Glue placed opposite the sub-float caption (default: 10pt)
+   %% Problem mit nearskip: Fügt auch einen (unnötigen) Abstand nach der letzten Reihe von Subfigures ein,
+   %% so dass der Abstand zwischen den Subfigure-Unterschriften der letzten Subfigure-Reihe
+   %% und der Gesamt-Unterschrift der Abbildung zu groß wird!
+   %% Muss daher auf Null gesetzt werden
+   nearskip = \mysubfigbelowskip, %Glue placed opposite the caption from the sub-float (default: 0pt)
    captionskip = \mysubcaptionskip, %Glue placed between the sub-float and the caption (default: 4pt)
-   %skip = \mycaptionskip,
    %topadjust=0pt, %Extra glue added to 'captionskip' when above the sub-float (default: 0pt)
    font = {footnotesize,rm},
    labelfont = {footnotesize,bf},
@@ -1559,7 +1720,7 @@ afterskip=\myparagraphafterskip%
    %justification = centering, % zentriert
    %justification = justified, % Blocksatz
    singlelinecheck = true, % false (true=bei einer Zeile immer zentrieren)
-   position = bottom, %top
+   position = auto, %top %bottom %
    labelformat = parens % simple, empty % Wie die Bezeichnung gesetzt wird
  }
 }
@@ -1567,10 +1728,68 @@ afterskip=\myparagraphafterskip%
 % \numberwithin{figure}{chapter} %Befehl zum Kapitelweise Nummerieren der Bilder, setzt `amsmath' vorraus
 % \numberwithin{table}{chapter}  %Befehl zum Kapitelweise Nummerieren der Tabellen, setzt `amsmath' vorraus
 
-%for better aligning images and captions
-% has to be loaded after call of \captionsetup
-\usepackage{floatrow}
-\floatsetup[table]{style=plain,capposition=TOP}
+
+%\usepackage[floatHaslist]{floatrow}
+%\usepackage[precode={captionskip}]{floatrow}
+\DeclareFloatVCode{zeroskip}{{\par}}
+%\DeclareFloatVCode{zeroskip}{{\bigskip}}
+%\DeclareFloatVCode{zeroskip}{{\vspace{0pt}}}
+%\DeclareFloatVCode{negintextskip}{{\vspace{-\baselineskip}}}
+%\DeclareFloatVCode{negintextskip}{{\vspace{-0.5\baselineskip}}} %% Funktioniert, macht aber Probleme am unteren Rand der Seite
+%\DeclareFloatVCode{negintextskip}{{\vspace{-0.5\baselineskip}\par}}
+\DeclareFloatVCode{negintextskip}{{\vspace{-\myintextsep}\par}}
+%\DeclareFloatVCode{negintextskip}{{\vspace{0pt}}}
+%\DeclareFloatVCode{negintextskip}{{\par}}
+%\DeclareFloatVCode{negintextskip}{{\vfill\break}}
+%\DeclareFloatVCode{negintextskip}{{\vspace{-\myparskip}}}
+%% for better aligning images and captions
+%% has to be loaded after call of \captionsetup
+%% Führt zur Ignorierung der definierten skip-Abtände!!!
+\floatsetup[figure]{style=plain,
+                    capposition=bottom,
+                    precode=zeroskip,
+                    rowprecode=zeroskip,
+                    midcode=captionskip,
+                    captionskip=\mycaptionskip,
+                    postcode=negintextskip,
+                    rowpostcode=negintextskip,
+                    floatHaslist=true
+                   }
+\floatsetup[table]{style=plain,
+                   capposition=TOP,
+                   precode=zeroskip,
+                   rowprecode=zeroskip,
+                   midcode=captionskip,
+                   captionskip=\mycaptionskip,
+                   postcode=negintextskip,
+                   rowpostcode=negintextskip,
+                   floatHaslist=true
+                  }
+\floatsetup[longtable]{style=plain,
+                       capposition=TOP,
+                       precode=zeroskip,
+                       rowprecode=zeroskip,
+                       midcode=captionskip,
+                       captionskip=\mycaptionskip,
+                       postcode=negintextskip,
+                       rowpostcode=negintextskip,
+                       floatHaslist=true
+                      }
+%% Gilt wohl für Listings die als Float gesetzt werden:
+\floatsetup[listing]{style=plain,
+                     capposition=TOP,
+                     precode=zeroskip,
+                     rowprecode=zeroskip,
+                     midcode=captionskip,
+                     captionskip=\mycaptionskip,
+                     postcode=negintextskip,
+                     rowpostcode=negintextskip,
+                     floatHaslist=true
+                    }
+
+% s. https://tex.stackexchange.com/questions/32614/vertical-spacing-in-floats
+%\setlength{\belowcaptionskip}{-\baselineskip}\addtolength{\belowcaptionskip}{1.6ex}%
+
 
 %% Inhaltsverzeichnis (Schrift, Aussehen) sowie weitere Verzeichnisse ====
 
@@ -1586,12 +1805,17 @@ afterskip=\myparagraphafterskip%
 %\cftsetpnumwidth{1.7em}% default is 1.55em
 
 %% Flattersatz ohne Silbentrennung in Inhaltsverzeichnis
-%(Lösung aus https://tex.stackexchange.com/questions/283730/left-align-toc-items-when-using-tableofcontents)
 \makeatletter
-\bgroup
-\advance\@flushglue by \@tocrmarg
-\xdef\@tocrmarg{\the\@flushglue}%
-\egroup
+%% (Lösung aus https://tex.stackexchange.com/questions/283730/left-align-toc-items-when-using-tableofcontents)
+%\bgroup
+%\advance\@flushglue by \@tocrmarg
+%\xdef\@tocrmarg{\the\@flushglue}%
+%\egroup
+%%% Lösung aus der KSP-Vorlage
+\renewcommand{\@tocrmarg}{\@pnumwidth plus1fil} % Weitere Einstellung zu "Punkte im Inhaltsverzeichnis"
+\renewcommand*\@tocrmarg{4em plus1fil} % "4em": Automatischer Zeilenumbruch im Inhaltsverzeichnis bei langen Überschriften, 
+                                       % horizontaler Abstand zum rechten Satzspiegelrand;
+                                       % "plus1fil": Keine Silbentrennung im Inhaltsverzeichnis
 \makeatother
 
 %Wird in der Datei settings.tex gesetzt
@@ -1607,6 +1831,7 @@ afterskip=\myparagraphafterskip%
 
 % Gepunktete Verbindung zwischen den Kapiteleinträgen und korrespondierenden Seitenzahlen:
 % funktioniert!
+%\renewcommand\cftdotsep{4.621757} % Vorschlag KSP: Definition des Abstandes zwischen den Punkten. Bei größeren Werten wird der letzte Punkt nicht mehr gezeichnet, weil er "außerhalb der Zeile" liegt
 \renewcommand{\cftchapdotsep}{\cftdotsep}
 %\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
 
@@ -1615,13 +1840,15 @@ afterskip=\myparagraphafterskip%
 % Einzug im Tabellenverzeichnis zu Null setzen
 \renewcommand{\cfttabindent}{0cm}
 
-% Abstand zwischen Abbildungsnummer und Text im Abbildungsverzeichnis fest auf 3em setzen
+% Abstand zwischen der Abbildungsnummer und dem Namen der Abbildung im Abbildungsverzeichnis vergrößern,
+% indem die Größe der unsichtbaren Box für die Abbildungsnummer fest auf 3em gesetzt wird
 \setlength{\cftfignumwidth}{3em}
-% Abstand zwischen Tabellennummer und Text im Tabellenverzeichnis fest auf 3em setzen
+% Abstand zwischen der Tabellennummer und dem Tabellennamen im Tabellenverzeichnis vergrößern,
+%indem die Größe der unsichtbaren Box für die Tabellennummer fest auf 3em gesetzt wird
 \setlength{\cfttabnumwidth}{3em}
 
 
-%% Minestanzahl an Punkten (2 Punkte zwischen den Kapiteleinträgen und korrespondierenden Seitenzahlen:
+%% Mindestanzahl an Punkten (2 Punkte zwischen den Kapiteleinträgen und korrespondierenden Seitenzahlen:
 %% s. https://tex.stackexchange.com/questions/204945/leaders-in-tocloft-with-minimum-width
 \renewcommand{\cftchapleader}{\leaders\hbox to1em{\hss.\hss}\hskip 3em plus1fill}
 \renewcommand{\cftsecleader}{\leaders\hbox to1em{\hss.\hss}\hskip 3em plus1fill}
@@ -1630,17 +1857,33 @@ afterskip=\myparagraphafterskip%
 \renewcommand{\cftsubfigleader}{\leaders\hbox to1em{\hss.\hss}\hskip 3em plus1fill}
 \renewcommand{\cfttableader}{\leaders\hbox to1em{\hss.\hss}\hskip 3em plus1fill}
 
+
+
+%% Eventuell ändern, um eine schönere Seitendarstellung im Inhaltsverzeichnis zu erhalten
+%\BeforeStartingTOC{\setstretch{1.075}}
+
 % Workaround for correct setting of the list of listings taken from
 % https://tex.stackexchange.com/questions/319372/customize-list-of-listings/319374#319374
 \makeatletter
 \AtBeginDocument{%
 \renewcommand\lstlistoflistings{\bgroup
 	\let\contentsname\lstlistlistingname
+	%% Change formatting of the entries in the list of listings:
+	%% Original definition in listings.sty: indentation of 1.5em, listing number in a box with the width of 2.3em
+	%%   \def\l@lstlisting#1#2{\@dottedtocline{1}{1.5em}{2.3em}{#1}{#2}}
+	%% Examples of modification:
+	%% - Listing number in bold preceded by an "L":
 	%\def\l@lstlisting##1##2{\@dottedtocline{1}{1.5em}{2.3em}{\bfseries L ##1}{##2}}
+	%% - no identation:
 	%\def\l@lstlisting##1##2{\@dottedtocline{1}{0em}{2.3em}{##1}{##2}}
+	%% - no identation, increased spacing between the number and the name of the listing
+	%%   by setting the width of the number box to 3em:
+	%% Abstand zwischen der Nummer und dem Namen des Listings im Listingsverzeichnis vergrößern,
+	%% indem die Größe der unsichtbaren Box für die Listingsnummer fest auf 3em gesetzt wird
 	\def\l@lstlisting##1##2{\@dottedtocline{1}{0em}{3em}{##1}{##2}}
 	\let\lst@temp\@starttoc \def\@starttoc##1{\lst@temp{lol}}%
 	\tableofcontents 
+	%% Add the list of listings to the table of contexts at the chapter level
 	\addcontentsline{toc}{chapter}{\lstlistlistingname} % <-- diese Zeile selbst hinzugefügt
 	\egroup}
 }
@@ -1659,8 +1902,6 @@ afterskip=\myparagraphafterskip%
 	\setcounter{lofdepth}{1}  %1 = nur figures, 2 = figures + subfigures
 }
 
-
-\usepackage{here}
 
 %% PW
 %% geht nur grau
