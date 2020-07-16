@@ -126,12 +126,16 @@
 %% Die Breite der ersten Spalte ist 30% der Seitenbreite (0.3\linewidth),
 %% die Breite der zweiten Spelate ist 60% der Seitenbreite
 %% und die Breite der letzten Spalte ist 10% der Seitenbreite
-\newenvironment{myNotationDescTable}{%
+\newenvironment{myNotationDescTable}[1][0.3\linewidth]{%
 		\begingroup%
+		% Breite der dritten Spalte (Formelspalte) (anpassbar, 
+		% aktuell 10% der Seitenbreite (0.1\linewidth)):
+		\newlength{\formulaseplength}
+		\setlength{\formulaseplength}{0.1\linewidth}
 		\setlength{\tabcolsep}{0pt}% Kein Einzug bei Notation
 		\renewcommand{\arraystretch}{1.3}%
 		%% Forderung des KSP-Verlages: keine Zeilenumbrüche, daher \raggedright statt \RaggedRight
-		\begin{longtable}{>{\raggedright\arraybackslash}p{0.3\linewidth-2\tabcolsep}>{\raggedright\arraybackslash}p{0.6\linewidth-2\tabcolsep}>{\centering\arraybackslash}p{0.1\linewidth-2\tabcolsep}}%
+		\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr#1-2\tabcolsep}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-\formulaseplength-#1-2\tabcolsep\relax}>{\centering\arraybackslash}p{\formulaseplength-2\tabcolsep}}%
 	}{%
 		\end{longtable}%
 		\endgroup%
