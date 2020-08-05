@@ -20,14 +20,14 @@ Unter TeXLive kann die Einstellung in der Datei
 \printfilepathquoted{/Pfad-zur-TeXLive-Installation/texmf.cnf} vorgenommen werden.
 Der Aufruf erfolgt am besten, indem man im Terminal den Befehl \printkeyword{kpsewhich -a texmf.cnf} eintippt.
 In der Datei kann dann beispielsweise folgendes gesetzt werden:
-\begin{lstlisting}[caption={[Einstellungen zur erweiterten Speichernutzung]Einstellungen zur erweiterten Speichernutzung in der Datei \printfilepathquoted{texmf.cnf} bei TeXLive bzw. \printfilepathquoted{xelatex.ini} bei MiKTeX},label={lst:Speichererweiterung}]
+\begin{latex}[caption={[Einstellungen zur erweiterten Speichernutzung]Einstellungen zur erweiterten Speichernutzung in der Datei \printfilepathquoted{texmf.cnf} bei TeXLive bzw. \printfilepathquoted{xelatex.ini} bei MiKTeX},label={lst:Speichererweiterung}]
 main_memory=5000000
 extra_mem_top=5000000
 extra_mem_bot=5000000
 pool_size=5000000
 buf_size=5000000
 save_size=79999
-\end{lstlisting}
+\end{latex}
 Der maximal mögliche Wert für \printkeyword{main\_memory} etc. ist \printkeyword{79999999}.
 
 Unter MiKTeX unterscheidet sich die Vorgehensweise je nach dem,
