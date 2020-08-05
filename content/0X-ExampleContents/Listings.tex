@@ -24,19 +24,28 @@ Aktuell ist der etwas weiter oben im Code mit dem Befehl
 Möchte man die Zeilennummern nicht anzeigen, wäre stattdessen
 \printkeyword{nonumbersframed} zu wählen.
 
-Neben diesen beiden Gestaltungsstilen sind in der Datei
-\printfilepathquoted{./preambel/preambel.tex}
-auch noch \printkeyword{python}, \printkeyword{java}, \printkeyword{C++}
-und \printkeyword{latex} als Gestaltungsstile vordefiniert.
-Bei Bedarf lassen sich dort weitere Stile definieren und auswählen.
-
+%Neben diesen beiden Gestaltungsstilen sind in der Datei
+%\printfilepathquoted{./preambel/preambel.tex}
+%auch noch \printkeyword{python}, \printkeyword{java}, \printkeyword{C++}
+%und \printkeyword{latex} als Gestaltungsstile vordefiniert.
+%Bei Bedarf lassen sich dort weitere Stile definieren und auswählen.
 
 Zur Vereinfachung wurden für die \og Programmiersprachen
 eigene Umgebungen definiert, die mit \lstinline|\begin{<name>}...\end{<name>}|
 direkt verwendet werden können.
-Ein Beispiel für die Einbindung eines Java"=Quellcodelistings mit Hilfe 
-einer solchen Umgebung ist in \cref{lst:java-listing} gezeigt.
+Ein Beispiel für die Einbindung eines Java"=Quellcodelistings mit Hilfe einer solchen Umgebung ist in \cref{lst:java-listing} gezeigt.
 
+Man beachte, dass anders als bei Abbildungen und Tabellen
+die Bezeichnung (\texttt{caption}) und die Referenzmarke (\texttt{label})
+nicht als gesonderte Befehle, sondern als optionale Argumente übergeben werden.
+Dies liegt daran, dass ein Listing in der Regel keine Fließumgebung ist,
+sondern an der Stelle im Text erscheint, an der sie im Code auch steht.
+Ferner folgt ein Listing den ganz normalen Seitenumbruchsregeln.
+Das heißt, ein überlanger Code wird einfach umgebrochen. 
+Um ein Listing zu einem Fließobjekt zu machen, muss das optionale Argument
+\texttt{float=<tbp>} angegeben werden.
+Die \index{Platzierung}Plazierungsangabe \enquote{\texttt{h}} für \enquote{hier}
+ist nicht erlaubt. Denn dies ist das Standardverhalten ohne \texttt{float}.
 %
 \begin{latex}[caption={Beispiel eines LaTeX-Quellcodes für ein Java-Listing},label={lst:java-listing}]
 \begin{java}[caption={Ein Hello-World Beispiel in Java},%
@@ -61,14 +70,3 @@ public class HelloWorld {
 }
 \end{java}
 
-Man beachte, dass anders als bei Abbildungen und Tabellen
-die Bezeichnung (\texttt{caption}) und die Referenzmarke (\texttt{label})
-nicht als gesonderte Befehle, sondern als optionale Argumente übergeben werden.
-Dies liegt daran, dass ein Listing in der Regel keine Fließumgebung ist,
-sondern an der Stelle im Text erscheint, an der sie im Code auch steht.
-Ferner folgt ein Listing den ganz normalen Seitenumbruchsregeln.
-Das heißt, ein überlanger Code wird einfach umgebrochen. 
-Um ein Listing zu einem Fließobjekt zu machen, muss das optionale Argument
-\texttt{float=<tbp>} angegeben werden.
-Die \index{Platzierung}Plazierungsangabe \enquote{\texttt{h}} für \enquote{hier}
-ist nicht erlaubt. Denn dies ist das Standardverhalten ohne \texttt{float}.

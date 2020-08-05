@@ -164,18 +164,22 @@ können hier Teile der Arbeit aus- und wieder eingeblendet werden, ohne dass sie
 Neben diesen Einstellungen befinden sich in der Datei \printfilepathquoted{./preambel/AlleSchalter.tex} auch Einstellungen,
 die für die Vorbereitung des Manuskriptes zum Druck über den \gls{ac:KSP} wichtig sind.
 Insbesondere können hier
-\begin{itemize}
-\item mit der Einstellung
+
+\begin{itemize} % Aufzählungen mit mehr als drei Zeilen sollten im Blocksatz stehen, evtl. lässt sich das mit einer Enumerate-Umgebung realisieren
+
+\item \justifying mit der Einstellung
 \lstinline|\setUserDefinedBoolean{showFrame}{true}|
-die Satzspiegel-Ränder angezeigt werden und so kontrolliert werden,
+die Satzspiegel"=Ränder angezeigt werden und so kontrolliert werden,
 ob nichts hinausragt und ob Tabellen und Bilder die komplett verfügbare Breite ausfüllen,
-\item mit den Einstellungen
+
+\item \justifying mit den Einstellungen
 \lstinline|\setUserDefinedBoolean{coloredlistings}{false}| und 
 \lstinline|\setUserDefinedBoolean{coloredlinks}{false}|
-dafür gesorgt werden, dass alle Quellcode-Listings sowie Querverweise und URL-Adressen,
+dafür gesorgt werden, dass alle Quellcode"=Listings sowie Querverweise und URL"=Adressen,
 die normalerweise farbig sind, für die Druckversion nicht farbig gesetzt werden
 und so die Anzahl der farbig zu druckenden Seiten reduziert wird,
-\item mit der Einstellung
+
+\item \justifying mit der Einstellung
 \lstinline|\setUserDefinedBoolean{useCMYKcolors}{true}|
 eine Farbkonvertierung aller Farben in den CMYK-Farbraum für den Offset-Druck vorgenommen werden.
 Diese Einstellung sollte nur für die Druckversion vorgenommen werden.%
@@ -186,10 +190,11 @@ Beispiele dafür gibt es in der Datei \printfilepathquoted{./preambel/ColorSetti
 Vorzugsweise sollten aber die KIT-Corporate-Identity-Farben verwendet werden,
 welche in der Datei \printfilepathquoted{KAcolors.sty} definiert sind.
 Für diese Farben wurde sowohl eine RGB- als auch eine CMYK-Definition erstellt.}
+
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Datei \enquote{Hyphenation.tex}: Silbentrennung von Spezialwörtern]{Datei \enquote{Hyphenation.tex}: Silbentrennung von Spezialwörtern}%
+\subsection[Datei \enquote{Hyphenation.tex}: Silbentrennung von Spezialwörtern]{Datei \enquote{Hyphenation.tex}: \mbox{Silbentrennung von Spezialwörtern}}%
 \index{Silbentrennung}%
 \label{sec:Hyphenation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

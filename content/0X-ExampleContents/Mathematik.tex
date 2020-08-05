@@ -22,27 +22,29 @@ da \LaTeX{} diese als Absätze behandelt und unnötigerweise zusätzliche vertik
 Auch sollte man darauf achten, dass zwischen einer Zahl und der physikalischen Einheit ein umbruchgeschütztes Leerzeichen verwendet wird.
 Allerdings sollte statt dem üblichen (dehnbaren) umbruchgeschützen Wortzwischenraum, 
 welches mit einer Tilde erzeugt wird, ein schmälerer Abstand verwendet werden.
-Dieser wird mit \verb+\,+  erzeugt und beträgt standardmäßig 0,1667\,em. Dies geht so:
+Dieser wird mit \verb+\,+  erzeugt und beträgt standardmäßig 0,1667\,em. % Dies geht so:
 %
-\begin{inlinelatex}
-Der eingefügte Abstand beträgt 0,1667\,em.
-\end{inlinelatex}
+%\begin{inlinelatex}
+%Der eingefügte Abstand beträgt 0,1667\,em.
+%\end{inlinelatex}
 
 Auf zwei besondere Kommandos wird näher eingegangen,
 weil dies in \LaTeX{} häufig falsch gemacht wird.
 \begin{itemize}
   \item Für die Matrixtransponierte gibt es das Kommando \verb#\Tr#, also
 	\verb#$A^{\Tr}$# liefert $A^{\Tr}$	
-	\item Bei \index{Integral}Integralen muss das \enquote{Differential-d} gemäß
+	\item \justifying Bei \index{Integral}Integralen muss das \enquote{Differential-d} gemäß
 	ISO in aufrechter Schrift als Operator gesetzt sein mit einem kleinen Abstand
 	zum Integranden. Hierfür gibt es das spezielle Kommando \verb#\diff#.
 	\Dhe, die Schreibweise \verb#\int^1_0 x^2 d x = \frac{1}{3}# (\cref{eq:Diff-wrong}) ist falsch,
 	während \verb#\int^1_0 x^2 \diff x = \frac{1}{3}# (\cref{eq:Diff-correct}) das Richtige liefert:
 \end{itemize}
+
 \begin{equation}
 	\int^1_0 x^2 d x = \frac{1}{3} \qquad \text{(falsche Typografie!)}
 	\label{eq:Diff-wrong}
 \end{equation}
+
 \begin{equation}
 	\int^1_0 x^2 \diff x = \frac{1}{3} \qquad \text{(richtige Typografie!)}
 	\label{eq:Diff-correct}

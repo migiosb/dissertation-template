@@ -135,7 +135,7 @@
 		\setlength{\tabcolsep}{0pt}% Kein Einzug bei Notation
 		\renewcommand{\arraystretch}{1.3}%
 		%% Forderung des KSP-Verlages: keine Zeilenumbrüche, daher \raggedright statt \RaggedRight
-		\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr#1-2\tabcolsep}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-\formulaseplength-#1-2\tabcolsep\relax}>{\centering\arraybackslash}p{\formulaseplength-2\tabcolsep}}%
+		\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr#1-2\tabcolsep}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-\formulaseplength-#1-2\tabcolsep\relax}>{\arraybackslash}p{\formulaseplength-2\tabcolsep}}%
 	}{%
 		\end{longtable}%
 		\endgroup%

@@ -682,8 +682,10 @@ verbose,
 				%% Abstände ungausgeglichen trotz gleicher Definition!!
 				%% Passt aber, da danach der nächste Absatz anfängt.
 				%% Falls der Text nach dem Listing fortgesetzt werden soll, lokal von belowskip die parskip-Größe abziehen
-				aboveskip=\dimexpr(\mylistingframesep+\mylistingframerule)\relax, % default is \medskipamount
-				belowskip=\dimexpr(\mylistingframesep+\mylistingframerule)\relax, % default is \medskipamount
+				aboveskip=7mm, % Real 7,24 mm (S. 18 in Anleitung)
+				belowskip=4mm, % Real 7,13 mm (S. 18 in Anleitung)
+%				aboveskip=\dimexpr(\mylistingframesep+\mylistingframerule)\relax, % default is \medskipamount
+%				belowskip=\dimexpr(\mylistingframesep+\mylistingframerule)\relax, % default is \medskipamount
 				%% Abstände ausgeglichen, aber variable!
 				%aboveskip=\dimexpr(\mylistingframesep+\mylistingframerule+\parskip)\relax, % default is \medskipamount
 				%belowskip=\dimexpr(\mylistingframesep+\mylistingframerule+\parskip)\relax, % default is \medskipamount
@@ -1599,7 +1601,7 @@ afterskip=\myparagraphafterskip%
 %% Definition angepasster Parameter in der Datei settings.tex
 \captionsetup[figure]{
    margin = 0pt,
-   %% Die nachfolgenden Einstellungen werden weiter unten mit flotrow-Paket gesetzt
+   %% Die nachfolgenden Einstellungen werden weiter unten mit floatrow-Paket gesetzt
    %aboveskip = \myfigureaboveskip, % wird von floatrow-Paket mit \floatsetup[figure] gesetzt
    %belowskip = \myfigurebelowskip, % wird von floatrow-Paket mit \floatsetup[figure] gesetzt
    %captionskip = \myfigurecaptionskip, % wird von floatrow-Paket mit \floatsetup[figure] gesetzt
@@ -1622,7 +1624,7 @@ afterskip=\myparagraphafterskip%
 }
 \captionsetup[table]{
    margin = 0pt,
-   %% Die nachfolgenden Einstellungen werden weiter oben mit flotrow-Paket gesetzt
+   %% Die nachfolgenden Einstellungen werden weiter oben mit floatrow-Paket gesetzt
    %aboveskip = \mytableaboveskip, % wird von floatrow-Paket mit \floatsetup[table] gesetzt
    %belowskip = \mytablebelowskip, % wird von floatrow-Paket mit \floatsetup[table] gesetzt
    %captionskip = \mytablecaptionskip, % wird von floatrow-Paket mit \floatsetup[table] gesetzt
@@ -1694,6 +1696,7 @@ afterskip=\myparagraphafterskip%
 % Aussehen der Captions fuer subfigures (subfig-Paket)
 \IfPackageLoaded{subfig}{
  \captionsetup[subfloat]{%
+   labelformat = empty,
    %margin = 10pt,
    margin = 5pt,
    %margin = 0pt,
@@ -1711,7 +1714,6 @@ afterskip=\myparagraphafterskip%
    %topadjust=0pt, %Extra glue added to 'captionskip' when above the sub-float (default: 0pt)
    font = {footnotesize,rm},
    labelfont = {footnotesize,bf},
-   %format = plain, % oder 'hang'
    format = hang, %zweite und weitere Zeilen einrücken (an die erste ausrichten)
    indention = 0em,  % Einruecken der Beschriftung
    labelsep = space, %period, space, quad, newline
@@ -1724,6 +1726,9 @@ afterskip=\myparagraphafterskip%
    labelformat = parens % simple, empty % Wie die Bezeichnung gesetzt wird
  }
 }
+
+\renewcommand{\labelenumi}{\theenumi}
+\renewcommand{\labelenumii}{\theenumii}
 
 % \numberwithin{figure}{chapter} %Befehl zum Kapitelweise Nummerieren der Bilder, setzt `amsmath' vorraus
 % \numberwithin{table}{chapter}  %Befehl zum Kapitelweise Nummerieren der Tabellen, setzt `amsmath' vorraus
