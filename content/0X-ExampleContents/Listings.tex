@@ -44,11 +44,11 @@ Ferner folgt ein Listing den ganz normalen Seitenumbruchsregeln.
 Das heißt, ein überlanger Code wird einfach umgebrochen. 
 Um ein Listing zu einem Fließobjekt zu machen, muss das optionale Argument
 \texttt{float=<tbp>} angegeben werden.
-Die \index{Platzierung}Plazierungsangabe \enquote{\texttt{h}} für \enquote{hier}
+Die \index{Platzierung}Platzierungsangabe \enquote{\texttt{h}} für \enquote{hier}
 ist nicht erlaubt. Denn dies ist das Standardverhalten ohne \texttt{float}.
 %
 \begin{latex}[caption={Beispiel eines LaTeX-Quellcodes für ein Java-Listing},label={lst:java-listing}]
-\begin{java}[caption={Ein Hello-World Beispiel in Java},%
+\begin{java}[caption={Ein Hello-World Beispiel in Java},
              label={lst:hello-world}]
 // Klasse HelloWorld
 public class HelloWorld {
@@ -61,7 +61,8 @@ public class HelloWorld {
 %
 Dieses Listing bewirkt das folgende Ergebnis:
 %
-\begin{java}[caption={Ein Hello-World Beispiel in Java},label={lst:hello-world}]
+\begin{java}[caption={Ein Hello-World Beispiel in Java},
+             label={lst:hello-world}]
 // Klasse HelloWorld
 public class HelloWorld {
   public static void main( String[] args ) {
