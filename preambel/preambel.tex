@@ -81,15 +81,6 @@
 {\usepackage[ngerman,english]{babel}}%
 {\usepackage[english,ngerman]{babel}}
 
-% The \babelhyphenation macro has been introduced
-% only in the babel v.3.9 released in March 2013.
-% For the sake of compatibility with older TeX distribution:
-\providecommand{\babelhyphenation}[2][english]{%
-\begin{hyphenrules}{#1}
-\hyphenation{#2}
-\end{hyphenrules}
-}
-
 %for allowing hyphenation of words that contain a dash
 %using shortcuts \-/, \=/, \--, \==, \---, and \===
 \usepackage[shortcuts]{extdash}

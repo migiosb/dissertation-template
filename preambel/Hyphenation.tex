@@ -1,5 +1,15 @@
 %% Hier Sonderfälle der Silbentrennung setzen
-%
+
+
+%% The \babelhyphenation macro has been introduced
+%% only in the babel v.3.9 released in March 2013.
+%% For the sake of compatibility with older TeX distribution:
+\providecommand{\babelhyphenation}[2][english]{%
+\begin{hyphenrules}{#1}
+\hyphenation{#2}
+\end{hyphenrules}
+}
+
 %% English:
 \babelhyphenation[english]{%
 Bayes-ian
@@ -14,7 +24,7 @@ pa-ra-me-tri-za-ti-on
 sur-veil-lance
 track-ing
 }
-%
+
 %% Deutsch:
 \babelhyphenation[ngerman]{%
 di-men-sio-nale

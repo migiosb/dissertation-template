@@ -105,6 +105,9 @@
 %% Mathe-Pakete sowie Definition der Sondersymbole und sonstiger Mathe-Macros
 \input{preambel/Math}
 
+%%% Silbentrennung
+\input{preambel/Hyphenation.tex}
+
 %% Hauptsprache des Dokuments setzen (abhängig von der Angabe des Schalters 
 %% "englishAsMainLanguage", welcher in der Datei AlleSchalter.tex gesetzt wird)
 \ifthenelse{\boolean{englishAsMainLanguage}}{%
@@ -112,9 +115,6 @@
 }{%
 	\selectlanguage{ngerman}
 }
-
-%%% Silbentrennung
-\input{preambel/Hyphenation.tex}
 
 %%PW: Glyphtounicode für pdfx, PDF/A-Kompatibilität. In Ruhe lassen!
 %\input{preambel/glyphtounicode.tex}
