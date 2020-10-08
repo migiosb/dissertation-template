@@ -84,9 +84,12 @@
 %\newcolumntype{C}[1]{>{\Centering\arraybackslash}p{#1}}
 
 \newcolumntype{v}[1]{>{\PreserveBackslash\RaggedRight\hspace{0pt}}p{#1}}
-\newcolumntype{x}{>{\PreserveBackslash\raggedright\hspace{0pt}}X}
-\newcolumntype{Y}{>{\PreserveBackslash\RaggedLeft\hspace{0pt}}X}
-\newcolumntype{y}{>{\PreserveBackslash\raggedleft\hspace{0pt}}X}
+\newcolumntype{x}{>{\PreserveBackslash\raggedright\hspace{0pt}}X} % Flattersatz ohne Silbentrennung
+\newcolumntype{Y}{>{\PreserveBackslash\RaggedLeft\hspace{0pt}}X} % rechtsbündiger Flattersatz mit Silbentrennung
+\newcolumntype{y}{>{\PreserveBackslash\raggedleft\hspace{0pt}}X} % rechtsbündiger Flattersatz ohne Silbentrennung
+
+%\newcolumntype{J}{>{\PreserveBackslash\justifying\hspace{0pt}}X} % Blocksatz mit Silbentrennung
+
 % Tabellenspaltentyp fuer den Kopf: (Farbe + Ausrichtung)
 \newcolumntype{H}[1]{>{\columncolor{tableheadcolor}}l}
 % % Rechtsbuendig :
@@ -111,6 +114,7 @@
 	\setlength\aboverulesep{0pt}
 	\setlength\belowrulesep{0pt}
 	\setlength\belowbottomsep{0pt}
+	\setlength{\extrarowheight}{-0.3ex} % Verkleinerung der Abstandes oberhalb des Zeileninhaltes (zum vertikalen Zentrieren)
 }
 
 

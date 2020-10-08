@@ -7,7 +7,7 @@
 %% Spaltendefinition:
 %% Spalte vom Typ "l": Spalte so breit, wie der Inhalt, linksbündige Ausrichtung
 %% Spalte vom Typ "L": Spalte mit einer festen Breitenangabe, linksbündiger Flattersatz. Inhalt wird umbrochen, wenn zu lang
-%% 2 Spalten vom Typ "x": die Breite wird automatisch berechnet in Abhängigkeit von der Gesamtbreite und Breite anderer Spalten
+%% 2 Spalten vom Typ "x": die Breite wird automatisch berechnet in Abhängigkeit von der Gesamtbreite und Breite anderer Spalten. Inhalt im Flattersatz ("X" wäre Blocksatz)
 \begin{tabularx}{\linewidth}{l L{10em} *{2}x}%
 	\toprule%
 	\rowcolor{tableheadcolor}%
@@ -17,14 +17,14 @@
 	\tableheadfont Spalte vom Typ \enquote{x}
 	\tabularnewline%
 	\midrule%
-		Spaltenbreite inhaltsabhängig  & 
+		Spaltenbreite = Breite des Inhalts & 
 		Spalte mit der festen Breite von 10\,em & 
-		Spaltenbreite wird automatisch bestimmt & 
-		Etwas längerer Inhalt, der bei Bedarf umbrochen werden kann
+		Spaltenbreite wird automatisch bestimmt. Inhalt wird bei Bedarf umbrochen. & 
+		Spaltenbreite wird automatisch bestimmt. Inhalt wird bei Bedarf umbrochen.
 	\tabularnewline
 	%%-----------------------------------------------------------
-	Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt & und noch etwas \tabularnewline
-	Inhalt  & Etwas längerer Inhalt & Weiterer Inhalt & und noch etwas \tabularnewline
+	Nächste Zeile & Etwas längerer Inhalt & Weiterer Inhalt & und noch etwas \tabularnewline
+	Weitere Zeile & Etwas längerer Inhalt & Weiterer Inhalt & und noch etwas \tabularnewline
 	%% Zwischenkopf ---------------------------------------------
 	\rowcolor{tablesubheadcolor}%
 	\multicolumn{4}{l}{\bfseries\color{KITblue} Zwischenkopfzeile, welche über mehrere Spalten geht}%

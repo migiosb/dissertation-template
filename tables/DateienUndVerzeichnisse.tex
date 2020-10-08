@@ -1,8 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Übersichtstabelle für Dateien und Verzeichnisse der Vorlage %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Breite der ersten Spalte auf Inhalt anpassen,
-%% Breite der zweiten Spalte automatisch bestimmen,
+%% Breite der ersten Spalte auf Inhalt anpassen --> "l".
+%% Breite der zweiten Spalte automatisch bestimmen --> "X" (oder "x")
+%% "X" = Flattersatz mit Silbentrennung",
+%% "J" = Blocksatz mit Silbentrennung",
+%% "x" = Frattersatz ohne Silbentrennung
 %% Spacing zwischen den Spalten auf 8pt setzen:
 \begin{longtable}{l@{\extracolsep{8pt}}X}%
 %-----------------------------------------------------------------------------------------------------
@@ -71,7 +74,7 @@
 \printfilepath{./preambel/Glossary.tex}          & Definition der Glossar-Einträge. 
                                                  Hier können ggf. weitere hinzugefügt werden.\\
 %-----------------------------------------------------------------------------------------------------
-\printfilepath{./preambel/GlossarySymbols.tex}   & Glossar-Einträge für automatisches Symbolverzeichnis.
+\printfilepath{./preambel/GlossarySymbols.tex}   & Definition der Glossar-Einträge für die automatische Erzeugung des Symbolverzeichnises.
                                                  Bei Verwendung ergänzen.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/Header.tex}            & Alle Präambel-Definitionen (\teilw in weiteren Dateien).
