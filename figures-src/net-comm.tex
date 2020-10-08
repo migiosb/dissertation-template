@@ -1,11 +1,12 @@
 \begin{tikzpicture}[
-every node/.append style={font={\sffamily}},
-caption/.append style={font={\sffamily\bfseries}},
-comm/.style={-latex,semithick},
-msg/.style={midway,sloped,above,font={\sffamily\small}},
+every node/.append style={font={\sffamily},inner sep=2pt},
+caption/.append style={font={\sffamily\bfseries}, inner sep=0pt},
+comm/.style={-latex,semithick,inner sep=2pt},
+msg/.style={midway,sloped,above,font={\sffamily\small},inner sep=2pt},
+inner sep=0pt
 ]
-\matrix[row sep=3ex,column sep=25mm] {
-\node[caption] {Partner 1};  & \node[caption] {Partner 2}; & \node[caption] {Partner 3}; \\
+\matrix[row sep=3ex,column sep=25mm] {%
+\node[caption] {Partner 1};  & \node[caption] {Partner 2}; & \node[caption] {Partner 3};\\
 \node (A1) {Aktion 1}; & & \\
 & \node (A2) {Aktion 2}; & \\
 \node (A3) {Aktion 3}; & & \\

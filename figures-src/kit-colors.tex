@@ -1,20 +1,21 @@
 \begin{tikzpicture}[
 box/.append style={rectangle,inner sep=0pt,outer sep=0pt,minimum size=1.5em,draw=none,fill=#1},
-label/.style={font={\ttfamily\footnotesize},anchor=east},
-caption/.style={font={\ttfamily\footnotesize},rotate=90,anchor=west}
+label/.style={font={\ttfamily\footnotesize},anchor=east,inner sep=2pt},
+caption/.style={font={\ttfamily\footnotesize},rotate=90,anchor=west,inner sep=0pt},
+inner sep=0pt
 ]
 \matrix[row sep=.2em,column sep=.2em] {
   &
-\node[caption] {\textbackslash{}KITgreen...};      &
-\node[caption] {\textbackslash{}KITblue...};       &
-\node[caption] {\textbackslash{}KITblack...};      &
-\node[caption] {\textbackslash{}KITpalegreen...};  &
-\node[caption] {\textbackslash{}KITyellow...};     &
-\node[caption] {\textbackslash{}KITorange...};     &
-\node[caption] {\textbackslash{}KITbrown...};      &
-\node[caption] {\textbackslash{}KITred...};        &
-\node[caption] {\textbackslash{}KITlilac...};      &
-\node[caption] {\textbackslash{}KITcyanblue...};   \\
+\node[caption] {\textbackslash{}KITgreen...};    &
+\node[caption] {\textbackslash{}KITblue...};     &
+\node[caption] {\textbackslash{}KITblack...};    &
+\node[caption] {\textbackslash{}KITpalegreen...};&
+\node[caption] {\textbackslash{}KITyellow...};   &
+\node[caption] {\textbackslash{}KITorange...};   &
+\node[caption] {\textbackslash{}KITbrown...};    &
+\node[caption] {\textbackslash{}KITred...};      &
+\node[caption] {\textbackslash{}KITlilac...};    &
+\node[caption] {\textbackslash{}KITcyanblue...};\\
 \node[label] {};               &
 \node[box=KITgreen      ] {};  &
 \node[box=KITblue       ] {};  &

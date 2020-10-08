@@ -226,8 +226,8 @@ Ansonsten nimmt \texttt{pdflatex} eine hochlaufende Nummer als Dateiname,
 was die Fehlersuche sehr erschwert.
 
 Nachfolgend finden sich einige Beispiele für TikZ-Zeichnungen, nämlich
-eine Übersicht über die KIT-Corporate-Identity-Farben (\cref{fig:kit-colors}),
 ein kommutatives Diagramm (\cref{fig:kpca}),
+eine Übersicht über die KIT-Corporate-Identity-Farben (\cref{fig:kit-colors}),
 ein Netzwerkkommunikationsgraph (\cref{fig:net-comm}),
 einfache \index{Diagramm!Punkt-}Punktdiagramme (\cref{fig:ica})
 und etwas aufwendigere Diagramme mit mehreren
@@ -244,6 +244,16 @@ in der Datei \printfilepathquoted{preambel/AlleSchalter.tex} zu achten
 
 \begin{figure}[H]%
 	\centering%
+  \tikzsetnextfilename{kpca}%
+	%\resizebox{\textwidth}{!}{%
+		\input{./figures-src/kpca.tex}%
+	%}%
+	\caption{Kommutative Diagramm mit TikZ}%
+  \label{fig:kpca}%
+\end{figure}
+
+\begin{figure}[H]%
+	\centering%
   \tikzsetnextfilename{kit-colors}%
 	%\resizebox{\textwidth}{!}{%
 		\input{./figures-src/kit-colors.tex}%
@@ -254,16 +264,6 @@ in der Datei \printfilepathquoted{preambel/AlleSchalter.tex} zu achten
 
 \begin{figure}[H]%
 	\centering%
-  \tikzsetnextfilename{kpca}%
-	%\resizebox{\textwidth}{!}{%
-		\input{./figures-src/kpca.tex}%
-	%}%
-	\caption{Kommutative Diagramm mit TikZ}%
-  \label{fig:kpca}%
-\end{figure}
-
-\begin{figure}[H]%
-	\centering
   \tikzsetnextfilename{net-comm}%
 	\resizebox{\textwidth}{!}{%
 		\input{./figures-src/net-comm.tex}%
