@@ -17,14 +17,20 @@ Um \ggf vorhandene Randnotizen auszublenden,
 muss man in der Datei \printfilepathquoted{preambel/AlleSchalter.tex} den Wert des Schalters
 \printkeyword{showMarginNotes} auf \printkeyword{false} setzen.
 
-TODOs im Text lassen sich mit Hilfe des Befehls \lc{todo\{<Hinweistext>\}} aus dem Paket \pkg{todonotes} setzen.
+TODOs im Text lassen sich mit Hilfe des Befehls
 \todo{Hier weitere Beispiele hinzufügen!}
+\lc{todo\{<Hinweistext>\}} aus dem Paket \pkg{todonotes} setzen.
+Dies geschieht wahlweise als Randnotiz
+oder als eine Box mitten im Text mit der Option \printkeyword{inline}:
+\lc{todo[inline]\{<Hinweistext>\}}.
+\todo[inline]{Inline-TODO: Hier noch mehr Beispiele hinzufügen!}
 
-Mit dem Befehl \lc{missingfigure\{<Hinweistext>\}} lässt sich auf eine fehlende Grafik hinweisen.
+Ähnlich erzeugt der Befehl \lc{missingfigure\{<Hinweistext>\}}
+einen Platzhalter für eine noch zu erstellende Abbildung.
 \missingfigure{Hier fehlt eine Grafik!}
 
 Die TODOs lassen sich bei Bedarf ausblenden, indem man in der Datei
-\printfilepathquoted{preambel/AlleSchalter.tex} den Wert des Schalters
+\printfilepathquoted{preambel/AlleSchalter.tex} den Schalter
 \printkeyword{showTODOs} auf \printkeyword{false} setzt.
 
 Sofern TODOs vorhanden und eingeblendet sind, wird am Ende des Manuskriptes automatisch eine \hyperlink{TODO-List}{Übersicht der TODOs} engefügt.
