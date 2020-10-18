@@ -11,8 +11,8 @@
 %% für die Schriftenreihe "Karlsruher Schriften zur Anthropomatik" 
 %% im Auftrag des KIT Scientific Publishing Verlags (KSP).
 %%
-%% Version 4.0
-%% November 2019
+%% Version 5.0
+%% Oktober 2020
 %%
 %% Die Vorlage basiert in ihren Grundzügen auf der Vorlage von Matthias Pospiech
 %% http://www.matthiaspospiech.de/latex/vorlagen/allgemein/
@@ -23,11 +23,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% "Magic comments" for some LaTeX editors ----------
-%%% Disabled, since glossaries are not created due to a missing call directive
-%%% Call order: 
-%%% xelatex | biber | makeglossaries | xelatex | xelatex | xelatex
-%%%
+%% "Magic comments" for some LaTeX editors ----------
+%%
 % !TeX encoding = utf8
 % !TeX program = xelatex
 % !BIB program = biber
@@ -36,35 +33,39 @@
 % !TeX spellcheck = de_DE
 %% !TeX spellcheck = en_US
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    Compile using the following program call order:
+%%    Beim Kompilieren die folgende Programmaufruffolge verwenden:
 %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Document header:                          %%
-% - Definition of the document format,      %%
-% - encoding and fonts to be used,          %%
-% - LaTeX packages to be loaded,            %%
-% - main language of the document contents, %%
-% - search paths for images,                %%
-% - definition of special macros            %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  xelatex | biber | makeglossaries | xelatex | xelatex | xelatex
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Document header:                          %%
+%% - Definition of the document format,      %%
+%% - encoding and fonts to be used,          %%
+%% - LaTeX packages to be loaded,            %%
+%% - main language of the document contents, %%
+%% - search paths for images,                %%
+%% - definition of special macros            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{preambel/Header.tex}
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  BEGIN of the document content  %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Front matter:                             %%
-% - Title page,                             %%
-% - CV,                                     %%
-% - Abstract,                               %%
-% - Acknowledgements,                       %%
-% - Table of contents,                      %%
-% - Notation,                               %%
-% - Symbol list                             %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Front matter:                             %%
+%% - Title page,                             %%
+%% - CV,                                     %%
+%% - Abstract,                               %%
+%% - Acknowledgements,                       %%
+%% - Table of contents,                      %%
+%% - Notation,                               %%
+%% - Symbol list                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{content/Inhalt-FrontMatter.tex}
-%
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Examples and usage instructions.        %%
 %%  In order to hide them open the file     %%
@@ -72,7 +73,7 @@
 %%  the variable "showExamples" to "false". %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{content/Inhalt-Examples.tex}
-%
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Add own contents with either            %%
 %%  \include{content\ChapterX}              %%
@@ -94,24 +95,24 @@
 \input{content/Inhalt-System.tex}
 \input{content/Inhalt-Evaluation.tex}
 \input{content/Inhalt-Conclusion.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Back matter:                              %%
-% - Bibliography,                           %%
-% - Own publications,                       %%
-% - Patents,                                %%
-% - Supervised student theses,              %%
-% - List of figures,                        %%
-% - List of tables,                         %%
-% - List of listings,                       %%
-% - List of acronyms,                       %%
-% - Glossary,                               %%
-% - Appendix                                %%
-% - Index                                   %%
-% - List of TODOs                           %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Back matter:                              %%
+%% - Bibliography,                           %%
+%% - Own publications,                       %%
+%% - Patents,                                %%
+%% - Supervised student theses,              %%
+%% - List of figures,                        %%
+%% - List of tables,                         %%
+%% - List of listings,                       %%
+%% - List of acronyms,                       %%
+%% - Glossary,                               %%
+%% - Appendix                                %%
+%% - Index                                   %%
+%% - List of TODOs                           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{content/Inhalt-BackMatter.tex}
-%
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%   END of the document content   %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
