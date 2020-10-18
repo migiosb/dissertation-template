@@ -221,8 +221,9 @@ Um dieses automatisch generierte Symbolverzeichnis zu erzeugen,
 müssen Symbole in Form von Glossar-Einträgen angelegt und im Text des Dokumentes
 zumindest einmal entsprechend mit dem Befehl \lstinline|\gls{<Marke>}| referenziert werden.
 Dafür müsste ein Symboleintrag folgendermaßen angelegt werden:
-\newpage
-
+%\newpage
+\begingroup%
+\setlength{\topskip}{0pt}%
 \begin{latex}[caption={Definition eines Symboleintrages},label={lst:SymbEntry}]
 \newglossaryentry{symb:pi}{%
                   name={\ensuremath{\pi}},%
@@ -231,8 +232,7 @@ Dafür müsste ein Symboleintrag folgendermaßen angelegt werden:
                   description={Kreiszahl, Verhältnis des Umfangs eines Kreises zu seinem Durchmesser}%
                  }
 \end{latex}
-Die Referenzierung des Symbols \gls{symb:pi} im Text geschieht dann mit 
-\lstinline|\gls{symb:pi}|.
+\endgroup%
 
 In der Vorlage sind beide Arten von Symbolverzeichnissen vorgesehen.
 Sie werden am Anfang des Manuskriptes vor dem Inhaltsverzeichnis eingebunden.
