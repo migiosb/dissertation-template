@@ -142,7 +142,7 @@ Standardmäßig ist diese Option jedoch deaktiviert.
 
 Die Glossar-Einträge werden in der Datei  \printfilepathquoted{./preambel/Glossary.tex} definiert.
 
-Die Definition der Glossar-Einträge geschieht mit dem Makro \lc{myglossaryentry},
+Die Definition der Glossar-Einträge geschieht mit Hilfe des eigens für diese Vorlage definierten Makros \lc{myglossaryentry},
 welches drei obligatorische Argumente hat, nämlich
 \begin{itemize*}
 \item die Marke,
@@ -166,7 +166,7 @@ Eine Referenzierung der Glossar-Einträge im Text geschieht normalerweise mit de
 \lstinline|\gls{<Marke>}|-Befehl,
 welcher den Begriff im Text druckt und für seine Aufnahme ins Glossar sorgt.
 Weitere mögliche Befehle sind \lstinline|\Gls{...}| und \lstinline|\GLS{...}|,
-die den ersten bzw. alle Buchstaben in Großbuchstaben umwandeln,
+die den ersten \bzw alle Buchstaben in Großbuchstaben umwandeln,
 \lstinline|\glspl{...}|, \lstinline|\Glspl{...}|, \lstinline|\GLSpl{...}|
 für die Pluralform usw.
 Zusätzlich definiert die Vorlage die Befehle
@@ -199,12 +199,21 @@ Die Verwendung des oben definierten Eintrages im Text mit dem Befehl
 Ein Symbolverzeichnis kann auf zwei Arten angelegt werden.
 Normalerweise reicht eine manuell erstellte Übersicht über die Notation,
 so wie sie in der Datei \printfilepathquoted{./00-Front-Matter/Notation.tex}
-mit Hilfe von Befehlen
-\lstinline|\myNotationTableEntryMath{<Mathe-Ausdruck>}{<Beschreibung>}|
-und
-\lstinline|\myNotationTableEntryText{<Text-Ausdruck>}{<Beschreibung>}|
-definiert wird.
-Diese ist recht einfach und lässt sich bei Bedarf beliebig ergänzen.
+definiert wurde. Hierzu wurden in der Vorlage zwei Arten von Tabellenumgebungen
+\printkeyword{myNotationTable} und \printkeyword{myNotationDescTable}
+(zwei- \bzw dreispaltig) mit unsichtbaren Rändern sowie folgende Makros
+für die entsprechenden Zeileneinträge definiert.
+
+Für die zweispaltige Tabelle:
+\begin{itemize*}
+\item \lstinline|\myNotationTableEntryMath{<Mathe-Ausdruck>}{<Text-Beschreibung>}| und
+\item \lstinline|\myNotationTableEntryText{<Text>}{<Text>}|
+\end{itemize*}
+und für die dreispaltige Tabelle:
+\begin{itemize*}
+\item \lstinline|\myNotationDescTableEntry{<Text>}{<weiterer Text>}{<Mathe-Ausdruck>}|,
+\item \lstinline|\myNotationDescTableEntryText}{<Text>}{<Text>}{<Text>}|.
+\end{itemize*}
 
 Allerdings gibt es auch die Möglichkeit zur automatischen Erzeugung eines
 Symbolverzeichnisses mit Hilfe des \pkg{glossaries}-\glsgen{gls:pkg}.
@@ -230,7 +239,7 @@ Sie werden am Anfang des Manuskriptes vor dem Inhaltsverzeichnis eingebunden.
 Es passiert in der Datei \printfilepathquoted{./content/Inhalt-FrontMatter.tex}.
 Bei Bedarf lässt sich diese Einbindung auch an eine geeignete Stelle in den Backmatter verschieben.
 
-Zum einfachen Ein- bzw. Ausblenden der beiden Symbolverzeichnisse
+Zum einfachen Ein- \bzw Ausblenden der beiden Symbolverzeichnisse
 gibt es in der Datei \printfilepathquoted{preambel/AlleSchalter.tex}
 die beiden Schalter
 \begin{itemize*}
@@ -251,8 +260,8 @@ die beiden Schalter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 Ein \index{Stichwortverzeichnis}Stichwortverzeichnis (oder Index)
-ist einfach nur eine alphabetisch sortierte Liste von Begriffen mit einer Auflistung der Fundstellen im Dokument.
-Diese ist nützlich, wenn sich der Leser zu einem Begriff alle Vorkommnisse anschauen möchte.
+ist eine alphabetisch sortierte Liste von Begriffen mit einer Auflistung der Fundstellen im Dokument.
+Diese ist nützlich, wenn sich der Leser zu einem Begriff alle Vorkommnisse sehen möchte.
 Der Index wird erzeugt, indem im Quellcode der Befehl \lstinline+\index{Begriff}+
 eingefügt wird. Der Begriff selbst wird dadurch nicht gedruckt und muss daher
 noch einmal wiederholt werden, um auch im Text gedruckt zu werden. Dieses Verhalten

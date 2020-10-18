@@ -7,13 +7,13 @@
 Sollte bei der Kompilierung die \index{Kompilierfehler!TeX capacity exceeded}\index{Fehler!TeX capacity exceeded}Fehler-Meldung \enquote{\texttt{TeX capacity exceeded}} auftreten,
 bedeutet dies, dass die von der \LaTeX-Distribution vorgesehene Arbeitsspeicherkapazität
 nicht ausreicht, um die Datenmenge zu verarbeiten.
-Wenn im Code kein Fehler vorliegt (z.B. eine vergessene Klammer,
+Wenn im Code kein Fehler vorliegt (\zB eine vergessene Klammer,
 die ebenfalls für eine solche Fehlermeldung sorgen kann),
 kann dies auch daran liegen, dass die Verarbeitung umfangreicher TiKZ-Bilder oder Bibliographien 
 Zusatzspeicher benötigen.
 Um den Speicher zu erweitern, gibt es zwei Möglichkeiten.
 Zum einen kann man bei jedem Aufruf von \texttt{xelatex} die Optionen zur Speichererweiterung,
-z.B. \printkeyword{-main-memory=500000000}, \printkeyword{-extra-mem-top=500000000}, \printkeyword{-extra-mem-bot=500000000} und ggf. weitere setzen.
+\zB \printkeyword{-main-memory=500000000}, \printkeyword{-extra-mem-top=500000000}, \printkeyword{-extra-mem-bot=500000000} und ggf. weitere setzen.
 Zum anderen kann man diese Einstellungen ein für alle Male direkt bei den LaTeX-Distributionen setzen.
 
 Unter TeXLive kann die Einstellung in der Datei
@@ -28,7 +28,7 @@ pool_size=5000000
 buf_size=5000000
 save_size=79999
 \end{latex}
-Der maximal mögliche Wert für \printkeyword{main\_memory} etc. ist \printkeyword{79999999}.
+Der maximal mögliche Wert für \printkeyword{main\_memory} \etc ist \printkeyword{79999999}.
 
 Unter MiKTeX unterscheidet sich die Vorgehensweise je nach dem,
 ob man die Einstellung nur für den aktuellen Benutzer oder

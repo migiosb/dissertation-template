@@ -1,9 +1,11 @@
 % -- new commands by MiG---
 
-\newcommand{\ie}{i.e.,\xspace}
-\newcommand{\Ie}{I.e.,\xspace}
 \newcommand{\eg}{e.g.,\xspace}
 \newcommand{\Eg}{E.g.,\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\Ie}{I.e.,\xspace}
+\newcommand{\incl}{incl.\xspace}
+\newcommand{\Incl}{Incl.\xspace}
 
 \newcommand{\bspw}{bspw.\xspace}
 \newcommand{\Bspw}{Bspw.\xspace}
@@ -22,6 +24,8 @@
 \newcommand{\IA}{I.\,A.\xspace}
 \newcommand{\insbes}{insbes.\xspace}
 \newcommand{\Insbes}{Insbes.\xspace}
+\newcommand{\inkl}{inkl.\xspace}
+\newcommand{\Inkl}{Inkl.\xspace}
 \newcommand{\oae}{o.\,ä.\xspace}
 \newcommand{\og}{o.\,g.\xspace}
 \newcommand{\sog}{sog.\xspace}
@@ -108,9 +112,12 @@
 \newcommand{\linewidthwithoutfbox}{\linewidth-2\fboxsep-2\fboxrule}
 
 
-%% Notationstabelle mit zwei Spalten mit variablen Spaltenbreite
-%% Breite der ersten Spalte als optionaler Argument in eckigen Klammern angebbar
-%% Default ist 4em
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Notationstabelle mit zwei Spalten mit variablen Spaltenbreite %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Die Breite der ersten Spalte ist als optionaler Argument der Umgebung angebbar.
+%% Default ist 4em.
+%% Die Breite der zweiten Spalte wird automatisch berechnet.
 \newenvironment{myNotationTable}[1][4em]{%
 		\begingroup%
 		\setlength{\tabcolsep}{0pt}% Kein Einzug bei Notation
@@ -122,10 +129,13 @@
 		\endgroup%
 	}
 
-%% Notationstabelle mit zwei Spalten mit festen Spaltenbreite
-%% Die Breite der ersten Spalte ist 30% der Seitenbreite (0.3\linewidth),
-%% die Breite der zweiten Spelate ist 60% der Seitenbreite
-%% und die Breite der letzten Spalte ist 10% der Seitenbreite
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Notationstabelle mit drei Spalten mit variablen Spaltenbreite %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Die Breite der ersten Spalte ist als optionaler Argument der Umgebung angebbar.
+%% Default ist 30% der Seitenbreite (0.3\linewidth).
+%% Die Breite der zweiten Spalte wird automatisch berechnet.
+%% Die Breite der letzten Spalte ist fest auf 10% der Seitenbreite gesetzt (0.1\linewidth).
 \newenvironment{myNotationDescTable}[1][0.3\linewidth]{%
 		\begingroup%
 		% Breite der dritten Spalte (Formelspalte) (anpassbar, 
@@ -141,10 +151,19 @@
 		\endgroup%
 	}
 
-%% Achtung, dritte Zelle ist in Mathe-Format
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Zeilen der dreispaltigen Notationstabelle: %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 3 Zellen, dritte Zelle ist in Mathe-Format
 \newcommand{\myNotationDescTableEntry}[3]{{#1}&{#2}&{$#3$}\\}
-%% Beide Zellen im Text-Fomrat
+%% Alle 3 Zellen im Textformat
+\newcommand{\myNotationDescTableEntryText}[3]{{#1}&{#2}&{#3}\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Zeilen der zweispaltigen Notationstabelle: %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 2 Zellen, beide Zellen im Text-Fomrat
 \newcommand{\myNotationTableEntryText}[2]{{#1}&{#2}\\}
-%% Achtung, erste Zelle ist in Mathe-Format
+%% 2 Zellen, erste Zelle ist in Mathe-Format
 \newcommand{\myNotationTableEntryMath}[2]{{$#1$}&{#2}\\}
 

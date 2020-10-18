@@ -21,13 +21,17 @@ Danach sollte der Schalter \printkeyword{showFrame} wieder auf \printkeyword{fal
 Bei Abbildungen, die am Anfang einer Seite stehen, ist darauf zu achten,
 dass es keinen leeren Zwischenraum zwischen dem oberen Rand des Satzspiegels und der Abbildung gibt.
 Normalerweise passiert dies durch die Einstellungen der Vorlage automatisch.
+\index{Bild!zuschneiden}%
+\index{Bild!weißer Rand}%
+\index{Bild!clip}%
+\index{Bild!trim}%
 Falls doch noch ein leerer Raum entsteht, liegt dies zumeist daran, dass die Abbildung selbst weiße Ränder hat.
 Bei Binärbildern können diese durch Setzen der Optionen
 \printkeyword{clip=true} und \printkeyword{trim=<left> <lower> <right> <upper>}
-im \printkeyword{includegraphics}-Befehl beschnitten werden, z.B. so:
+im \printkeyword{includegraphics}-Befehl zugeschnitten werden, \zB so:
 \lstinline|\includegraphics[clip=true, trim={0cm 1cm 0cm 1cm}]{Bildpfad\Dateiname}|.
 
-Mit den Einstellungen 
+Mit den beiden Einstellungen 
 \lstinline|\setUserDefinedBoolean{coloredlistings}{false}| und 
 \lstinline|\setUserDefinedBoolean{coloredlinks}{false}|
 sollte dafür gesorgt werden, dass alle Quellcode-Listings sowie Querverweise und URL-Adressen,
@@ -39,7 +43,7 @@ Mit der Einstellung
 eine Farbkonvertierung aller Farben in den CMYK-Farbraum für den Offset-Druck vorgenommen werden.
 So kann man die Farbgebung der Druckversion begutachten und sicherstellen, dass alle Farben beim Druck gut aussehen.%
 \footnote{Da manche RGB-Farben bei der Konvertierung in den CMYK-Farbraum blass aussehen,
-ist es sinnvoll, eine Alternativversion der betroffenen Farben im CYMK-Farbraum zu definieren,
+ist es sinnvoll, eine Alternativversion der Farben im CYMK-Farbraum zu definieren,
 die gut aussieht.
 Beispiele dafür gibt es in der Datei \printfilepathquoted{./preambel/ColorSettings.tex}.
 Vorzugsweise sollten aber die KIT-Corporate-Identity-Farben verwendet werden,
@@ -50,18 +54,17 @@ Für diese Farben wurde sowohl eine RGB- als auch eine CMYK-Definition erstellt.
 Auch gibt es zwei Sachen, die in der Datei 
 \printfilepathquoted{./preambel/AlleAngaben.tex}
 geändert werden müssen.
-Zum einem ist der Status der Dissertation von \enquote{vorgelegt} auf \enquote{gemehmigt} zu ändern
+Zum einem ist der Status der Dissertation von \enquote{vorgelegt} auf \enquote{genehmigt} zu ändern
 (dies geschieht durch die Umstellung des Schalters
 \printkeyword{statusApproved}
 von \printkeyword{false} auf \printkeyword{true}).
-Sofern erst nach der Prüfung entschieden wird, ob man beispielsweise Dr.-Ing. oder Dr. rer. nat. wird, 
+Sofern erst nach der Prüfung entschieden wird, ob man beispielsweise Dr.-Ing.\ oder Dr.\ rer.\ nat.\ wird, 
 ist die \printkeyword{DocDegree}-Angabe entsprechend anzupassen.
 
 \todo[inline,caption={Vor der Abgabe alle TODOs und die Übersichtsliste ausblenden!}]{%
-Vor der Abgabe des Manuskriptes sollte man sich vergewissern,
-dass alle TODOs erledigt sind und die Liste der noch zu erledigenden Punkte
-am Ende des Manuskriptes nicht mehr erscheint.
-Die TODOs sowie ggf. eine Auflistung dieser am Ende des Manuskriptes lassen sich ausblenden,
-indem man in der Datei \printfilepathquoted{./preambel/AlleSchalter.tex} den Wert des Schalters
-\printkeyword{showTODOs} auf \printkeyword{false} setzt.
+Vor der Abgabe sollte man sich vergewissern, dass alle TODOs erledigt sind
+und die Liste der noch zu erledigenden Punkte am Ende des Manuskriptes nicht mehr erscheint.
+Die ggf. noch verbleibenden TODOs und die Auflistung dieser am Ende des Manuskriptes lassen sich ausblenden,
+indem man in der Datei \printfilepathquoted{./preambel/AlleSchalter.tex}
+den Schalter \printkeyword{showTODOs} auf \printkeyword{false} setzt.
 }

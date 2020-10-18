@@ -10,7 +10,7 @@ Ihre Bedeutung ist in \cref{tab:StrukturDerVorlage} zusammengefasst.
 %%
 %% Durch Definition einer Gruppe mit \begingroup ... \endgroup 
 %% sicherstellen, dass Anpassungen nur lokal wirken
-%% und sich nicht auf die nachfolgenden tabellen erstrecken
+%% und sich nicht auf die nachfolgenden Tabellen erstrecken
 \begingroup%
 %% kleinere Schrift
 \small%
@@ -21,7 +21,7 @@ Ihre Bedeutung ist in \cref{tab:StrukturDerVorlage} zusammengefasst.
 %\setlength\LTright{0pt}%
 \setlength{\tabcolsep}{0pt}%
 \setlength{\topskip}{0pt}%
-\setlength{\LTpre}{0pt}%
+%\setlength{\LTpre}{0pt}%
 % Tabelle aus einer Extra-Datei einlesen und auf die Seitenbreite strecken
 \LTXtable{\columnwidth}{tables/DateienUndVerzeichnisse.tex}%
 \endgroup%
@@ -35,7 +35,7 @@ Ihre Bedeutung ist in \cref{tab:StrukturDerVorlage} zusammengefasst.
 %
 Bei der Datei \printfilepathquoted{Diss.tcp} handelt es sich um die Projektdatei für den \LaTeX-Editor TeXnicCenter.
 In ihr werden die projektbezogenen Einstellungen des TeXnicCenter festgehalten.
-Das sind u.a. Angaben zur Hauptdatei des Projektes und zur Projektsprache.
+Das sind \ua Angaben zur Hauptdatei des Projektes und zur Projektsprache.
 Die korrekte Angabe der Projektsprache ist insofern wichtig, als dass diese in TeXnicCenter ab Version 2.0 Beta 1 zur Bestimmung der Sprache für die Rechtschreibprüfung verwendet wird.
 Die entsprechenden Einstellungen können im TeXnicCenter über den Menüeintrag \printkeyword{Projekt} $\rightarrow$ \printkeyword{Eigenschaften} vorgenommen werden.
 
@@ -60,7 +60,7 @@ Im zweiten Abschnitt wird die Header-Datei eingebunden.
 In dieser wird die verwendete Dokumentklasse (inklusive Papierformat und Schriftgröße) definiert sowie weitere Dateien eingebunden.
 In diesen werden die zu landenden Pakete, Layout"=Parameter sowie alle weiteren Einstellungen und Makros definiert und konfiguriert.
 
-Im dritten Abschnitt werden nun die einzelnen Inhalte der Arbeit eingebunden.
+Im dritten Abschnitt werden die einzelnen Inhalte der Arbeit eingebunden.
 
 Die einzelnen \index{Kapitel}Kapitel der Arbeit werden im Verzeichnis \printfilepathquoted{./content/} als separate Dateien gespeichert.
 Es empfiehlt sich als Dateiname das Schema \printfilepathquoted{nn-name.tex} zu verwenden, wobei \printkeyword{nn} die Nummer des Kapitels ist,
@@ -116,13 +116,13 @@ Details dazu gibt es im \cref{sec:Literaturverzeichnisse}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Bilder und Zeichnungen]{Bilder und Zeichnungen}%
-\index{Bilder!Binär-}%
+\index{Bild!Binär-}%
 \index{Bild!Vektor-}%
 \label{sec:BilderUndZeichnungen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Bilder bzw. \index{Zeichnung|see{Bild}}Zeichnungen werden auf zwei Arten eingebunden.
-Bilder im \index{Bild!Binär-}Binärformat (PNG, JPEG, TIFF, PDF, etc.)
+Bilder \bzw \index{Zeichnung|see{Bild}}Zeichnungen werden auf zwei Arten eingebunden.
+Bilder im \index{Bild!Binär-}Binärformat (PNG, JPEG, TIFF, PDF, \etc)
 werden mit \lc{includegraphics}-Befehl eingebunden. 
 Bei den \index{Bild!TikZ}\gls{gls:tikz}-Zeichnungen handelt es sich um reguläre TeX-Quellcode-Dateien,
 die mit dem \verb+\input+-Befehl eingebunden werden.
@@ -151,7 +151,7 @@ Hier werden \ua Angaben zum Verfasser, Art und Titel der Arbeit sowie zu den Gut
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 Eine weitere wichtige Datei ist \printfilepathquoted{./preambel/AlleSchalter.tex}.
-Darin wird u.a. die \index{Sprache!Hauptsprache}Hauptsprache des Manuskriptes gesetzt, was sich an mehreren Stellen auswirkt.
+Darin wird \ua die \index{Sprache!Hauptsprache}Hauptsprache des Manuskriptes gesetzt, was sich an mehreren Stellen auswirkt.
 So wird beispielsweise bei \index{Sprache!globale Umstellung}Umstellung auf Englisch als Hauptsprache
 \enquote{Danksagung} durch \enquote{Acknowledgments},
 \enquote{Inhaltsverzeichnis} durch \enquote{Contents}
