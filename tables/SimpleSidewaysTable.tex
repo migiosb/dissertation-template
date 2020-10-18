@@ -5,9 +5,17 @@
 \renewcommand{\arraystretch}{1.3}%% Etwas mehr Abstand zwischen den Tabellenzeilen
 %% Tabelle mit einer festen Breite (hier: so breit wie die Seitenhöhe).
 %% Spaltendefinition:
-%% Spalte vom Typ "l": Spalte so breit, wie der Inhalt, linksbündige Ausrichtung
-%% Spalte vom Typ "L": Spalte mit einer festen Breitenangabe, linksbündiger Flattersatz. Inhalt wird umbrochen, wenn zu lang
-%% 2 Spalten vom Typ "x": die Breite wird automatisch berechnet in Abhängigkeit von der Gesamtbreite und Breite anderer Spalten. Inhalt im Flattersatz ("X" wäre Blocksatz)
+%% Erste Spalte vom Typ "l": Spalte so breit, wie der Inhalt, linksbündige Ausrichtung
+%% Zweite Spalte vom Typ "L": Spalte mit einer festen Breitenangabe, linksbündiger Flattersatz. Inhalt wird umbrochen, wenn zu lang
+%% 2 Spalten vom Typ "x":  die Breite wird automatisch berechnet
+%% in Abhängigkeit von der Gesamtbreite der Tabelle und Breite anderer Spalten,
+%% Inhalt wird umbrochen, wenn zu lang
+%% Format: linksbündiger Flattersatz ohne Silbentrennung, 
+%% Weitere Möglichkeiten:
+%% "X" = Blocksatz (mit Silbentrennung)
+%% "F" = linksbündiger Flattersatz mit Silbentrennung (KSP-Verlag: unerwünscht),
+%% "y" = rechtsbündiger Flattersatz ohne Silbertrennung
+%% "Y" = rechtsbündiger Flattersatz mit Silbertrennung
 \begin{tabularx}{\linewidth}{l L{10em} *{2}x}%
 	\toprule%
 	\rowcolor{tableheadcolor}%

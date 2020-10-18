@@ -83,12 +83,13 @@
 \newcolumntype{U}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 %\newcolumntype{C}[1]{>{\Centering\arraybackslash}p{#1}}
 
+%\newcolumntype{J}{>{\PreserveBackslash\justifying\hspace{0pt}}X} % Blocksatz mit Silbentrennung
+
 \newcolumntype{v}[1]{>{\PreserveBackslash\RaggedRight\hspace{0pt}}p{#1}}
-\newcolumntype{x}{>{\PreserveBackslash\raggedright\hspace{0pt}}X} % Flattersatz ohne Silbentrennung
+\newcolumntype{x}{>{\PreserveBackslash\raggedright\hspace{0pt}}X} % linksbündiger Flattersatz ohne Silbentrennung
+\newcolumntype{F}{>{\PreserveBackslash\RaggedRight\hspace{0pt}}X} % linksbündiger Flattersatz mit Silbentrennung (KSP-Verlag: unerwünscht!!!)
 \newcolumntype{Y}{>{\PreserveBackslash\RaggedLeft\hspace{0pt}}X} % rechtsbündiger Flattersatz mit Silbentrennung
 \newcolumntype{y}{>{\PreserveBackslash\raggedleft\hspace{0pt}}X} % rechtsbündiger Flattersatz ohne Silbentrennung
-
-%\newcolumntype{J}{>{\PreserveBackslash\justifying\hspace{0pt}}X} % Blocksatz mit Silbentrennung
 
 % Tabellenspaltentyp fuer den Kopf: (Farbe + Ausrichtung)
 \newcolumntype{H}[1]{>{\columncolor{tableheadcolor}}l}

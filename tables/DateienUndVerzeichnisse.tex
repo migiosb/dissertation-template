@@ -1,13 +1,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Übersichtstabelle für Dateien und Verzeichnisse der Vorlage %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Breite der ersten Spalte auf Inhalt anpassen --> "l".
-%% Breite der zweiten Spalte automatisch bestimmen --> "X" (oder "x")
-%% "X" = Flattersatz mit Silbentrennung",
-%% "J" = Blocksatz mit Silbentrennung",
-%% "x" = Frattersatz ohne Silbentrennung
+%% Spaltendefinition:
+%% Erste Spalte vom Typ "l": Spalte so breit, wie der Inhalt, linksbündige Ausrichtung
+%% Zweite Spalte vom Typ "x": die Breite wird automatisch berechnet
+%% in Abhängigkeit von der Gesamtbreite der Tabelle und Breite anderer Spalten,
+%% Inhalt wird umbrochen, wenn zu lang
+%% Format: linksbündiger Flattersatz ohne Silbentrennung, 
+%% Weitere Möglichkeiten:
+%% "X" = Blocksatz (mit Silbentrennung)
+%% "F" = linksbündiger Flattersatz mit Silbentrennung (KSP-Verlag: unerwünscht),
+%% "y" = rechtsbündiger Flattersatz ohne Silbertrennung
+%% "Y" = rechtsbündiger Flattersatz mit Silbertrennung
 %% Spacing zwischen den Spalten auf 8pt setzen:
-\begin{longtable}{l@{\extracolsep{8pt}}X}%
+\begin{longtable}{l@{\extracolsep{8pt}}x}%
 %-----------------------------------------------------------------------------------------------------
 \caption[Dateien und Verzeichnisse der Vorlage]{Dateien und Verzeichnisse der Vorlage}%
 \label{tab:StrukturDerVorlage}%

@@ -20,7 +20,7 @@ Damit alle Tabellen einheitlich aussehen, empfiehlt es sich,
 Dazu könnte beispielsweise das vordefinierte Makro
 \lstinline|\tablestylecommon| verwendet werden, welches in der Datei
 \printfilepathquoted{./preambel/TableCommands.tex} definiert ist.
-Zu beachten ist, dass die Anpassungen an den Tabellenparametern wie z.B.
+Zu beachten ist, dass die Anpassungen an den Tabellenparametern wie \zB
 \begin{itemize*}
 \item die Verkleinerung der Schriftgröße,
 \item die Entfernung der seitlichen Ränder sowie
@@ -71,6 +71,13 @@ Ist die Tabelle seitenbreit, sollte statt der \printkeyword{tabular}-Umgebung di
 Mit dem \printkeyword{tablealtcolored}-Makro kann man die einzelnen Zeilen mit alternierender Farbe einfärben.
 Die Anpassungsmöglichkeiten für das Aussehen der Tabellen befinden sich in der Datei \printfilepathquoted{./preambel/TableCommands.tex}.
 
+%% Breite der ersten und zweiten Spalte auf Inhalt anpassen --> "l".
+%% Breite der dritten Spalte automatisch bestimmen --> "X" (oder "x", "F", "y", "Y")
+%% "X" = Blocksatz (mit Silbentrennung),
+%% "x" = linksbündiger Flattersatz ohne Silbentrennung
+%% "F" = linksbündiger Flattersatz mit Silbentrennung (KSP-Verlag: unerwünscht),
+%% "y" = rechtsbündiger Flattersatz ohne Silbertrennung
+%% "Y" = rechtsbündiger Flattersatz mit Silbertrennung
 \begin{table}%
 \tablestylealtcolored%
 \caption{Seitenbreite Tabelle mit alternierender Zeilenfarbe}%
