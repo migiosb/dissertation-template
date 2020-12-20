@@ -76,10 +76,9 @@
 
 %%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/required/babel/babel.pdf
 % Language setting.
-% Main document language is listed at last
 \ifthenelse{\boolean{englishAsMainLanguage}}%
-{\usepackage[ngerman,english]{babel}}%
-{\usepackage[english,ngerman]{babel}}
+{\usepackage[main=english,ngerman]{babel}}%
+{\usepackage[main=ngerman,english]{babel}}
 
 %for allowing hyphenation of words that contain a dash
 %using shortcuts \-/, \=/, \--, \==, \---, and \===
