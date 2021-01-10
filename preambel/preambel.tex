@@ -2154,9 +2154,13 @@ afterskip=\myparagraphafterskip%
 %\renewcommand*{\multinamedelim}{;\space}
 \DeclareDelimFormat{multinamedelim}{\addsemicolon\space}
 
-%% Separator vor dem letzten den Autornamen: ohne Komma vor dem "and" bei mehreren Authoren
+%% Separator vor dem letzten Autornamen:
+%% ohne Komma vor dem "and" bei mehreren Authoren
 %% da Komma den Nach- und Vornamen trennt
-\renewcommand*{\finalnamedelim}{\space and\space}
+%\renewcommand*{\finalnamedelim}{\space\bibstring{and}\space}
+\AtBeginBibliography{%
+	\renewcommand*{\finalandcomma}{}
+}
 
 %% Nach Autornamen: Doppelpunkt statt Punkt:
 \renewcommand*{\labelnamepunct}{\addcolon\addspace}
@@ -2171,7 +2175,9 @@ afterskip=\myparagraphafterskip%
 %\addtolength{\bibhang}{2em}
 
 %% Nachnamen in Kapitälchen
-\AtBeginBibliography{\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}}
+\AtBeginBibliography{%
+	\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+}
 
 %% Titel: nicht kursiv
 \DeclareFieldFormat{title}{{#1}}
