@@ -122,6 +122,12 @@
 %% damit es als Lesezeichen im PDF auftaucht
 \phantomsection
 \pdfbookmark[0]{\protect\contentsname}{toc}
+%% Um günstige Seitenumbrücke zu bewirken,
+%% kann es sinnvoll sein, die Zeilenabstände
+%% im Inhaltsverzeichnis zu vergrößern.
+%% Dies geht mit dem Makro \linespread{faktor}
+%% (Faktor kann angepasst werden):
+%\linespread{1.25}
 \tableofcontents
 \clearpage
 \end{showTableOfContents}%
