@@ -1,8 +1,7 @@
 compile_pdf:
-  image: blang/latex:ctanfull
-  #image: gitlab.iosb.fraunhofer.de:4567/fusben/latex_ci_docker:latest
+  image: registry.gitlab.cc-asp.fraunhofer.de/iosb-images/latex_ci_oci
   tags:
-    - VID
+    - asprunner
   script:
     - xelatex -interaction=nonstopmode -no-pdf Diss.tex
     - biber Diss
@@ -15,4 +14,3 @@ compile_pdf:
     paths:
       - Anleitung.pdf
     expire_in: '100yrs'
-
