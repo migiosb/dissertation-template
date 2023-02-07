@@ -150,14 +150,14 @@ welches drei obligatorische Argumente hat, nämlich
 \item die Erklärung / Definition / Übersetzung.
 \end{itemize*}
 Als Konvention wird der Marke eines Glossar-Eintrages ein \enquote{gls:} als Präfix vorangestellt.
-Optional kann die Plural-, sowie Genitiv-, Dativ- und Akkusativ"=Form des Begriffs angegeben werden,
+Optional können die Genitiv-, Dativ-, Akkusativ-" sowie die Plural=Formen des Begriffs angegeben werden,
 sofern sie im Quelltext verwendet werden und sich von der Grundform unterscheiden.
 
 Ein Glossar-Eintrag kann beispielsweise folgendermaßen definiert werden:
 \begin{latex}[caption={Definition eines Glossar-Eintrages},label={lst:GlossEntry}]
-\myglossaryentry[plural={Glossare},%
-                 genitive={Glossars}]%
-                {gls:Glossare}{Glossar}{alphabetisch sortierte Liste von Begriffen mit Erklärung}
+\myglossaryentry[genitive={Glossars}, plural={Glossare},
+                 pluraldative={Glossaren}]%
+                {gls:Glossar}{Glossar}{alphabetisch sortierte Liste von Begriffen mit Erklärung}
 \end{latex}
 
 Normalerweise werden im Glossar nur diejenigen Begriffe angezeigt,
@@ -173,15 +173,30 @@ Zusätzlich definiert die Vorlage die Befehle
 \lstinline|\glsgen{...}|, \lstinline|\glsdat{...}| und \lstinline|\glsacc{...}|,
 sowie
 \lstinline|\glsplgen{...}|, \lstinline|\glspldat{...}| und \lstinline|\glsplacc{...}|,
-die jeweils die Genitiv- Dativ- und Akkusativ-Form drucken.
+die jeweils die Genitiv-, Dativ- und Akkusativ-Form drucken.
+So kann beispielsweise durch die Verwendung des Befehls 
+\lstinline|\glsgen{gls:Glossar}| eine Erwähnung des oben definierten \enquote{Glossar}-Eintages
+in der Genitiv-Form bewirkt werden, also eine Erwähnung des \glsgen{gls:Glossar}.
 
-Außerdem gibt es mit dem Befehl \lstinline|\glsadd{...}| die Möglichkeit,
+Mit dem Befehl \lstinline|\glsadd{...}| gibt es zusätzlich die Möglichkeit,
 eine Stelle im Text mit einem Glossar-Begriff zu verlinken, ohne diesen explizit zu drucken.
 Mit \lstinline|\glsaddall| kann man alle definierte Glossar-Einträge ins Glossar aufnehmen,
 ohne sie im Text des Dokumentes referenziert zu haben.
 
-Die Verwendung des oben definierten Eintrages im Text mit dem Befehl
-\lstinline|\glsgen{gls:Glossar}| mündet im Text in einer Erwähnung des \glsgen{gls:Glossar}.
+Ein Glossar-Eintrag kann bei Bedarf mit \glspldat{gls:Untereintrag} versehen werden.
+Diese können wie folgt definiert werden:
+\begin{latex}[caption={Definition eines Glossar-Untereintrages},label={lst:GlossSubentry}]
+\myglossarysubentry[genitive={Untereintrags},
+      plural={Untereinträge},pluraldative={Untereinträgen}]%
+     {gls:Untereintrag}{gls:Glossar}{Untereintrag}{ein untergeordneter Eintrag im Glossar}
+\end{latex}
+Eine Untereintrag-Definition hat vier obligatorische Argumente, nämlich
+\begin{itemize*}
+\item die Marke,
+\item die Marke des übergeordneten Eintrags,
+\item den Begriff und
+\item die Erklärung / Definition / Übersetzung.
+\end{itemize*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

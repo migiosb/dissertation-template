@@ -4,7 +4,14 @@
 %%
 %%
 %% ----------------------------------------------------------------------------------------
-%% Definition eines eigenes Macro \myglossaryentry[]{}{}{} zur Erstellung von Glossareinträgen
+%% Vorab: Definition von eigenen Macros zur Erstellung von Glossareinträgen:
+%% -  \myglossaryentry[]{}{}{} zur Erstellung von Haupteinträgen
+%% -  \mysubglossaryentry[]{}{}{} zur Erstellung von Glossar-Untereinträgen
+%% ----------------------------------------------------------------------------------------
+
+
+%% ----------------------------------------------------------------------------------------
+%% Definitionen:
 %% ----------------------------------------------------------------------------------------
 \newcommand{\myglossaryentry}[4][]{%
 	%\AtBeginDocument{%
@@ -15,6 +22,15 @@
 		\fi%
 	%}%
 }% ----------------------------------------------------------------------------------------
+\newcommand{\myglossarysubentry}[5][]{%
+	%\AtBeginDocument{%
+		\ifx\relax#1\relax%
+			\newglossaryentry{#2}{parent={#3},name={#4},description={#5}}%
+		\else%
+			\newglossaryentry{#2}{parent={#3},name={#4},description={#5},#1}%
+		\fi%
+	%}%
+}% ----------------------------------------------------------------------------------------
 %%
 %% ----------------------------------------------------------------------------------------
 %% Beschreibung:
@@ -22,8 +38,17 @@
 %% \myglossaryentry[]{}{}{} nimmt 4 Argumente
 %% Im ersten, optionalen Argument (in Eckigen Klammern), kann die Pluralform definiert werden
 %% Außerdem kann hier der Sortierschlüssel definiert werden, falls der Akronym LaTeX-Befehle beinhaltet
-%% Zweites Argument ist das Schlüsselwort. Konvontion: zur Markierung des Schlüsselwortes als solches
+%% Zweites Argument ist das Schlüsselwort. Konvention: zur Markierung des Schlüsselwortes als solches
 %%    und zur Unterscheidung dieses von der Kurzform sollte dem Schlüsselwort ein "ac:" vorangestellt werden.
+%% Drittes Argument ist das eigentliche Akronym.
+%% Viertes Argument ist die Langform.
+%% ----------------------------------------------------------------------------------------
+%% \myglossaryentry[]{}{}{} nimmt 5 Argumente
+%% Im ersten, optionalen Argument (in Eckigen Klammern), kann die Pluralform definiert werden
+%% Außerdem kann hier der Sortierschlüssel definiert werden, falls der Akronym LaTeX-Befehle beinhaltet
+%% Zweites Argument ist das Schlüsselwort. Konvention: zur Markierung des Schlüsselwortes als solches
+%%    und zur Unterscheidung dieses von der Kurzform sollte dem Schlüsselwort ein "ac:" vorangestellt werden.
+%% Drittes Argument ist das Schlüsselwort des Überbegriffs
 %% Drittes Argument ist das eigentliche Akronym.
 %% Viertes Argument ist die Langform.
 %% ----------------------------------------------------------------------------------------
@@ -31,11 +56,21 @@
 %% ----------------------------------------------------------------------------------------
 %% Beispiel:
 %% ----------------------------------------------------------------------------------------
-\myglossaryentry[plural={Glossare},%
-                 genitive={Glossars}]%
+\myglossaryentry[genitive={Glossars},
+                 plural={Glossare},
+								 pluraldative={Glossaren}]%
                 {gls:Glossar}{Glossar}{alphabetisch sortierte Liste von Begriffen mit Erklärung}
 %% ----------------------------------------------------------------------------------------
-%%
+\myglossarysubentry[plural={Untereinträge},%
+                 genitive={Untereintrags},%
+								 pluraldative={Untereinträgen}]%
+                {gls:Untereintrag}{gls:Glossar}{Untereintrag}{ein untergeordneter Eintrag im Glossar}
+%% ----------------------------------------------------------------------------------------
+
+
+
+%% Ab hier Definition eigentlicher Einträge:
+
 %% ----------------------------------------------------------------------------------------
 %%
 %% A
