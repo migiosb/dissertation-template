@@ -1263,8 +1263,10 @@ verbose,
 %\pagestyle{empty} % Seiten ohne Header
 %
 % loescht voreingestellte Stile
-\clearscrheadings
-\clearscrplain
+%\clearscrheadings %deprecated
+%\clearscrplain %deprecated
+\clearmainofpairofpagestyles
+\clearplainofpairofpagestyles
 
 % Angezeigte Abschnitte im Header
 \IfElseChapterDefined{%Beim Buch und Report (Kapitel als Gliederungsebene vorhanden):
@@ -1316,8 +1318,10 @@ verbose,
 % textwithmarginpar - die Breite des Textbereichs inklusive dem Seitenrand
 % head - die aktuelle Breite des Seitenkopfes
 % foot - die aktuelle Breite des Seitenfusses
-\setheadwidth[0pt]{text}
-\setfootwidth[0pt]{text}
+%\setheadwidth[0pt]{text}% deprecated
+%\setfootwidth[0pt]{text}% deprecated
+\KOMAoptions{headwidth=text:0pt}
+\KOMAoptions{footwidth=text:0pt}
 
 %%% PW: Typearea nach scrpage2 laden (scrguide.pdf), sonst werden Kopf-und Fußzeile nicht zur Satzspiegelberechnung einbezogen?!
 % Layout mit 'typearea'
