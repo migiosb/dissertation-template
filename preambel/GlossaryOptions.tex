@@ -3,55 +3,21 @@
 %% define an own glossary style "mylongglossstyle"
 %% (see https://tex.stackexchange.com/questions/25380/glossaries-printglossaries-prints-too-wide)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newlength{\myglstargetwidth}
-\newlength{\myglshspace}
-\newlength{\myglsdescwidth}
-\newglossarystyle{mylongglossstyle}{%
-% put the glossary in the longtable environment:
-	\renewenvironment{theglossary}{%
-		\setlength{\myglstargetwidth}{0.24\textwidth}%
-		\setlength{\myglshspace}{0.02\textwidth}%
-		\setlength{\myglsdescwidth}{0.74\textwidth}%
-		\setlength{\tabcolsep}{0pt}%
-		\setlength{\extrarowheight}{12pt}%
-		\begin{longtable}{p{\myglstargetwidth} @{\hspace{\myglshspace}} p{\myglsdescwidth}}
-	}{%
-	  \end{longtable}%
-	}%
-	% have nothing after \begin{theglossary}:
-	\renewcommand*{\glossaryheader}{}%
-	% have nothing between glossary groups:
-	\renewcommand*{\glsgroupheading}[1]{}%
-	\renewcommand*{\glsgroupskip}{}%
-	
-	% set how each entry should appear:
-	\renewcommand*{\glossentry}[2]{%
-		\raggedright{\glstarget{##1}{\glossentryname{##1}}}% the entry name
-		\glossentrysymbol{##1}% the symbol 
-		&\glossentrydesc{##1}%,% the description
-		%\space%
-		%##2% the number list 
-		\\%
-	}%
-	%
-	% set how sub-entries appear:
-	\renewcommand*{\subglossentry}[3]{%
-		%% let subentries look exactly as entries:
-		%\glossentry{##2}{##3}%
-		%% set a space in front of a subentry:
-		\raggedright{\glstarget{##2}{\hspace{##1em}\nobreak\glossentryname{##2}}}% the entry name
-		\glossentrysymbol{##2}% the symbol
-		&\glossentrydesc{##2}%,% the description
-		%\space%
-		%##3% the number list 
-		\\%
-	}%
-}
 
 % setglossarystyle must be issued before \printglossaries.
 % the longragged style can be set only after the corresponding package (i.e. glossary-longragged) has been loaded
 %\setglossarystyle{longragged}
-\setglossarystyle{mylongglossstyle}
+% Use the alttree glossary stile (table-like stile allowing subentries)
+%%
+%%Compute the widest entry for each glossary before it’s displayed: <- Does not work correctly
+%\renewcommand{\glossarypreamble}{% 
+%  \glsfindwidesttoplevelname[\currentglossary]}
+%% Set longest word for each glossary entry level
+\glssetwidest[0]{Haupteintrag}% <--- Hier längstes Wort unter den Glossar-Einträgen angeben
+\glssetwidest[1]{Untereintraglänge}% <--- Hier längstes Wort unter den Glossar-Untereinträgen der 1 Ebene
+\glssetwidest[2]{Untereintraglänge}% <--- Hier längstes Wort unter den Glossar-Untereinträgen der 2 Ebene
+\setglossarystyle{alttree}
+
 
 %% Glossarentries sollen fett sein
 \renewcommand{\glsnamefont}[1]{\textbf{#1}}

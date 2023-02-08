@@ -208,9 +208,11 @@ Dieser Abschnitt enthält die während der Promotionszeit betreuten studentische
 	\setlength{\LTleft}{0pt}% Einzug entfernen (Forderung des KSP-Verlages)
 	%\setlength{\LTleft}{-5pt}% Bei Verwendung von style=long-booktabs
 	%\printacronyms
-	%\printacronyms[sytle=mylongglossstyle]
-	\printglossary[type=\acronymtype,style=mylongglossstyle]
-	%\printglossary[type=\acronymtype,style=mylongglossstyle]
+	%% Falls das Abkürzungsverzeichnis eigene Breiten der Namen-Spalten haben soll:
+	%\glssetwidest[0]{Haupteintrag}% <--- Hier längstes Wort unter den Glossar-Einträgen angeben
+	%\glssetwidest[1]{Untereintraglänge}% <--- Hier längstes Wort unter den Glossar-Untereinträgen der 1 Ebene
+	%\glssetwidest[2]{Untereintraglänge}% <--- Hier längstes Wort unter den Glossar-Untereinträgen der 2 Ebene
+	\printglossary[type=\acronymtype,style=alttree]
 }%
 \cleardoublepage
 \end{showListOfAcronyms}%
@@ -238,7 +240,12 @@ Dieser Abschnitt enthält die während der Promotionszeit betreuten studentische
 	%\printglossary[style=super]
 	%\printglossary[style=longheader]
 	%\printglossary[style=long]
-	\printglossary[style=mylongglossstyle]
+	%\printglossary[style=mylongglossstyle]
+	%% Falls der Glossar eigene Breiten der Namen-Spalten haben soll:
+	%\glssetwidest[0]{Haupteintrag}% <--- Hier längstes Wort unter den Glossar-Einträgen angeben
+	%\glssetwidest[1]{Untereintraglänge}% <--- Hier längstes Wort unter den Glossar-Untereinträgen der 1 Ebene
+	%\glssetwidest[2]{Untereintraglänge}% <--- Hier längstes Wort unter den Glossar-Untereinträgen der 2 Ebene
+	\printglossary[style=alttree]
 }%
 \cleardoublepage
 \end{showGlossary}%
