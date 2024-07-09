@@ -17,6 +17,7 @@
 %\WarningFilter{caption}{Unused}
 \WarningFilter{hyperref}{Rerun to get /PageLabels}
 \WarningFilter{scrwfile}{THIS IS AN ALPHA VERSION}
+\WarningFilter{scrwfile}{THIS IS AN EXPERIMENTAL PACKAGE}
 \WarningFilter*{ifplatform}{^^J \space\space\space shell escape is disabled}
 \WarningFilter{todonotes}{The length marginparwidth is less than}
 
@@ -52,6 +53,8 @@
 % ]{scrbook} % Mögliche Klassen scrartcl, scrreprt, scrbook
  ]{scrreprt} % 
 
+%% Scrhack macht float@addtolists-Warnung weg und verbessert Kompatibilität zu anderen Paketen
+%% Braucht anscheinend eines der begrenzt verfügbaren TeX-\writes :-(
 \usepackage{scrhack}  %um Warnungen zu beheben
 
 % Verwendung von ifthenelse
