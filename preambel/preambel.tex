@@ -74,6 +74,9 @@
 \usepackage{xargs}
 
 
+\usepackage{ifplatform}
+
+
 %%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/required/babel/babel.pdf
 % Language setting.
 \ifthenelse{\boolean{englishAsMainLanguage}}%
@@ -91,7 +94,15 @@
 
 %Zur besseren Silbentrennung
 %s. http://de.wikibooks.org/wiki/LaTeX-W%C3%B6rterbuch:_Silbentrennung
-\usepackage[ngerman=ngerman-x-latest]{hyphsubst}
+%\usepackage[ngerman=ngerman-x-latest]{hyphsubst}
+%\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
+
+\ifxetex
+	%bei Verwendung von XeLaTeX nicht verwenden, da nicht kompatibel
+\else
+	\babelprovide[hyphenrules=ngerman-x-latest]{ngerman}
+\fi
+
 
 %% Paket zur Abfrage der aktuellen Sprache
 \usepackage{iflang}
@@ -124,7 +135,7 @@
 %% If an eps image is detected, epstopdf is automatically called to convert it to pdf format.
 %% Requires: graphicx loaded
 
-\usepackage{ifplatform}
+
 
 %%%PW: Tip von H. Oberdiek
 \usepackage{ltxcmds}%[2010/04/26]
