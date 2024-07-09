@@ -1,5 +1,5 @@
 compile_pdf:
-  image: registry.gitlab.cc-asp.fraunhofer.de/iosb-images/latex_ci_oci
+  image: registry.gitlab.cc-asp.fraunhofer.de/iosb-images/Latex_CI_OCI
   tags:
     - asprunner
   script:
