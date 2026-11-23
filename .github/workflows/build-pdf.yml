@@ -1,4 +1,4 @@
-name: Build and publish dissertation PDF
+name: Build and publish Introductory Guide PDF
 
 on:
   push:
@@ -24,12 +24,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            texlive-xetex \
-            texlive-latex-extra \
-            texlive-fonts-recommended \
-            texlive-bibtex-extra \
-            biber \
-            texlive-extra-utils
+            texlive-full \
+            biber
 
       - name: Compile Diss.tex
         run: |
@@ -46,8 +42,8 @@ jobs:
           cp Diss.pdf site/Diss.pdf
           cat > site/index.html <<'EOF'
           <!doctype html>
-          <html><body><h1>Dissertation template</h1>
-          <p><a href="Diss.pdf">Download the compiled PDF</a></p>
+          <html><body><h1>Dissertationsvorlage</h1>
+          <p><a href="Diss.pdf">Anleitung</a></p>
           </body></html>
           EOF
 
