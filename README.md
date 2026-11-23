@@ -1,5 +1,5 @@
-# Bitte beachten Sie die [Anleitung]( https://gitlab.cc-asp.fraunhofer.de/kit-ksp/dissertation-template/builds/artifacts/master/file/Anleitung.pdf?job=compile_pdf )!
+<!-- LaTeX-Vorlage für Dissertationen des Lehrstuhls [IES](https://ies.iar.kit.edu) des [KIT](https://www.kit.edu) -->
+# Bitte beachten Sie die [Anleitung](https://migiosb.github.io/dissertation-template/Diss.pdf)!
 
-[![pipeline status](https://gitlab.cc-asp.fraunhofer.de/kit-ksp/dissertation-template/badges/master/pipeline.svg)](https://gitlab.cc-asp.fraunhofer.de/kit-ksp/dissertation-template/commits/master)
-
+[![Build-Status](https://github.com/migiosb/dissertation-template/actions/workflows/build-pdf.yml/badge.svg?branch=master)](https://github.com/migiosb/dissertation-template/actions/workflows/build-pdf.yml)
 
