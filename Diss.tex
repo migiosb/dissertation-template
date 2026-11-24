@@ -23,13 +23,14 @@
 %% und fortgesetzt durch Michael Grinberg
 %% (https://ies.iar.kit.edu/1473_1650.php).
 %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%   Compile using the following program call order:                %%
-%%                                                                  %%
-%%   Beim Kompilieren die folgende Programmaufruffolge verwenden:   %%
-%%                                                                  %%  
-%%  xelatex | biber | makeglossaries | xelatex | xelatex | xelatex  %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   Compile using the following program call order:                   %%
+%%   Beim Kompilieren die folgende Programmaufruffolge verwenden:      %%
+%%                                                                     %%
+%% latexmk -pdfxe -synctex=1 -interaction=nonstopmode -file-line-error %%
+%%                          or, alternatively                          %%
+%%  xelatex | biber | makeglossaries | xelatex | xelatex | xelatex     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
