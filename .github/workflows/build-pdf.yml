@@ -1,4 +1,4 @@
-name: Build and publish Introductory Guide PDF
+name: Build and publish Introductory Guide
 
 on:
   push:
@@ -18,30 +18,44 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Install LaTeX tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-full biber xindy
+      - name: Check out repository
+        uses: actions/checkout@v4
 
       - name: Compile Diss.tex
-        run: |
-          xelatex -interaction=nonstopmode -no-pdf Diss.tex
-          biber Diss
-          makeglossaries Diss
-          xelatex -interaction=nonstopmode -no-pdf Diss.tex
-          xelatex -interaction=nonstopmode -no-pdf Diss.tex
-          xelatex -synctex=1 -interaction=nonstopmode Diss.tex
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: Diss.tex
+          latexmk_use_xelatex: true
+          os: debian
+          extra_system_packages: xindy
+          post_compile: mv Diss.pdf Anleitung.pdf
+
+      - name: Upload LaTeX logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: latex-logs
+          if-no-files-found: ignore
+          path: |
+            Diss.log
+            Diss.fls
+            Diss.fdb_latexmk
+            Diss.blg
+            Diss.alg
+            Diss.acn
+            Diss.acr
+            Diss.glg
+            Diss.gls
+            Diss.glo
 
       - name: Prepare Pages site
         run: |
           mkdir -p site
-          cp Diss.pdf site/Diss.pdf
+          cp Anleitung.pdf site/Anleitung.pdf
           cat > site/index.html <<'EOF'
           <!doctype html>
           <html><body><h1>Dissertationsvorlage</h1>
-          <p><a href="Diss.pdf">Anleitung</a></p>
+          <p><a href="Anleitung.pdf">Anleitung</a></p>
           </body></html>
           EOF
 
