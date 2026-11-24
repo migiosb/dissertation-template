@@ -1,7 +1,7 @@
 % !TeX document-id = {04e6cd08-df8f-4c57-94b7-990f62575e72}
-%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% Main document  %%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%                         Main document                        %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LaTeX-Dokumentenvorlage für Dissertationen
 %% des Lehrstuhls für Interaktive Echtzeitsysteme (IES)
 %% des Karlsruher Instituts für Technologie (KIT)
@@ -11,20 +11,32 @@
 %% für die Schriftenreihe "Karlsruher Schriften zur Anthropomatik" 
 %% im Auftrag des KIT Scientific Publishing Verlags (KSP).
 %%
-%% Version 5.0
-%% Oktober 2020
+%% Version 5.1
+%% November 2026
 %%
-%% Die Vorlage basiert in ihren Grundzügen auf der Vorlage von Matthias Pospiech
+%% Die erste Version dieser Vorlage basierte in ihren Grundzügen
+%% auf der Vorlage von Matthias Pospiech
 %% http://www.matthiaspospiech.de/latex/vorlagen/allgemein/
 %% Die Anpassung an die Erfordernisse des IES-Lehrstuhls sowie
-%% an die Richtlinien des KSP Verlages wurde initiiert durch Philipp Woock
-%% (https://ies.iar.kit.edu/1473_1575.php)
-%% und fortgesetzt durch Michael Grinberg.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% an die Richtlinien des KSP Verlages wurde initiiert durch 
+%% Philipp Woock (https://ies.iar.kit.edu/1473_1575.php)
+%% und fortgesetzt durch Michael Grinberg
+%% (https://ies.iar.kit.edu/1473_1650.php).
 %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% "Magic comments" for some LaTeX editors ----------
-%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   Compile using the following program call order:                %%
+%%                                                                  %%
+%%   Beim Kompilieren die folgende Programmaufruffolge verwenden:   %%
+%%                                                                  %%  
+%%  xelatex | biber | makeglossaries | xelatex | xelatex | xelatex  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Part 1:   "Magic comments" for some LaTeX editors                %%
+%%           -- currently deactivated -- activate if needed --      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % !TeX encoding = utf8
 % !TeX program = xelatex
 % !BIB program = biber
@@ -32,42 +44,40 @@
 %% !TeX root = Diss.tex
 % !TeX spellcheck = de_DE
 %% !TeX spellcheck = en_US
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%    Compile using the following program call order:
-%%    Beim Kompilieren die folgende Programmaufruffolge verwenden:
-%%
-%%  xelatex | biber | makeglossaries | xelatex | xelatex | xelatex
-%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Document header:                          %%
-%% - Definition of the document format,      %%
-%% - encoding and fonts to be used,          %%
-%% - LaTeX packages to be loaded,            %%
-%% - main language of the document contents, %%
-%% - search paths for images,                %%
-%% - definition of special macros            %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Part 2:   Document header:                                       %%
+%%           - Definition of the document format,                   %%
+%%           - encoding and fonts to be used,                       %%
+%%           - LaTeX packages to be loaded,                         %%
+%%           - main language of the document contents,              %%
+%%           - search paths for images,                             %%
+%%           - definition of special macros                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{preambel/Header.tex}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Part 3:   Document contents                                      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  BEGIN of the document content  %%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Front matter:                             %%
-%% - Title page,                             %%
-%% - CV,                                     %%
-%% - Abstract,                               %%
-%% - Acknowledgements,                       %%
-%% - Table of contents,                      %%
-%% - Notation,                               %%
-%% - Symbol list                             %%
+%%    - Title page,                          %%
+%%    - CV,                                  %%
+%%    - Abstract,                            %%
+%%    - Acknowledgements,                    %%
+%%    - Table of contents,                   %%
+%%    - Notation,                            %%
+%%    - Symbol list                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{content/Inhalt-FrontMatter.tex}
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Examples and usage instructions.        %%
+%%                                          %%
 %%  In order to hide them open the file     %%
 %%  "./preambel/AlleSchalter.tex" and set   %%
 %%  the variable "showExamples" to "false". %%
@@ -80,6 +90,7 @@
 %%  or                                      %%
 %%  \input{content\ChapterX}                %%
 %%  as shown below.                         %%
+%%                                          %%
 %%  The files listed below could be used    %%
 %%  as templates.                           %%
 %%  In order to make their contents visible %%
@@ -113,7 +124,4 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{content/Inhalt-BackMatter.tex}
 %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%   END of the document content   %%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

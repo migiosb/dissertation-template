@@ -26,20 +26,6 @@ Ihre Bedeutung ist in \cref{tab:StrukturDerVorlage} zusammengefasst.
 \LTXtable{\columnwidth}{tables/DateienUndVerzeichnisse.tex}%
 \endgroup%
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Projektdatei \enquote{Diss.tcp}]{Projektdatei \enquote{Diss.tcp}}%
-\index{Projektdatei}%
-\label{sec:Projektdatei}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-Bei der Datei \printfilepathquoted{Diss.tcp} handelt es sich um die Projektdatei für den \LaTeX-Editor TeXnicCenter.
-In ihr werden die projektbezogenen Einstellungen des TeXnicCenter festgehalten.
-Das sind \ua Angaben zur Hauptdatei des Projektes und zur Projektsprache.
-Die korrekte Angabe der Projektsprache ist insofern wichtig, als dass diese in TeXnicCenter ab Version 2.0 Beta 1 zur Bestimmung der Sprache für die Rechtschreibprüfung verwendet wird.
-Die entsprechenden Einstellungen können im TeXnicCenter über den Menüeintrag \printkeyword{Projekt} $\rightarrow$ \printkeyword{Eigenschaften} vorgenommen werden.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Hauptdatei \enquote{Diss.tex}]{Hauptdatei \enquote{Diss.tex}}%
 \index{Hauptdatei}%
@@ -49,24 +35,36 @@ Die entsprechenden Einstellungen können im TeXnicCenter über den Menüeintrag 
 Die Hauptdatei ist die Datei \printfilepathquoted{Diss.tex}.
 Sie ist verhältnismäßig kurz, da die Hauptinhalte in andere Dateien ausgelagert sind, welche mit Hilfe des \lc{input\{\}} \bzw des \lc{include\{\}}-Befehls eingebunden werden.
 Die Hauptdatei besteht im Wesentlichen aus drei Abschnitten.
-Im ersten stehen die sogenannten \index{Magic Comments}\enquote{Magic comments}, mit deren Hilfe manche \LaTeX-IDEs (wie \zB TeXStudio) sich selbst vorkonfigurieren können.
-Sie fangen mit \enquote{\texttt{\%~!TeX}} an und geben an, welche Kodierung für die Dateien verwendet wird und welche Programme für die Kompilierung des Quelltextes und der Bibliografie verwendet werden sollen.
+
+Im ersten Abschnitt stehen die sogenannten \index{Magic Comments}\enquote{Magic comments}, mit deren Hilfe manche \LaTeX-IDEs (wie \zB TeXStudio) sich selbst vorkonfigurieren können.
+Aktuell sind sie jedoch auskommentiert.%
+\footnote{Magic Comments fangen mit \enquote{\texttt{\%~!TeX}} an und geben an, welche Kodierung für die Dateien verwendet wird 
+und welche Programme für die Kompilierung des Quelltextes und der Bibliografie verwendet werden sollen.
 Außerdem kann damit angegeben werden, welche Sprache für die Rechtschreibprüfung innerhalb der IDE verwendet werden soll.
 Da es aktuell keine dokumentierte Möglichkeit gibt, Aufruf für \printkeyword{makeglossaries} miteinzubinden,
 führt eine Übernahme der durch die \enquote{Magic Comments} vordefinierten Reihenfolge dazu, dass keine Glossare generiert werden.
-Daher sind die \enquote{Magic Comments} aktuell durch ein zusätzliches Prozentzeichen deaktiviert.
+Daher sind die \enquote{Magic Comments} aktuell durch ein zusätzliches Prozentzeichen deaktiviert.}
 
 Im zweiten Abschnitt wird die Header-Datei eingebunden.
 In dieser wird die verwendete Dokumentklasse (inklusive Papierformat und Schriftgröße) definiert sowie weitere Dateien eingebunden.
-In diesen werden die zu landenden Pakete, Layout"=Parameter sowie alle weiteren Einstellungen und Makros definiert und konfiguriert.
+Dort werden die zu ladenden Pakete, Layout"=Parameter sowie alle weiteren Einstellungen und Makros definiert und konfiguriert.
 
 Im dritten Abschnitt werden die einzelnen Inhalte der Arbeit eingebunden.
+Deren Einbindung ist im \cref{sec:Unterkapiteln} beschrieben.
 
+Das beim Kompilieren entstehende PDF-Datei heißt \printfilepathquoted{Diss.pdf}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection[Einbindung von Unterkapiteln]{Einbindung von Unterkapiteln}%
+\index{Unterkapiteln}%
+\label{sec:Unterkapiteln}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
 Die einzelnen \index{Kapitel}Kapitel der Arbeit werden im Verzeichnis \printfilepathquoted{./content/} als separate Dateien gespeichert.
-Es empfiehlt sich als Dateiname das Schema \printfilepathquoted{nn-name.tex} zu verwenden, wobei \printkeyword{nn} die Nummer des Kapitels ist,
+Es empfiehlt sich als Dateiname das Schema \printfilepathquoted{XX-name.tex} zu verwenden, wobei \printkeyword{XX} die Nummer des Kapitels ist,
 sodass die Dateien in der semantisch richtigen Reihenfolge sortiert angezeigt werden.
-Die einzelnen Dateien werden per \verb+include{}+-Direktive in der Datei \printfilepathquoted{Diss.tex} eingebunden.
-Theoretisch wäre es an dieser Stelle auch möglich mit \verb+\input{}+ zu arbeiten, was jedoch seine Nachteile hätte.
+Die einzelnen Dateien werden per \verb+input{}+-Direktive in der Datei \printfilepathquoted{Diss.tex} eingebunden.
+Theoretisch wäre es an dieser Stelle auch möglich mit \verb+\include{}+ zu arbeiten, was jedoch seine Nachteile hätte.
 Der Unterschied zwischen den beiden Befehlen wird \href{https://texwelt.de/wissen/fragen/32/was-ist-der-unterschied-zwischen-include-and-input}{auf texwelt.de} erklärt:
 
 \begin{quote}
@@ -94,11 +92,36 @@ Es empfiehlt sich, die bestehende Struktur (zumindest jedoch die beiden Dateien
 \printfilepathquoted{Inhalt-FrontMatter.tex} und \printfilepathquoted{Inhalt-Backmatter.tex})
 als Vorlage zu übernehmen.
 
-Das entstehende PDF heißt genauso wie die Hauptdatei.
-
 Zur besseren Übersicht und zur Vereinfachung der Fehlersuche wird empfohlen,
 die einzelnen Unterkapitel ebenfalls als separate Dateien in Unterverzeichnissen von \printfilepathquoted{./content/} anzulegen
-und sie mit den \verb+\input{}+-Direktiven in die jeweiligen Kapitel-Dateien einzubinden.
+und sie mit den \verb+\input{}+-Direktiven in die jeweiligen Kapitel-Dateien einzubinden
+(s. Quelltext der Datei \printfilepathquoted{content/Inhalt-Examples.tex}).
+Dies erlaubt die einzelnen Unterkapitel bei Bedarf leichter zu verschieben 
+oder mit einem einzigen \%-Zeichen temporär auszukommentieren 
+und erleichtert so die Fehlersuche.
+
+Teile des Manuskriptes lassen sich ebenfalls ausblenden, ohne sie auskommentieren zu müssen,
+indem man den auszublendenden Text zwischen
+\lstinline|\begin{ShowInhaltXXX}| und \lstinline|\end{ShowInhaltXXX}| einschließt.
+Hierzu ist in der Datei \printfilepathquoted{preambel/AlleSchalter.tex}
+eine entsprechende \LaTeX{}"=Umgebung mittels
+\lstinline|\setUserDefinedBoolean{showInhaltXXX}{Bool-Wert}| zu definieren und
+auf \printkeyword{true} (Inhalt einblenden) 
+oder \printkeyword{false} (Inhalt ausblenden) zu setzen.%
+%
+\footnote{Die Befehle
+\lstinline|\setUserDefinedBoolean{IrgendeinName}{Bool-Wert}| 
+sind spezielle Makros, die jeweils eine Boolean-Variable mit dem entsprechenden Wert definieren,
+sowie eine \LaTeX"=Umgebung \printkeyword{IrgendeinName},
+Alles, was im weiteren \LaTeX-Quellcode zwischen
+\lstinline|\begin{IrgendeinName}| und \lstinline|\end{IrgendeinName}| steht,
+wird je nach dem spezifizierten Wert entweder angezeigt (\printkeyword{true}) 
+oder ausgeblendet (\printkeyword{false}).
+Der Vorteil dieser Vorgehensweise gegenüber einem einfachen Auskommentieren 
+liegt \ua darin, dass die zwischen
+\lstinline|\begin{IrgendeinName}| und \lstinline|\end{IrgendeinName}|
+eingebundenen Dateien weiterhin im Verzeichnisbaum vom TeXnicCenter \etc
+sichtbar bleiben und bei Bedarf schnell als Referenz aufgerufen werden können.}
 
 
 

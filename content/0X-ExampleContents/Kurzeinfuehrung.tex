@@ -4,11 +4,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter*{Kurzeinführung in diese Vorlage}
+\addchap{Kurzeinführung in diese Vorlage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %% Add an entry for this chapter to the table of contents:
-\addcontentsline{toc}{chapter}{Kurzeinführung in die Vorlage}
+%\addcontentsline{toc}{chapter}{Kurzeinführung in die Vorlage}
 %
 %% If no entry to the table of contents:
 %% Set a PDF bookmark (PDF-Lesezeichen):
@@ -41,13 +41,22 @@ für studentische Arbeiten, die von
 \href{https://crypto.iti.kit.edu/alumni_matthias_nagel.php}{Mathias Nagel}
 entwickelt worden ist, angereichert.
 
-Zur Nutzung dieser Vorlage für die eigene Arbeit empfiehlt es sich, 
-die Anleitungskapitel auszublenden und ansonsten die vordefinierte Struktur zu nutzen.
-Die Anleitungskapitel lassen sich bequem ausblenden, indem man in der Datei
+Insgesamt erfüllt diese Vorlage nun einen doppelten Zweck:
+zum einen gibt sie eine standardisierte und mit dem \gls{ac:KSP}
+abgestimmte Formatierung vor, zum anderen demonstriert sie diverse
+standardmäßige und eigene Funktionalitäten und enthält zudem
+eine ausführliche Anleitung zur Nutzung dieser.
+
+Die eigentliche Anleitung befindet sich in \cref{chap:Examples} (\nameref{chap:Examples}).
+Texte in den Kapiteln \nameref{chap:abstract}, \nameref{chap:acknowledgements} und \nameref{chap:kurzfassung} sind Platzhalter.
+
+Zur produktiven Nutzung dieser Vorlage empfiehlt es sich, 
+die Anleitungskapiteln auszublenden.
+Dies geschieht in der Datei
 \printfilepathquoted{preambel/AlleSchalter.tex} in der Zeile
-\lstinline|\setUserDefinedBoolean{showExamples}{true}| 
-den Wert \printkeyword{true} durch \printkeyword{false} ersetzt.
-Zur Einblendung der vordefinierten Kapitelstruktur
+\lstinline|\setUserDefinedBoolean{showExamples}{true}|. Hier soll 
+der Wert \printkeyword{true} durch \printkeyword{false} ersetzt werden.
+Zur Einblendung einer vordefinierten Kapitelstruktur einer Dissertation
 sollte stattdessen der Wert der Variablen
 \printkeyword{showIntro},
 \printkeyword{showRelatedWork},
@@ -58,6 +67,8 @@ sollte stattdessen der Wert der Variablen
 %\printkeyword{showConclusion} und
 %\printkeyword{showOutlook}
 auf \printkeyword{true} gesetzt werden.
+
+
 
 \begin{tcolorbox}[colback=orange]
 \footnotesize
