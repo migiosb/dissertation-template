@@ -12,8 +12,11 @@ add_cus_dep('slo', 'sls', 0, 'makeglossaries');
 add_cus_dep('ntn', 'not', 0, 'makeglossaries');
 
 sub makeglossaries {
-    my ($base_name, $path) = fileparse($_[0]);
-    return system("makeglossaries \"$base_name\"");
+    # Dateinamen und Erweiterung trennen
+    my ($base_name, $path) = fileparse($_[0], qr/\.[^.]*$/);
+	
+    # makeglossaries ohne Shell-Interpretation aufrufen
+    return system('makeglossaries', $base_name);
 }
 
 # Mehrfachausführung bis alle Verweise stabil sind
