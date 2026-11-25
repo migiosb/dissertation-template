@@ -36,11 +36,11 @@ Die Hauptdatei ist die Datei \printfilepathquoted{Diss.tex}.
 Sie ist verhältnismäßig kurz, da die Hauptinhalte in andere Dateien ausgelagert sind, welche mit Hilfe des \lc{input\{\}} \bzw des \lc{include\{\}}-Befehls eingebunden werden.
 Die Hauptdatei besteht im Wesentlichen aus drei Abschnitten.
 
-Im ersten Abschnitt stehen die sogenannten \index{Magic Comments}\enquote{Magic comments}, mit deren Hilfe manche \LaTeX-IDEs (wie \zB TeXStudio) sich selbst vorkonfigurieren können.
+Im ersten Abschnitt stehen die sogenannten \index{Magic Comments}\enquote{Magic comments}, mit deren Hilfe manche \LaTeX"=\acrshortpl{ac:IDE} (wie \zB TeXStudio) sich selbst vorkonfigurieren können.
 Aktuell sind sie jedoch auskommentiert.%
 \footnote{Magic Comments fangen mit \enquote{\texttt{\%~!TeX}} an und geben an, welche Kodierung für die Dateien verwendet wird 
 und welche Programme für die Kompilierung des Quelltextes und der Bibliografie verwendet werden sollen.
-Außerdem kann damit angegeben werden, welche Sprache für die Rechtschreibprüfung innerhalb der IDE verwendet werden soll.
+Außerdem kann damit angegeben werden, welche Sprache für die Rechtschreibprüfung innerhalb der \index{IDE}\acsgen{ac:IDE} verwendet werden soll.
 Da es aktuell keine dokumentierte Möglichkeit gibt, Aufruf für \printkeyword{makeglossaries} miteinzubinden,
 führt eine Übernahme der durch die \enquote{Magic Comments} vordefinierten Reihenfolge dazu, dass keine Glossare generiert werden.
 Daher sind die \enquote{Magic Comments} aktuell durch ein zusätzliches Prozentzeichen deaktiviert.}
