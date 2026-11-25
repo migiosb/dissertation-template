@@ -35,11 +35,20 @@
 \midrule%
 \endhead%
 %-----------------------------------------------------------------------------------------------------
-\printfilepath{./Diss.tex}                       & \texttt{TeX}-Hauptdatei. Einbindung der Inhalte.\\
+\printfilepath{./Diss.tex}                       & \texttt{TeX}-Hauptdatei mit Einbindung weiterer Dateien.
+																								 Hier kann die Kapitalstruktur angepasst werden.\\
 %-----------------------------------------------------------------------------------------------------
-\printfilepath{./bib/Diss.bib}                   & Literaturdatenbank im \texttt{BibLaTeX}-Format. Verwendete Referenzen einfügen.\\
+\printfilepath{./.gitignore}                     & Spezifikation von Dateien und Verzeichnissen, die von der Versionskontrolle ignoriert werden sollen.
+																								 Normalerweise keine Anpassung nötig.\\
 %-----------------------------------------------------------------------------------------------------
-\printfilepath{./content/*}                      & Inhalte der Arbeit. Hier Inhalte der einzelnen \texttt{LaTeX}-Kapitel einfügen.\\
+\printfilepath{./.latexmkrc}                     & Konfigurationsdatei für den Aufruf von \texttt{latexmk}.
+																								 Normalerweise keine Anpassung nötig.\\
+%-----------------------------------------------------------------------------------------------------
+\printfilepath{./bib/Diss.bib}                   & Literaturdatenbank im \texttt{BibLaTeX}-Format.
+																								 Hier verwendete Referenzen einfügen.\\
+%-----------------------------------------------------------------------------------------------------
+\printfilepath{./content/*}                      & Eingebundene Inhalte der Arbeit.
+																								 Hier Inhalte der einzelnen Kapitel verwalten.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./figures-src/*}                  & \texttt{TikZ}-Zeichnungen. %(Quellcode).
                                                  Ggf. weitere hinzufügen.\\
@@ -47,15 +56,16 @@
 \printfilepath{./figures-compiled/*}             & Temporäre Kompilate der \texttt{TikZ}-Zeichnungen.
                                                  Bei Aktualisierung der \texttt{TikZ}-Zeichnungen löschen.\\
 %-----------------------------------------------------------------------------------------------------
-\printfilepath{./fonts/*}                        & Verwendete Schriften. Keine.\\
+\printfilepath{./fonts/*}                        & Verwendete Schriften.
+																								 Normalerweise keine Anpassung nötig.\\
 %-----------------------------------------------------------------------------------------------------
-\printfilepath{./images/*}                       & Bilder im Binärformat. %(jpg, png, pdf etc).
-                                                 Ggf. weitere hinzufügen. \\
+\printfilepath{./images/*}                       & Bilder im Binärformat (jpg, png, pdf etc).
+                                                 Ggf. eigene Bilder hinzufügen. \\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/*}                     & Konfigurationsdateien (s. u.)\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/Acronyms.tex}          & Definition der Akronyme.
-                                                 Ggf. weitere hinzufügen.\\
+                                                 Ggf. eigne hinzufügen.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/AlleAngaben.tex}       & Wichtige Angaben und Einstellungen.
                                                  Hier Angaben zum Typ der Arbeit, zum Autor und zu den Gutachtern ändern.\\
@@ -72,13 +82,13 @@
 %                                                 Normalerweise keine, es sei denn man möchte den Stil der Literaturverzeichnisse ändern.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/EncodingAndFont.tex}   & Schriftarteinstellungen.
-                                                 Keine, sofern man die vorgegeben Schriftarten nutzen möchte.\\
+                                                 Keine Anpassung nötig, sofern man die vorgegeben Schriftarten nutzen möchte.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/Glossary.tex}          & Definition der Glossar-Einträge. 
-                                                 Hier können ggf. weitere hinzugefügt werden.\\
+                                                 Hier können ggf. weitere Einträge hinzugefügt werden.\\
 %-----------------------------------------------------------------------------------------------------
-\printfilepath{./preambel/GlossarySymbols.tex}   & Definition der Glossar-Einträge für die automatische Erzeugung des Symbolverzeichnises.
-                                                 Bei Verwendung ergänzen.\\
+\printfilepath{./preambel/GlossarySymbols.tex}   & Definition der Glossar-Einträge für die automatische Erzeugung des Symbolverzeichnisses.
+                                                 Bei Verwendung um eigene Symboldefinitionen ergänzen.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/Header.tex}            & Alle Präambel-Definitionen (\teilw in weiteren Dateien).
                                                  Aktivierung der \printkeyword{draft}-Option und des A4-Layouts.\\
@@ -87,22 +97,22 @@
                                                  Hier können ggf. Regeln für die Silbentrennung weiterer Begriffe hinzugefügt werden.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/IndexStyle.tex}        & Layout des Stichwortverzeichnisses.
-                                                 Keine.\\
+                                                 Keine Anpassung nötig.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/KomaOptions.tex}       & KomaScript-Optionen.
-                                                 Keine.\\
+                                                 Keine Anpassung nötig.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/Math.tex}              & Mathe-Einstellungen und Makros.
                                                  Bei Bedarf eigene Mathe-Makros definieren.\\
 %-----------------------------------------------------------------------------------------------------
-\printfilepath{./preambel/MyPackages.tex}        & Zusatzpakete
-                                                 Ggf. Einbindung von Zusatzpaketen.\\
+\printfilepath{./preambel/MyPackages.tex}        & Eingebundene \LaTeX"=Zusatzpakete.
+                                                 Bei Bedarf können hier Zusatzpakete eingebunden werden.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/Newcommands.tex}       & Eigene \LaTeX{}-Makros.
-                                                 Hier können ggf. weitere hinzugefügt werden.\\
+                                                 Hier können ggf. eigene Makros hinzugefügt werden.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/preambel-commands.tex} & Interne Befehle aus der alten Vorlage.
-                                                 Normalerweise keine.\\
+                                                 Normalerweise keine Anpassung nötig.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/settings.tex}          & Einstellungen zu Längen, Breiten, Verzeichnistiefen etc.
                                                  Normalerweise müssen keine Änderungen vorgenommen werden, 
@@ -110,10 +120,13 @@
                                                  und bereits in der Vorlage umgesetzt wurden.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preambel/TableCommands.tex}     & Tabelleneinstellungen.
-                                                 Normalerweise keine.\\
+                                                 Normalerweise keine Anpassung nötig.\\
 %-----------------------------------------------------------------------------------------------------
 \printfilepath{./preamble/Translations.tex}      & Multilinguale Begriffsdefinitionen für Beschriftungen etc.
-																				         Normalerweise keine.\\
+																				         Normalerweise keine Anpassung nötig.\\
+%-----------------------------------------------------------------------------------------------------
+\printfilepath{./tables/*}                       & In eigene Dateien ausgelagerte Tabellen.
+                                                 Ggf. eigene hinzufügen. \\
 %-----------------------------------------------------------------------------------------------------
 \bottomrule%
 %-----------------------------------------------------------------------------------------------------
