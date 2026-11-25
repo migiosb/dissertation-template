@@ -1,3 +1,4 @@
+# Files and directories to be ignored and excluded from version control
 *.acn
 *.acr
 *.alg
@@ -39,6 +40,8 @@
 *.wrt
 *.xdv
 *.xdy
+
+# Files and directories to be expicitly included into version control
 !images/*
 !images/*.pdf
 !images/*/*.pdf
