@@ -3,14 +3,15 @@
 \label{sec:Voraussetzungen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Um diese Vorlage nutzen zu können, benötigt man eine \LaTeX-Distribution (\zB{} \printswname{TeXLive}\footnote{\url{https://tug.org/texlive/acquire.html}} oder \printswname{MiKTeX}\footnote{\url{http://www.miktex.org/}}).
+Um diese Vorlage nutzen zu können, benötigt man eine \LaTeX-Distribution (\zB{} \printswname{TeXLive}\index{TeXLive}\footnote{\url{https://tug.org/texlive/acquire.html}} oder \printswname{MiKTeX}\index{MiKTeX}\footnote{\url{http://www.miktex.org/}}).
 Sofern man nicht die riesengroße Komplettinstallation wählt, wird beim ersten Kompilieren eine Internet"=Verbindung benötigt, um Zusatz"=\glspl{gls:pkg} dynamisch nachladen zu können.
 Zur Erstellung des Glossars und des Abkürzungsverzeichnisses wird zusätzlich Perl benötigt.
 Bei den Linux-Distributionen und in TeXLive ist Perl automatisch mit dabei.
 Bei Nutzung von MiKTeX unter Windows müsste hierzu zusätzlich beispielsweise \printswname{ActivePerl}\footnote{\url{https://www.activestate.com/products/activeperl/}}
 oder \printswname{StrawberryPerl}\footnote{\url{http://strawberryperl.com/}} installiert werden.
 
-Da seit 2025 \printswname{xindy} unter \printswname{MiKTeX} fehlerhaft zu sein scheint, ist aktuell Verwendung von \printswname{TeXLive} zu empfehlen.
+Da seit 2025 \printswname{xindy}\index{xindy} unter \printswname{MiKTeX}\index{MiKTeX} fehlerhaft zu sein scheint, ist aktuell Verwendung von \printswname{TeXLive}\index{TeXLive} zu empfehlen.
+%s. https://tex.stackexchange.com/questions/757345/how-to-restore-xindy-supposedly-corrupted-by-recent-miktex-updates
 
 Zur bequemen Bearbeitung und Kompilierung der \LaTeX"=Quellcode"=Dateien empfiehlt sich die Verwendung einer guten \index{IDE}\acgen{ac:IDE} in Kombination mit einem geeigneten, sprich SyncTeX"=fähigen, PDF"=Betrachter.
 Manche Entwicklungsumgebungen bieten eine integrierte PDF"=Vorschau, welche Vor- und Nachteile haben kann.
@@ -23,7 +24,7 @@ Dieses bietet eine eingebaute PDF"=Vorschau und viele nützliche Features und is
 \subsection{MiKTeX-Einstellungen}
 \label{sec:MiKTeX}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Sofern \index{MikTeX}\printswname{MiKTeX} als \LaTeX"=Distribution verwendet wird, sollte man darauf achten, dass bei Bedarf Zusatzpakete vom Internet dynamisch nachgeladen werden können.
+Sofern \printswname{MiKTeX}\index{MiKTeX} als \LaTeX"=Distribution verwendet wird, sollte man darauf achten, dass bei Bedarf Zusatzpakete vom Internet dynamisch nachgeladen werden können.
 Sofern diese Option nicht bei der Installation gesetzt worden ist, kann sie nachträglich in der MiKTeX-Console aktiviert werden.
 Zu finden ist diese im Startmenü unter \enquote{MiKTeX}, \enquote{MiKTeX Console (Admin)}.
 Unter \enquote{Settings} findet sich ein Reiter \enquote{General}, wo im Bereich \enquote{Package installation} entweder die Option \enquote{Always install missing packages on the fly} oder \enquote{Ask me} ausgewählt werden soll.
@@ -46,7 +47,7 @@ So vermeidet man beim automatischen Nachladen weiterer \glspl{gls:pkg} aus dem \
 \subsection{TeXLive-Einstellungen}
 \label{sec:TeXLive}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Bei Verwendung von TeXLive unter Linux muss darauf geachtet werden, dass alle notwendigen Linux-\glspl{gls:pkg} installiert sind.
+Bei Verwendung von TeXLive\index{TeXLive} unter Linux muss darauf geachtet werden, dass alle notwendigen Linux-\glspl{gls:pkg} installiert sind.
 Unter Ubuntu 17.04 sollte es funktionieren, wenn folgende Linux-\glspl{gls:pkg} installiert wurden:
 \begin{itemize*}
 	\item \printkeyword{texlive}
@@ -54,8 +55,8 @@ Unter Ubuntu 17.04 sollte es funktionieren, wenn folgende Linux-\glspl{gls:pkg} 
 	\item \printkeyword{texlive-fonts-extra}
 	\item \printkeyword{texlive-bibtex-extra}
 	\item \printkeyword{fonts-linuxlibertine}
-	\item \printkeyword{biber}
-	\item \printkeyword{xindy}
+	\item \printkeyword{biber}\index{biber}
+	\item \printkeyword{xindy}\index{xindy}
 	\item \printkeyword{texmaker}
 \end{itemize*}
 Texmaker ist eine \ac{ac:IDE} für \LaTeX, die aber vermutlich über Dependencies schon einige Pakete mitbringt.
@@ -69,24 +70,30 @@ Die Kompilierung der Vorlage erfolgt mit einem Aufruf von
 \begin{verbatim}
 latexmk Diss.tex
 \end{verbatim}
-Intern werden dabei mehrere Kommandozeilenprogramme nacheinander aufgerufen, nämlich
-\printkeyword{xelatex}, \printkeyword{biber}, \printkeyword{makeindex} sowie \printkeyword{makeglossaries}, welches intern \printkeyword{xindy} aufruft.
-
-Bei einem Durchlauf von \printkeyword{xelatex}, \printkeyword{biber}, \printkeyword{makeglossaries} und \printkeyword{makeindex}
+Intern werden dabei mehrere Kommandozeilenprogramme aufgerufen, zum Teil mehrfach.
+Im Einzelnen sind das 
+\printkeyword{xelatex}\index{xelatex}, 
+\printkeyword{biber}\index{biber}, 
+\printkeyword{makeindex}\index{makeindex} 
+sowie das Perl-Skript 
+\printkeyword{makeglossaries}\index{makeglossaries}, 
+welches intern \printkeyword{xindy}\index{xindy} aufruft.
+%
+Bei einem Durchlauf dieser Programme
 werden die einzelnen Inhalte sowie die entsprechenden Querverweise
-zuerst jeweils in eine oder mehrere Zwischendateien hinausgeschrieben,
+zuerst jeweils in eine oder mehrere Hilfsdateien hinausgeschrieben,
 die sodann wieder eingelesen und verarbeitet werden müssen.
-Manche Inhalte werden daher erst jeweils beim zweiten Aufruf von \printkeyword{xelatex} generiert.
+Manche Inhalte werden daher erst jeweils beim zweiten Aufruf von \printkeyword{xelatex}\index{xelatex} generiert.
 Für die korrekte Generierung eines Dokumentes mit allen Verzeichnissen
 (Inhalts-, Abbildungs-, Tabellen-, Literatur, Abkürzungs-, Begriffs- und Stichwortverzeichnis),
 PDF"=Lesezeichen und korrekt gesetzten Querverweisen,
 muss \printkeyword{xelatex} daher mehrmals aufgerufen werden.
 
 Die Einstellungen in der Konfigurationsdatei \printkeyword{.latexmkrc} stellen sicher, dass die einzelnen Programmaufrufe so lange wiederholt werden, 
-bis alle Hilfsdateien vollständig erzeugt und ausgewertet worden sind -- solange bis alle Querverweise, Seitenzahlen und Verzeichnisse korrekt aktualisiert worden sind.
+bis alle Hilfsdateien vollständig erzeugt und ausgewertet worden sind -- bis alle Querverweise, Seitenzahlen und Verzeichnisse korrekt aktualisiert worden sind.
 
 Bei Verwendung einer \index{IDE}\acgen{ac:IDE} muss
-diese so konfiguriert werden, dass der Aufruf aus dieser heraus erfolgt und
+diese so konfiguriert werden, dass der \printkeyword{latexmk}"=Aufruf aus dieser heraus erfolgt und
 die etwaigen Warnungen, Erfolgs- und Fehlermeldungen in der \acgen{ac:IDE} sichtbar werden.
 
 Sollte man ausnahmsweise das Dokument doch noch aus der Kommandozeile oder von einem Script heraus aufrufen wollen,
@@ -101,6 +108,6 @@ so ist die Reihenfolge der Aufrufe wie folgt:
 \end{verbatim}
 
 Wenn kein Kompilierfehler aufgetreten ist,
-sollte nach dem vierten Durchlauf von \printkeyword{xelatex} die
+sollte nach dem vierten Durchlauf von \printkeyword{xelatex}\index{xelatex} die
 \index{Warnung!Please re-run latex}Warnung \enquote{Please re-run latex}
 verschwunden sein.

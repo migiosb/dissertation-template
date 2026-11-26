@@ -4,19 +4,19 @@
 \label{sec:Speichererweiterung}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Sollte bei der Kompilierung die \index{Kompilierfehler!TeX capacity exceeded}\index{Fehler!TeX capacity exceeded}Fehler-Meldung \enquote{\texttt{TeX capacity exceeded}} auftreten,
+Sollte bei der Kompilierung der Vorlage die \index{Kompilierfehler!TeX capacity exceeded}\index{Fehler!TeX capacity exceeded}Fehler-Meldung \enquote{\texttt{TeX capacity exceeded}} auftreten,
 bedeutet dies, dass die von der \LaTeX-Distribution vorgesehene Arbeitsspeicherkapazität
 nicht ausreicht, um die Datenmenge zu verarbeiten.
 Wenn im Code kein Fehler vorliegt (\zB eine vergessene Klammer,
 die ebenfalls für eine solche Fehlermeldung sorgen kann),
-kann dies auch daran liegen, dass die Verarbeitung umfangreicher TiKZ-Bilder oder Bibliographien 
+kann dies auch daran liegen, dass die Verarbeitung umfangreicher TikZ\index{TikZ}-Bilder oder Bibliographien 
 Zusatzspeicher benötigen.
 Um den Speicher zu erweitern, gibt es zwei Möglichkeiten.
-Zum einen kann man bei jedem Aufruf von \texttt{xelatex} die Optionen zur Speichererweiterung,
+Zum einen kann man bei jedem Aufruf von \texttt{xelatex}\index{xelatex} die Optionen zur Speichererweiterung,
 \zB \printkeyword{-main-memory=500000000}, \printkeyword{-extra-mem-top=500000000}, \printkeyword{-extra-mem-bot=500000000} und ggf. weitere setzen.
 Zum anderen kann man diese Einstellungen ein für alle Male direkt bei den LaTeX-Distributionen setzen.
 
-Unter TeXLive kann die Einstellung in der Datei
+Unter TeXLive\index{TeXLive} kann die Einstellung in der Datei
 \printfilepathquoted{/Pfad-zur-TeXLive/texmf.cnf} vorgenommen werden.
 Der Aufruf erfolgt am besten, indem man im Terminal den Befehl \printkeyword{kpsewhich -a texmf.cnf} eintippt.
 In der Datei kann dann beispielsweise folgendes gesetzt werden:
@@ -30,7 +30,7 @@ save_size=79999
 \end{latex}
 Der maximal mögliche Wert für \printkeyword{main\_memory} \etc ist \printkeyword{79999999}.
 
-Unter MiKTeX unterscheidet sich die Vorgehensweise je nach dem,
+Unter MiKTeX\index{MiKTeX} unterscheidet sich die Vorgehensweise je nach dem,
 ob man die Einstellung nur für den aktuellen Benutzer oder
 global für alle Benutzer des Computers machen möchte.
 Im zweiten Fall braucht man Admin-Rechte.
