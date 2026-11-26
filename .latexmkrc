@@ -1,6 +1,6 @@
 # Verwende XeLaTeX für die Hauptdatei Diss.tex
 $pdf_mode = 5;
-$xelatex = 'xelatex -synctex=1 -interaction=nonstopmode -file-line-error %O %S';
+$xelatex = 'xelatex -synctex=-1 -max-print-line=180 -error-line=180 -half-error-line=140 -interaction=nonstopmode -max-in-open=100 -file-line-error -halt-on-error  %O %S';
 
 # Biber wird von latexmk anhand der biblatex-Konfiguration automatisch benötigt
 $biber = 'biber %O %B';
